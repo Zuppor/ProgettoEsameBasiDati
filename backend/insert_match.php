@@ -51,6 +51,7 @@ if($_FILES['csv']['error'] > 0){
 
 
                     $resource = pg_prepare($db,"cmd","select id from league where name like $1 limit 1");
+                    echo "select id from league where name like ".$data[2]." limit 1";
                     $resource = pg_execute($db,"cmd",array($data[2]));
 
                     if(pg_num_rows($resource) === 1){
