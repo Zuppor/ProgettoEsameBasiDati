@@ -1,0 +1,6 @@
+todo: creare funzioni appropriate per l'inserimento/cancellazione/modifica delle istanze in base all'utente
+todo: materializzazione classifica aggiornata per ogni campionato e ogni stagione in base ai match
+todo: miglior giocatore: per ogni match restituire i  dati del miglior giocatore di entrambe le squadre (ovreall_rating più alto tra quelli più recenti)
+todo: descrivere scelte di realizzazione del database e dei suoi metodi
+todo: descrivere scelte di realizzazione del frontend (codice php,javascript,html)
+todo: manuale utente (istruzioni d'uso,note tecniche per l'installazione del software necessario e il suo utilizzo)
