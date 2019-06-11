@@ -45,33 +45,51 @@ if($_FILES['csv']['error'] > 0){
                         die("ID di questo stato non presente: ".$data[1].' error message: '.pg_result_error($resource));
                     }
 
-                    pg_free_result($resource);
+                    //pg_free_result($resource);
 
 
 
 
-                    $resource = pg_prepare($db,"cmd","select id from league where name like $1 limit 1");
-                    echo "select id from league where name like ".$data[2]." limit 1";
-                    $resource = pg_execute($db,"cmd",array($data[2]));
+                    $resource2 = pg_prepare($db,"cmd","select id from league where name like $1 limit 1");
+                    echo "select id from league where name = ".$data[2];
+                    $resource2 = pg_execute($db,"cmd",array($data[2]));
 
+                    if(pg_num_rows($resource2) === 1){
+                        $arr = pg_fetch_array($resource2,null,PGSQL_ASSOC);
+                        die("<br>trovata league di id: ".$arr['id']);
+                    }
+                    else{
+                        die("<br>non ho trovato la league: ".$data[2]);
+                    }
+
+                    while($tmp = pg_fetch_array($resource,null,PGSQL_ASSOC)){
+                        echo $tmp['id']."\n";
+                    }
+                    die();
+
+
+                  /*
                     if(pg_num_rows($resource) === 1){
                         $arr = pg_fetch_array($resource,null,PGSQL_ASSOC);
                         $data[2] = $arr['id'];
                     }
-                    else{
-                        $resource = pg_prepare($db,"cmd","insert into league (name) values ($1) returning id");
+                    else{//todo: fix returning id not working
+                        $resource = pg_prepare($db,"cmd","insert into league (name) values ('$1') returning id");
                         $resource = pg_execute($db,"cmd",array($data[2]));
 
                         if(pg_affected_rows($resource) <= 0){
-                            print_r($data);
+                            //print_r($data);
+                            while($tmp = pg_fetch_array($resource,null,PGSQL_ASSOC)){
+                                echo $tmp."\n";
+                            }
                             die("Non sono riuscito ad inserire la league: ".$data[2]);
                         }
 
                         $arr = pg_fetch_array($resource,null,PGSQL_ASSOC);
                         $data[2] = $arr['id'];
-                    }
+                    }*/
 
-                    pg_free_result($resource);
+                    //pg_free_result($resource);
 
 
 
@@ -98,7 +116,7 @@ if($_FILES['csv']['error'] > 0){
                     $resource = pg_execute($db,"cmd",array($data[6],$data[7],$data[8]));
 
 
-                    pg_free_result($resource);
+                    //pg_free_result($resource);
 
 
 /*
@@ -117,7 +135,7 @@ if($_FILES['csv']['error'] > 0){
                     $resource = pg_prepare($db,"cmd","insert into team (id,long_name,short_name) values ($1,$2,$3)");
                     $resource = pg_execute($db,"cmd",array($data[9],$data[10],$data[11]));
 
-                    pg_free_result($resource);
+                    //pg_free_result($resource);
 
 
                     $sql = "select insert_match($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)";
@@ -129,7 +147,7 @@ if($_FILES['csv']['error'] > 0){
                         echo '<br>Error inserting row number '.$row.'<br>';
                         print_r($data);
                     }
-                    pg_free_result($resource);
+                    //pg_free_result($resource);
                 }
                 $row++;
             }
