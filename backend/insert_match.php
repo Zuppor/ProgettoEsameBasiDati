@@ -50,22 +50,20 @@ if($_FILES['csv']['error'] > 0){
 
 
 
-                    $resource2 = pg_prepare($db,"cmd","select id from league where name like $1 limit 1");
-                    echo "select id from league where name = ".$data[2];
-                    $resource2 = pg_execute($db,"cmd",array($data[2]));
+                    $resource = pg_prepare($db,"cmd","select id from league where name like $1 limit 1");
+                    //echo "select id from league where name = ".$data[2];
+                    $resource = pg_execute($db,"cmd",array($data[2]));
+                    //$resource = pg_query($db,"select id from league where name like ".$data[2]." limit 1");
 
-                    if(pg_num_rows($resource2) === 1){
-                        $arr = pg_fetch_array($resource2,null,PGSQL_ASSOC);
+                    if(pg_num_rows($resource) === 1){
+                        $arr = pg_fetch_array($resource,null,PGSQL_ASSOC);
                         die("<br>trovata league di id: ".$arr['id']);
                     }
                     else{
                         die("<br>non ho trovato la league: ".$data[2]);
                     }
 
-                    while($tmp = pg_fetch_array($resource,null,PGSQL_ASSOC)){
-                        echo $tmp['id']."\n";
-                    }
-                    die();
+                    //die();
 
 
                   /*
