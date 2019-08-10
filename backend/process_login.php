@@ -19,7 +19,7 @@ if(isset($_POST['username'],$_POST['password'])){
     }
     else{
         //login fallito
-        header('Location: ../login.php?error='.$result);
+        header('Location: ../frontend/login.php?error='.$result);
     }
 }
 else{

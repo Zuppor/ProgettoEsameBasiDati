@@ -30,7 +30,7 @@
             </form>
     Carica player attribute<br>
             <form action="../backend/insert_player_attribute.php" method="post" enctype="multipart/form-data">
-                <input type="file" name="csv" value="" required><br>
+                <input type="file" name="csv" id="csv" value="" required><br>
                 <input type="submit" name="submit" value="Submit">
             </form>
 

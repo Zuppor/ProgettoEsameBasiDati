@@ -1,11 +1,23 @@
+create table bet_society(
+    id serial primary key not null ,
+    short_name varchar(10) not null ,
+    long_name varchar(100) not null
+);
+
 create table users(
   id serial not null primary key ,
   username varchar(100) not null unique ,
   password char(128) not null,
-  salt char(128) not null ,
+  salt char(128) not null,
   level smallint not null default 2,
+  bet_society_id int references bet_society(id) on update cascade on delete no action default null,
   check ( level between 0 and 2)
 );
+/*
+create table users (
+    level smallint not null default 1,
+    check ( level between 0 and 1)
+)inherits (user_credentials);*/
 
 create table team(
   id serial primary key not null ,
@@ -27,13 +39,13 @@ create table league(
 );
 
 create table country(
-  iso char(3) primary key not null ,
-  name varchar(100) not null
+  id serial primary key not null ,
+  name varchar(100) not null unique
 );
 
 create table currency(
   code char(3) not null primary key ,
-  country char(3) not null references country(iso) on update cascade on delete cascade
+  country_id int not null references country(id) on update cascade on delete cascade
 );
 
 create table match(
@@ -45,8 +57,8 @@ create table match(
   date timestamp not null ,
   a_team_goal int not null default 0,
   h_team_goal int not null default 0,
-  league_id int references league(id) on update cascade on delete set null ,
-  country_id char(3) references country(iso) on update cascade on delete set null ,
+  league_id int not null references league(id) on update cascade on delete set null ,
+  country_id int not null references country(id) on update cascade on delete set null ,
   operator_id int not null references users(id) on update cascade on delete no action ,
   unique (date,league_id,country_id,home_team_id,away_team_id,stage),
   check ( home_team_id <> away_team_id )
@@ -97,15 +109,15 @@ create table player_attribute(
   check ( preferred_foot in ('r','l') )
 );
 
-create table bet_society(
-  id serial primary key not null ,
-  short_name varchar(10) not null ,
-  long_name varchar(100) not null
-);
+
+/*
+create table partner(
+    bet_society_id int not null references bet_society(id) on update cascade on delete no action
+)inherits (user_credentials);
+*/
 
 create table bets(
   match_id int references match(id) on update cascade on delete set null ,
-  --society_id int references bet_society(id) on update cascade on delete set null ,
   partner_id int not null references users(id) on update cascade on delete no action ,
   bet char(1) not null ,
   value numeric not null default 0,

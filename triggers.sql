@@ -1,13 +1,4 @@
-create or replace function func_refresh_classifica()
-returns trigger
-  security definer
-  as $$
-  begin
-    refresh materialized view classifica;
 
-    return new;
-  end;
-$$ language plpgsql;
 
 
 

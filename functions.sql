@@ -1,11 +1,11 @@
 --funzione per inserire match nel database. ritorna 0 se è andato a buon fine, 2 se vincoli di not null sono stati violati,
---1 se ci sono violazioni sulle chiave esterne, 3 se i vincoli unique sono violati
-create or replace function insert_match(c_id int,l_id int,se int,st int,d time,home_id int,away_id int,h_goals int,a_goals int,o_id int)
-returns char as $$
+--1 se ci sono violazioni sulle chiave esterne, 3 se i vincoli unique sono violati, 4 se una chiave esterna non è presente
+create or replace function func_insert_match(m match)
+returns char as $result$
 
 begin
-    insert into match (country_id,league_id,season,stage,date,home_team_id,away_team_id,h_team_goal,a_team_goal,operator_id)
-    values (c_id,l_id,se,st,d,home_id,away_id,h_goals,a_goals,o_id);
+    insert into match (match)
+    values (m);
 
     if FOUND then
       return '0';
@@ -24,11 +24,81 @@ begin
       raise info 'Errore: chiave etserna non presente';
       return '4';
 end;
-$$ language plpgsql;
+$result$ language plpgsql;
 
 
 
+create or replace function func_insert_country(country_name country.name%TYPE)
+returns int as $result$
+    declare
+        ret_id country.id%TYPE;
+    begin
+        insert into country(name) values (country_name) returning id into ret_id;
 
+        if FOUND then
+            return ret_id;
+        else
+            return -1;
+        end if;
+
+    exception
+        when not_null_violation then
+            raise info 'Errore: vincolo di not null violato';
+            return -2;
+        when unique_violation then
+            raise info 'Errore: stai inserendo dati relativi ad un paese già presente';
+            return -3;
+    end;
+$result$ language plpgsql;
+
+
+create or replace function func_insert_league(league_name league.name%TYPE)
+    returns int as $result$
+declare
+    ret_id country.id%TYPE;
+begin
+    insert into league(name) values (league_name) returning id into ret_id;
+
+    if FOUND then
+        return ret_id;
+    else
+        return -1;
+    end if;
+
+exception
+    when not_null_violation then
+        raise info 'Errore: vincolo di not null violato';
+        return -2;
+    when unique_violation then
+        raise info 'Errore: stai inserendo dati relativi ad una league già presente';
+        return -3;
+end;
+$result$ language plpgsql;
+
+
+create or replace function func_insert_team(t team)
+returns char as $result$
+    begin
+        insert into team values (t.id,t.short_name,t.long_name);
+
+        if FOUND then
+            return '0';
+        else
+            return '1';
+        end if;
+
+    exception
+        when not_null_violation then
+            raise info 'Errore: vincolo di not null violato';
+            return '2';
+        when unique_violation then
+            raise info 'Errore: stai inserendo dati relativi ad un paese già presente';
+            return '3';
+    end;
+    $result$
+language plpgsql;
+
+/*
 create or replace function modify_match(m_id int,c_id int,l_id int,se int,st int,d time,home_id int,away_id int,h_goals int,a_goals int,o_id int)
 returns char as $$
 
@@ -199,4 +269,42 @@ returns setof best_players as $$
         return next tmp2;
       end loop;
   end;
+$$ language plpgsql;
+
+*/
+create or replace function func_insert_player_attributes(attr player_attribute)
+returns char as $result$
+    begin
+        insert into player_attribute (player_attribute) values (attr);
+
+        if FOUND then
+            return '0';
+        else
+            return '1';
+        end if;
+
+    exception
+        when check_violation then
+            raise info 'Errore: condizione check violata';
+            return '2';
+        when not_null_violation then
+            raise info 'Errore: vincolo not null violato';
+            return '3';
+        when foreign_key_violation then
+            raise info 'Errore: chiave etserna non presente';
+            return '4';
+
+    end;
+$result$ language plpgsql;
+
+
+create or replace function func_refresh_classifica()
+    returns trigger
+    security definer
+as $$
+begin
+    refresh materialized view classifica;
+
+    return new;
+end;
 $$ language plpgsql;

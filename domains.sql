@@ -4,4 +4,4 @@ create domain percentage as
 create domain rate as
   char(1) default 'n' check ( value in('l','n','m','h'));
 
-alter domain rate drop not null
+--alter domain rate drop not null

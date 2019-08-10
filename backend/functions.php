@@ -139,12 +139,21 @@ function register_new_user($username,$password,$level,$society,$db){
         //crea password usando il salt
         $password = hash('sha512',$password.$random_salt);
 
-        $resource = pg_prepare($db,"cmd","insert into users (username,password,salt,level,society_id) values ($1,$2,$3,$4,$5)");
-        $resource = pg_execute($db,"cmd",array($username,$password,$random_salt,$level,$society));
+        //$resource = pg_prepare($db,"cmd","insert into users (username,password,salt,level,bet_society_id) values ($1,$2,$3,$4,$5)");
+        //$resource = pg_execute($db,"cmd",array($username,$password,$random_salt,$level,$society));
+
+        if($level == 2){
+            $resource = pg_prepare($db,"cmd","insert into users (username,password,salt,level,bet_society_id) values ($1,$2,$3,$4,$5)");
+            $resource = pg_execute($db,"cmd",array($username,$password,$random_salt,$level,$society));
+        }
+        else{
+            $resource = pg_prepare($db,"cmd","insert into users (username,password,salt,level) values ($1,$2,$3,$4)");
+            $resource = pg_execute($db,"cmd",array($username,$password,$random_salt,$level));
+        }
 
 
         if(pg_affected_rows($resource) == 0){
-            return 'errore sconosciuto';
+            return 'errore :'.$username." ".$level." ".$society;
         }
 
         return true;
