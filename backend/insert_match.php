@@ -159,4 +159,3 @@ if($_FILES['csv']['error'] > 0){
     else{
         echo 'Incorrect file type: '.mime_content_type($_FILES['csv']);
     }*/
-pg_close($db);

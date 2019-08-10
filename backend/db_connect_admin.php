@@ -12,7 +12,7 @@ define("USER","amministratore");
 define("PASSWORD","V4Nb3Vy4QJHmgGL9bj7Npds9");
 define("DATABASE","soccerdb");
 
-$db = pg_pconnect("host=" . HOST . " port=" . PORT . " user=" . USER . " password=" . PASSWORD . " dbname=" . DATABASE);
+$db = pg_connect("host=" . HOST . " port=" . PORT . " user=" . USER . " password=" . PASSWORD . " dbname=" . DATABASE);
 
 if(!$db){
     die("Connection error: amministratore");

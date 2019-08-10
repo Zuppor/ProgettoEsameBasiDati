@@ -13,7 +13,7 @@
     <database id="3" parent="1" name="soccerdb">
       <ObjectId>16859</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>185576</IntrospectionStateNumber>
+      <IntrospectionStateNumber>188642</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|18058|18060|1
 sequence|table|18066|18068|1
@@ -126,7 +126,7 @@ sequence|table|18129|18131|1
       <ObjectId>18041</ObjectId>
       <StateNumber>185404</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>185577</IntrospectionStateNumber>
+      <IntrospectionStateNumber>188643</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -325,7 +325,7 @@ sequence|table|18129|18131|1
     <materialized-view id="50" parent="21" name="classifica">
       <ObjectId>18230</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>185574</StateNumber>
+      <StateNumber>188635</StateNumber>
       <SourceTextLength>383</SourceTextLength>
     </materialized-view>
     <routine id="51" parent="21" name="func_insert_country">
@@ -367,8 +367,8 @@ sequence|table|18129|18131|1
     <routine id="54" parent="21" name="func_insert_player_attributes">
       <ObjectId>18240</ObjectId>
       <Owner>postgres</Owner>
-      <SourceTextLength>570</SourceTextLength>
-      <StateNumber>185380</StateNumber>
+      <SourceTextLength>2142</SourceTextLength>
+      <StateNumber>188641</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>attr player_attribute</ArgumentsDefinition>
       <ResultsDefinition>character</ResultsDefinition>

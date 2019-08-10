@@ -275,7 +275,22 @@ $$ language plpgsql;
 create or replace function func_insert_player_attributes(attr player_attribute)
 returns char as $result$
     begin
-        insert into player_attribute (player_attribute) values (attr);
+        insert into player_attribute (player_id, date, overall_rating, potential,
+                                      preferred_foot, attacking_work_rate, defensive_work_rate,
+                                      crossing, finishing, heading_accuracy, short_passing, volleys,
+                                      dribbling, curve, free_kick_accuracy, long_passing, ball_control,
+                                      acceleration, sprint_speed, agility, reactions, balance, shot_power,
+                                      jumping, stamina, strength, long_shots, aggression, interception,
+                                      positioning, vision, penalties, marking, standing_tackle, sliding_tackle,
+                                      gk_diving, gk_handling, gk_kicking, gk_positioning, gk_reflexes)
+        values (attr.player_id, attr.date, attr.overall_rating, attr.potential,
+                attr.preferred_foot, attr.attacking_work_rate, attr.defensive_work_rate,
+                attr.crossing, attr.finishing, attr.heading_accuracy, attr.short_passing, attr.volleys,
+                attr.dribbling, attr.curve, attr.free_kick_accuracy, attr.long_passing, attr.ball_control,
+                attr.acceleration, attr.sprint_speed, attr.agility, attr.reactions, attr.balance, attr.shot_power,
+                attr.jumping, attr.stamina, attr.strength, attr.long_shots, attr.aggression, attr.interception,
+                attr.positioning, attr.vision, attr.penalties, attr.marking, attr.standing_tackle, attr.sliding_tackle,
+                attr.gk_diving, attr.gk_handling, attr.gk_kicking, attr.gk_positioning, attr.gk_reflexes);
 
         if FOUND then
             return '0';
