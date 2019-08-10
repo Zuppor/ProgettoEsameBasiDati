@@ -4,8 +4,8 @@ create or replace function func_insert_match(m match)
 returns char as $result$
 
 begin
-    insert into match (match)
-    values (m);
+    insert into match (id, home_team_id, away_team_id, season, stage, date, a_team_goal, h_team_goal, league_id, country_id, operator_id)
+    values (m.id,m.home_team_id,m.away_team_id,m.season,m.stage,m.date,m.a_team_goal,m.h_team_goal,m.league_id,m.country_id,m.operator_id);
 
     if FOUND then
       return '0';
@@ -55,7 +55,7 @@ $result$ language plpgsql;
 create or replace function func_insert_league(league_name league.name%TYPE)
     returns int as $result$
 declare
-    ret_id country.id%TYPE;
+    ret_id league.id%TYPE;
 begin
     insert into league(name) values (league_name) returning id into ret_id;
 
@@ -79,7 +79,7 @@ $result$ language plpgsql;
 create or replace function func_insert_team(t team)
 returns char as $result$
     begin
-        insert into team values (t.id,t.short_name,t.long_name);
+        insert into team(id,short_name,long_name) values (t.id,t.short_name,t.long_name);
 
         if FOUND then
             return '0';
@@ -92,7 +92,7 @@ returns char as $result$
             raise info 'Errore: vincolo di not null violato';
             return '2';
         when unique_violation then
-            raise info 'Errore: stai inserendo dati relativi ad un paese già presente';
+            raise info 'Errore: stai inserendo dati relativi ad un team già presente';
             return '3';
     end;
     $result$
