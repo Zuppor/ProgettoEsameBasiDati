@@ -32,6 +32,7 @@ if($_FILES['csv']['error'] > 0){
             $row = 0;
 
             $resource = pg_prepare($db,"insert_player","select func_insert_player(row($1,$2,$3,$4,$5)) as result");
+            $resource = pg_prepare($db,"insert_participation","insert into participation (team_id, player_id) value ($1,$2)");
 
             while(($data = fgetcsv($handle,0,',')) !== false){
 
@@ -132,6 +133,7 @@ if($_FILES['csv']['error'] > 0){
 
 
                     //inserisci giocatori
+                    $players = array();
                     $curr_player = 14;
                     for($i = 0;$i < 22;$i++){
                         //echo "Number of columns: ".count($data);
@@ -144,6 +146,13 @@ if($_FILES['csv']['error'] > 0){
                             $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
                             if($arr['result'] < 0 && $arr['result']>-3){
                                 die("errore inserimento giocatore: ".$arr['result']);
+                            }
+
+                            if($i<=10){//todo: aggiornare tabella participation
+                                pg_execute($db,"insert_participation",)
+                            }
+                            else{
+                                pg_execute($db,"insert_participation",)
                             }
                         }
                         else{
