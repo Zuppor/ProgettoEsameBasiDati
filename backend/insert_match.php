@@ -11,6 +11,8 @@ include 'functions.php';
 
 start_secure_session();
 
+//ini_set("auto_detect_line_endings", true);
+
 //controlla se ci sono errori
 if($_FILES['csv']['error'] > 0){
     die( 'Error code: '.$_FILES['csv']['error'].'<br>');
@@ -130,16 +132,26 @@ if($_FILES['csv']['error'] > 0){
 
 
                     //inserisci giocatori
-                    for($i = 14;$i < 36;$i+=5){
+                    $curr_player = 14;
+                    for($i = 0;$i < 22;$i++){
+                        //echo "Number of columns: ".count($data);
+                        echo "Inserting player: ".$data[$curr_player]." ".$data[$curr_player+1]." ".$data[$curr_player+2]." ".$data[$curr_player+3]." ".$data[$curr_player+4]."<br>";
                         if($data[$i] != ""){
-                            pg_execute($db,"insert_player",array($data[$i],$data[$i+1],$data[$i+2],$data[$i+3],$data[$i+4]));
+
+                            pg_execute($db,"insert_player",array($data[$curr_player],$data[$curr_player+1],$data[$curr_player+2],$data[$curr_player+3],$data[$curr_player+4]));
                             if($resource === false)
                                 die("error inserting player: ".pg_last_error($resource));
-                            if(pg_fetch_row($resource,null,PGSQL_ASSOC)['result'] === -3){
-                                die("dato giocatore mancante");
+                            $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
+                            if($arr['result'] < 0 && $arr['result']>-3){
+                                die("errore inserimento giocatore: ".$arr['result']);
                             }
                         }
+                        else{
+                            echo "Player id null. Skipping<br>";
+                        }
+                        $curr_player+=5;
                     }
+                    //die();
 
 
 
@@ -171,6 +183,8 @@ if($_FILES['csv']['error'] > 0){
             }
 
             fclose($handle);
+
+            //ini_set("auto_detect_line_endings", false);
 
             header('../frontend/home.php?match_upload_msg=Database aggiornato con successo');
         }

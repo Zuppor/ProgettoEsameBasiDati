@@ -50,7 +50,7 @@ if(($handle = fopen($tmpName,"r")) !== false) {
     $query = $query.")) as result";
     //die($query);
 
-    $resource = pg_prepare($db,"insert_attributes",$query);
+    $resource = pg_prepare($db,"",$query);
     if($resource === false)
         die("e ".pg_last_error($resource));
 
@@ -59,7 +59,7 @@ if(($handle = fopen($tmpName,"r")) !== false) {
 
         if ($row > 0) {
 
-            print_r($data);
+            //print_r($data);
 
 
 
@@ -79,7 +79,7 @@ if(($handle = fopen($tmpName,"r")) !== false) {
             //print_r2($data);
             //die();
 
-            $resource = pg_execute($db,"insert_attributes",$data);
+            $resource = pg_execute($db,"",$data);
 
             if($resource === false)
                 die(" ee ".pg_last_error($resource));

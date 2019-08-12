@@ -222,7 +222,7 @@ returns char as $$
     return '1';
   end;
 $$ language plpgsql;
-
+*/
 
 create type best_players as(
   match_id int,
@@ -271,7 +271,7 @@ returns setof best_players as $$
   end;
 $$ language plpgsql;
 
-*/
+
 
 create or replace function func_insert_player(p player)
 returns integer as $result$
