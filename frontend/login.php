@@ -23,6 +23,6 @@
     <br>
     <br>
     <a href="register.php">Registra utente</a><br>
-    <a href="">Visualizza classifica</a>
+    <a href="../index.php">Annulla</a>
 </body>
 </html>

@@ -23,6 +23,6 @@ if(isset($_POST['username'],$_POST['password'])){
     }
 }
 else{
-    //le richieste corrette non sono state inviate a questa pagina dal metofo post
+    //le richieste corrette non sono state inviate a questa pagina dal metodo post
     echo 'Invalid request';
 }

@@ -154,6 +154,8 @@ if($_FILES['csv']['error'] > 0){
             }
 
             fclose($handle);
+
+            header('../frontend/home.php?match_upload_msg=Database aggiornato con successo');
         }
     /*}
     else{

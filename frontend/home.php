@@ -42,7 +42,7 @@
 case 2:?>
     <a href="">Inserisci quota</a><br>
 <?php break;}?>
-        <a href="">Visualizza classifica</a><br>
+        <a href="classification.php">Visualizza classifica</a><br>
         <a href="../backend/process_logout.php">Logout</a>
    <?php else:?>
 devi <a href="login.php">accedere ad un account</a> prima di entrare in questa pagina<br>

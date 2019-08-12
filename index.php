@@ -13,10 +13,10 @@
 <body>
 <a href="frontend/login.php">Login</a><br>
 <a href="frontend/register.php">Registra utente</a><br><br>
-Classifica attuale:<br>
+<br><br>
 <?php
 //include 'frontend/classification.php';
 ?>
-<a href="frontend/classification.php">Here</a>
+<a href="frontend/classification.php">Vedi classifica attuale</a>
 </body>
 </html>
