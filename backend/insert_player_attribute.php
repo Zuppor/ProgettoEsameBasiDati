@@ -24,7 +24,7 @@ function fetch_rate($rate){
 }
 
 function fetch_percentage($percentage){
-    return is_int($percentage) ? $percentage : null;
+    return is_numeric($percentage) ? $percentage : null;
 }
 
 start_secure_session();
@@ -59,6 +59,10 @@ if(($handle = fopen($tmpName,"r")) !== false) {
 
         if ($row > 0) {
 
+            print_r($data);
+
+
+
             $data[2] = fetch_percentage($data[2]);
             $data[3] = fetch_percentage($data[3]);
 
@@ -66,23 +70,28 @@ if(($handle = fopen($tmpName,"r")) !== false) {
             $data[5] = fetch_rate($data[5]);
             $data[6] = fetch_rate($data[6]);
 
-            for($i = 7;$i<=40;$i++){
+            for($i = 7;$i<40;$i++){
                 $data[$i] = fetch_percentage($data[$i]);
             }
 
+
             echo "inserting row ".$row."...<br>";
-            //die(print_r($data));
+            //print_r2($data);
+            //die();
 
             $resource = pg_execute($db,"insert_attributes",$data);
 
             if($resource === false)
-                die(pg_errormessage($resource)." ee ".pg_last_error($resource));
+                die(" ee ".pg_last_error($resource));
             $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
 
-            if($arr['result'] !== '0'){
+            if($arr['result'] === '5'){
+                echo "error inserting row ".$row.": duplicated entry (".$data[0].",".$data[1]."). Skipping<br>";
+            }
+            else if($arr['result'] !== '0' && $arr['result'] !== '5'){
                 echo "error inserting row ".$row. " result code: ".$arr['result']."<br>";
             }
-            die("Inserted 1 row");
+            //die("Inserted 1 row");
         }
         $row++;
     }

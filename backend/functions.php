@@ -6,6 +6,12 @@
  * Time: 16.51
  */
 
+function print_r2($arr){
+    echo "<pre>";
+    print_r($arr);
+    echo "</pre>";
+}
+
 function start_secure_session(){
     $session_name = 'secure_session_id';
     $secure = false;// impostare a TRUE se si desidera utilizzare https

@@ -272,6 +272,31 @@ returns setof best_players as $$
 $$ language plpgsql;
 
 */
+
+create or replace function func_insert_player(p player)
+returns integer as $result$
+    declare
+        ret_id player.id%TYPE;
+    begin
+        insert into player values (p.id,p.name,p.birthday,p.height,p.weight) returning id into ret_id;
+
+        if FOUND then
+            return ret_id;
+        else
+            return -1;
+        end if;
+
+    exception
+        when not_null_violation then
+            raise info 'Errore: vincolo di not null violato';
+            return -2;
+        when unique_violation then
+            raise info 'Errore: stai inserendo dati relativi ad un giocatore già presente';
+            return -3;
+    end;
+$result$ language plpgsql;
+
+
 create or replace function func_insert_player_attributes(attr player_attribute)
 returns char as $result$
     begin
@@ -308,6 +333,9 @@ returns char as $result$
         when foreign_key_violation then
             raise info 'Errore: chiave etserna non presente';
             return '4';
+        when unique_violation then
+            raise info 'Errore: vincolo unique violato';
+            return '5';
 
     end;
 $result$ language plpgsql;

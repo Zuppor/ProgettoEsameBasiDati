@@ -29,6 +29,8 @@ if($_FILES['csv']['error'] > 0){
 
             $row = 0;
 
+            $resource = pg_prepare($db,"insert_player","select func_insert_player(row($1,$2,$3,$4,$5)) as result");
+
             while(($data = fgetcsv($handle,0,',')) !== false){
 
                 if($row > 0){
@@ -127,23 +129,38 @@ if($_FILES['csv']['error'] > 0){
 
 
 
+                    //inserisci giocatori
+                    for($i = 14;$i < 36;$i+=5){
+                        if($data[$i] != ""){
+                            pg_execute($db,"insert_player",array($data[$i],$data[$i+1],$data[$i+2],$data[$i+3],$data[$i+4]));
+                            if($resource === false)
+                                die("error inserting player: ".pg_last_error($resource));
+                            if(pg_fetch_row($resource,null,PGSQL_ASSOC)['result'] === -3){
+                                die("dato giocatore mancante");
+                            }
+                        }
+                    }
+
+
+
+
                     //id, home_team_id, away_team_id, season, stage, date, a_team_goal, h_team_goal, league_id, country_id, operator_id
 
-                    echo "inserimento match...<br>";
+                    //echo "inserimento match...<br>";
 
                     $sql = "select func_insert_match(row($1,$2,$3,$4,$5,$6::timestamp,$7,$8,$9,$10,$11)) as result";
                     $resource = pg_prepare($db,"",$sql);
                     if($resource === false)
                         die("eee".pg_last_error($resource));
                     $values = array($data[0],$data[6],$data[9],$data[3],$data[4],$data[5],$data[13],$data[12],$data[2],$data[1],$_SESSION['user_id']);
-                    print_r($values);
+                    //print_r($values);
                     $resource = pg_execute($db,"",$values);
 
                     $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
 
 
 
-                    if($arr['result'] !== '0'){
+                    if($arr['result'] !== '0' && $arr['result'] !== '3'){
                         die( '<br>Error inserting row number '.$row.'<br> cause: '.pg_last_error($resource).'<br>code: '.$arr['result']);
                     }
 
