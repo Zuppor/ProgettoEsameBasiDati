@@ -150,7 +150,7 @@ if($_FILES['csv']['error'] > 0){
                                 die("errore inserimento giocatore: ".$arr['result']);
                             }
 
-                            if($i<=10){//fixme: non inserisce participation
+                            if($i<=10){
                                 pg_execute($db,"insert_participation",array($data[6],$data[$curr_player]));
                             }
                             else{
@@ -161,9 +161,9 @@ if($_FILES['csv']['error'] > 0){
 
                             $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
 
-                            if($arr['result'] !== '0'){
-                                die("Error inserting participation. Code: ".$arr['result']." ".$data[6]." ".$data[$curr_player]);
-                            }
+                            /*if($arr['result'] !== '0'){//fixme: non legge il risultato
+                                die("Error inserting participation. Code: ".$arr['result']." Data:".$data[6]." ".$data[$curr_player]);
+                            }*/
                         }
                         else{
                             echo "Player id null. Skipping<br>";
