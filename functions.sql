@@ -273,6 +273,33 @@ $$ language plpgsql;
 
 
 
+create or replace function func_player_team_assoc(p participation)
+returns char as $result$
+    begin
+        insert into participation (team_id, player_id) values (p.team_id,p.player_id);
+
+        if FOUND then
+            return '0';
+        else
+            return '1';
+        end if;
+
+    exception
+        when unique_violation then
+            raise info 'Errore: condizione unique violata';
+            return '2';
+        when not_null_violation then
+            raise info 'Errore: vincolo not null violato';
+            return '3';
+        when foreign_key_violation then
+            raise info 'Errore: chiave esterna non presente';
+            return '4';
+
+    end;
+$result$ language plpgsql;
+
+
+
 create or replace function func_insert_player(p player)
 returns integer as $result$
     declare

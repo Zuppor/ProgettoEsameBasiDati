@@ -32,7 +32,10 @@ if($_FILES['csv']['error'] > 0){
             $row = 0;
 
             $resource = pg_prepare($db,"insert_player","select func_insert_player(row($1,$2,$3,$4,$5)) as result");
-            $resource = pg_prepare($db,"insert_participation","insert into participation (team_id, player_id) value ($1,$2)");
+            $resource = pg_prepare($db,"insert_participation","select func_player_team_assoc(row($1,$2)) as result");
+
+            if($resource === false)
+                die("Errore nelle pg_prepare: ".pg_last_error($resource));
 
             while(($data = fgetcsv($handle,0,',')) !== false){
 
@@ -136,23 +139,30 @@ if($_FILES['csv']['error'] > 0){
                     $players = array();
                     $curr_player = 14;
                     for($i = 0;$i < 22;$i++){
-                        //echo "Number of columns: ".count($data);
-                        echo "Inserting player: ".$data[$curr_player]." ".$data[$curr_player+1]." ".$data[$curr_player+2]." ".$data[$curr_player+3]." ".$data[$curr_player+4]."<br>";
-                        if($data[$i] != ""){
 
+                        if($data[$curr_player] != null){
+                            echo "Inserting player: ".$data[$curr_player]." ".$data[$curr_player+1]." ".$data[$curr_player+2]." ".$data[$curr_player+3]." ".$data[$curr_player+4]."<br>";
                             pg_execute($db,"insert_player",array($data[$curr_player],$data[$curr_player+1],$data[$curr_player+2],$data[$curr_player+3],$data[$curr_player+4]));
                             if($resource === false)
                                 die("error inserting player: ".pg_last_error($resource));
                             $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
-                            if($arr['result'] < 0 && $arr['result']>-3){
+                            if($arr['result'] < 0 && $arr['result'] > -3){
                                 die("errore inserimento giocatore: ".$arr['result']);
                             }
 
-                            if($i<=10){//todo: aggiornare tabella participation
-                                pg_execute($db,"insert_participation",)
+                            if($i<=10){//fixme: non inserisce participation
+                                pg_execute($db,"insert_participation",array($data[6],$data[$curr_player]));
                             }
                             else{
-                                pg_execute($db,"insert_participation",)
+                                pg_execute($db,"insert_participation",array($data[9],$data[$curr_player]));
+                            }
+                            if($resource === false)
+                                die("Error inserting participation: ".pg_last_error($resource));
+
+                            $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
+
+                            if($arr['result'] !== '0'){
+                                die("Error inserting participation. Code: ".$arr['result']." ".$data[6]." ".$data[$curr_player]);
                             }
                         }
                         else{

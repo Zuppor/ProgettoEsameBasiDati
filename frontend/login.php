@@ -18,7 +18,7 @@
         <label>Password</label><br>
         <input type="password" name="password" id="p" required/><br>
         <br>
-        <input type="button" value="Login" onclick="formhash(this.form,this.form.p);"/>
+        <input type="submit" value="Login" onclick="formhash(this.form,this.form.p);"/>
     </form>
     <br>
     <br>
