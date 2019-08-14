@@ -97,11 +97,11 @@ if(($handle = fopen($tmpName,"r")) !== false) {
     }
 
     fclose($handle);
-    die("Done");
-    //header('../frontend/home.php?attribute_upload_msg=Database aggiornato con successo');
+
+    header('Location: ../frontend/home.php?attribute_upload_msg=Database aggiornato con successo');
 }
 else{
-    die("Caricamento csv fallito");
+    header('Location: ../frontend/home.php?attribute_upload_msg=Caricamento csv fallito');
 }
 
 echo "Done";

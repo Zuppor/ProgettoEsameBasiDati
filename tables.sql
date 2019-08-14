@@ -122,7 +122,7 @@ create table bets(
   check ( bet in('a','h','d') )
 );
 
-create table initial_formation(--todo: sistemare tabelle participation e match
+create table initial_formation(
   match_id int not null references match(id) on update cascade on delete cascade ,
   player_id int not null references player(id) on update cascade on delete no action,
   unique (match_id,player_id)

@@ -15,5 +15,5 @@ define("DATABASE","soccerdb");
 $db = pg_connect("host=" . HOST . " port=" . PORT . " user=" . USER . " password=" . PASSWORD . " dbname=" . DATABASE);
 
 if(!$db){
-    die("Connection error: amministratore");
+    die("Connection error: ".USER);
 }
