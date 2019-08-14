@@ -30,7 +30,8 @@ create table player(
   name varchar(100) not null ,
   birthday date not null ,
   height int not null ,
-  weight int not null
+  weight int not null,
+  team_id int references team(id) on update cascade on delete set null
 );
 
 create table league(
@@ -50,8 +51,8 @@ create table currency(
 
 create table match(
   id serial primary key not null ,
-  --home_team_id int references participation(id) on update cascade on delete no action ,
-  --away_team_id int references participation(id) on update cascade on delete no action ,
+  home_team_id int not null references team(id) on update cascade on delete no action ,
+  away_team_id int not null references team(id) on update cascade on delete no action ,
   season int not null ,
   stage int not null ,
   date timestamp not null ,
@@ -60,8 +61,10 @@ create table match(
   league_id int not null references league(id) on update cascade on delete set null ,
   country_id int not null references country(id) on update cascade on delete set null ,
   operator_id int not null references users(id) on update cascade on delete no action ,
-  unique (date,league_id,country_id,/*home_team_id,away_team_id,*/stage)--,
-  --check ( home_team_id <> away_team_id )
+  unique (date,league_id,country_id,home_team_id,away_team_id,stage),
+  check ( home_team_id <> away_team_id ),
+  check ( a_team_goal >= 0 ),
+  check ( h_team_goal >= 0 )
 );
 
 create table player_attribute(
@@ -119,10 +122,9 @@ create table bets(
   check ( bet in('a','h','d') )
 );
 
-create table participation(--todo: sistemare tabelle participation e match
+create table initial_formation(--todo: sistemare tabelle participation e match
   match_id int not null references match(id) on update cascade on delete cascade ,
-  team_id int not null references team(id) on update cascade on delete cascade ,
-  player_id int not null unique references player(id) on update cascade on delete cascade
+  player_id int not null unique references player(id) on update cascade on delete no action
 );
 
 create table login_attempt(

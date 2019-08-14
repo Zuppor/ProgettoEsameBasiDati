@@ -31,8 +31,15 @@ if($_FILES['csv']['error'] > 0){
 
             $row = 0;
 
-            $resource = pg_prepare($db,"insert_player","select func_insert_player(row($1,$2,$3,$4,$5)) as result");
-            $resource = pg_prepare($db,"insert_participation","select func_player_team_assoc(row($1,$2)) as result");
+            $resource = pg_prepare($db,"insert_player","select func_insert_player(row($1,$2,$3,$4,$5,$6)) as result");
+            $resource = pg_prepare($db,"insert_participation","select func_player_formation_assoc(row($1,$2)) as result");
+            $resource = pg_prepare($db,"insert_team","select func_insert_team(row($1,$2,$3)) as result");
+            $sql = "select func_insert_match(row($1,$2,$3,$4,$5,$6::timestamp,$7,$8,$9,$10,$11)) as result";
+            $resource = pg_prepare($db,"insert_match",$sql);
+            //$resource = pg_prepare($db,"retrieve_country","select id from country where name like $1 limit 1");
+            $resource = pg_prepare($db,"insert_country","select func_insert_country($1) as result");
+            //$resource = pg_prepare($db,"retrieve_league","select id from league where name like $1 limit 1");
+            $resource = pg_prepare($db,"insert_league","select func_insert_league($1) as result");
 
             if($resource === false)
                 die("Errore nelle pg_prepare: ".pg_last_error($resource));
@@ -41,19 +48,29 @@ if($_FILES['csv']['error'] > 0){
 
                 if($row > 0){
 
+                    //$resource = pg_prepare($db,"","select id from country where name like $1 limit 1");
+                    $resource = pg_execute($db,"insert_country",array($data[1]));
+                    if($resource === false)
+                        die("Errore inserimento country: ".pg_last_error($resource));
 
-                    $resource = pg_prepare($db,"","select id from country where name like $1 limit 1");
-                    $resource = pg_execute($db,"",array($data[1]));
+                    $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
 
+                    if($arr['result'] >= 0){
+                        $data[1] = $arr['result'];
+                    }
+                    else{
+                        die("Error inserting country ".$data[1]." | error code: ".$arr['result']);
+                    }
+/*
                     if(pg_num_rows($resource) === 1){
                         $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
                         $data[1] = $arr['id'];
                     }
                     else{
-                        $resource = pg_prepare($db,"","select func_insert_country($1) as result");
-                        if($resource === false)
-                            echo "e ".pg_last_error($resource);
-                        $resource = pg_execute($db,"",array($data[1]));
+                        //$resource = pg_prepare($db,"","select func_insert_country($1) as result");
+                        //if($resource === false)
+                        //    echo "e ".pg_last_error($resource);
+                        $resource = pg_execute($db,"insert_country",array($data[1]));
 
                         $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
 
@@ -63,24 +80,35 @@ if($_FILES['csv']['error'] > 0){
                         else{
                             die("Error inserting country ".$data[1]." | error code: ".$arr['result']);
                         }
+                    }*/
+
+
+
+
+
+
+                    //$resource = pg_prepare($db,"","select id from league where name like $1 limit 1");
+                    $resource = pg_execute($db,"insert_league",array($data[2]));
+                    if($resource === false)
+                        die("Errore inserimento league: ".pg_last_error($resource));
+
+                    $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
+
+                    if($arr['result'] >= 0){
+                        $data[2] = $arr['result'];
                     }
-
-
-
-
-
-
-                    $resource = pg_prepare($db,"","select id from league where name like $1 limit 1");
-                    $resource = pg_execute($db,"",array($data[2]));
-
+                    else{
+                        die("Error inserting league ".$data[2]." | error code: ".$arr['result']);
+                    }
+/*
                     if(pg_num_rows($resource) === 1){
                         $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
                         $data[2] = $arr['id'];
                     }
                     else{
                         //die("<br>non ho trovato la league: ".$data[2]);
-                        $resource = pg_prepare($db,"","select func_insert_league($1) as result");
-                        $resource = pg_execute($db,"",array($data[2]));
+                        //$resource = pg_prepare($db,"","select func_insert_league($1) as result");
+                        $resource = pg_execute($db,"insert_league",array($data[2]));
 
                         $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
                         if($arr['result'] >= 0){
@@ -89,7 +117,7 @@ if($_FILES['csv']['error'] > 0){
                         else{
                             die("Error inserting league ".$data[2]." | error code: ".$arr['result']);
                         }
-                    }
+                    }*/
 
 
 
@@ -107,13 +135,13 @@ if($_FILES['csv']['error'] > 0){
 
                     //ottieni informazioni sulla squadra home
 
-                    $resource = pg_prepare($db,"","select func_insert_team($1,$2,$3) as result");
+                    //$resource = pg_prepare($db,"","select func_insert_team(row($1,$2,$3)) as result");
 
-                    if($resource === false){
+                    /*if($resource === false){
                         die("falsea pg_prepare: ".pg_last_error());
-                    }
+                    }*/
 
-                    $resource = pg_execute($db,"",array($data[6],$data[8],$data[7]));
+                    $resource = pg_execute($db,"insert_team",array($data[6],$data[8],$data[7]));
 
                     $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
 
@@ -123,7 +151,7 @@ if($_FILES['csv']['error'] > 0){
                         die("Non sono riuscito a mettere il team nel db: ".$data[7]." Error postgres: ".pg_last_error($resource));
                     }
 
-                    $resource = pg_execute($db,"",array($data[9],$data[11],$data[10]));
+                    $resource = pg_execute($db,"insert_team",array($data[9],$data[11],$data[10]));
 
                     $arr = pg_fetch_array($resource,null,PGSQL_ASSOC);
 
@@ -136,13 +164,12 @@ if($_FILES['csv']['error'] > 0){
 
 
                     //inserisci giocatori
-                    $players = array();
                     $curr_player = 14;
                     for($i = 0;$i < 22;$i++){
 
                         if($data[$curr_player] != null){
                             echo "Inserting player: ".$data[$curr_player]." ".$data[$curr_player+1]." ".$data[$curr_player+2]." ".$data[$curr_player+3]." ".$data[$curr_player+4]."<br>";
-                            pg_execute($db,"insert_player",array($data[$curr_player],$data[$curr_player+1],$data[$curr_player+2],$data[$curr_player+3],$data[$curr_player+4]));
+                            $resource = pg_execute($db,"insert_player",array($data[$curr_player],$data[$curr_player+1],$data[$curr_player+2],$data[$curr_player+3],$data[$curr_player+4],$i<=10?$data[6]:$data[9]));
                             if($resource === false)
                                 die("error inserting player: ".pg_last_error($resource));
                             $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
@@ -150,20 +177,18 @@ if($_FILES['csv']['error'] > 0){
                                 die("errore inserimento giocatore: ".$arr['result']);
                             }
 
-                            if($i<=10){
-                                pg_execute($db,"insert_participation",array($data[6],$data[$curr_player]));
-                            }
-                            else{
-                                pg_execute($db,"insert_participation",array($data[9],$data[$curr_player]));
-                            }
+                            $resource = pg_execute($db,"insert_participation",array($data[0],$data[$curr_player]));
+
                             if($resource === false)
                                 die("Error inserting participation: ".pg_last_error($resource));
 
                             $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
 
-                            /*if($arr['result'] !== '0'){//fixme: non legge il risultato
+                            //print_r2($arr);
+
+                            if($arr['result'] !== '0'){
                                 die("Error inserting participation. Code: ".$arr['result']." Data:".$data[6]." ".$data[$curr_player]);
-                            }*/
+                            }
                         }
                         else{
                             echo "Player id null. Skipping<br>";
@@ -179,13 +204,13 @@ if($_FILES['csv']['error'] > 0){
 
                     //echo "inserimento match...<br>";
 
-                    $sql = "select func_insert_match(row($1,$2,$3,$4,$5,$6::timestamp,$7,$8,$9,$10,$11)) as result";
-                    $resource = pg_prepare($db,"",$sql);
-                    if($resource === false)
-                        die("eee".pg_last_error($resource));
+                    //$sql = "select func_insert_match(row($1,$2,$3,$4,$5,$6::timestamp,$7,$8,$9,$10,$11)) as result";
+                    //$resource = pg_prepare($db,"",$sql);
+                    //if($resource === false)
+                    //    die("eee".pg_last_error($resource));
                     $values = array($data[0],$data[6],$data[9],$data[3],$data[4],$data[5],$data[13],$data[12],$data[2],$data[1],$_SESSION['user_id']);
                     //print_r($values);
-                    $resource = pg_execute($db,"",$values);
+                    $resource = pg_execute($db,"insert_match",$values);
 
                     $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
 

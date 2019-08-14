@@ -7,11 +7,14 @@
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
-      <user-name>amministratore</user-name>
+      <user-name>postgres</user-name>
       <schema-mapping>
         <introspection-scope>
           <node kind="database" qname="@">
             <node kind="schema" qname="@" />
+          </node>
+          <node kind="database" qname="soccerdb">
+            <node kind="schema" qname="public" />
           </node>
         </introspection-scope>
       </schema-mapping>

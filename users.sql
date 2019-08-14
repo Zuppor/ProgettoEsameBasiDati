@@ -1,9 +1,9 @@
 create user amministratore with encrypted password 'V4Nb3Vy4QJHmgGL9bj7Npds9';
-grant select,insert,update,delete on player_attribute,team,player,league,match,country,participation to amministratore;
+grant select,insert,update,delete on player_attribute,team,player,league,match,country,initial_formation to amministratore;
 grant select,usage on sequence league_id_seq,team_id_seq,country_id_seq to amministratore;
 grant select on country to amministratore;
 grant trigger on classifica to amministratore;
-grant execute on function func_player_team_assoc(participation) to amministratore;
+grant execute on function func_player_formation_assoc(initial_formation) to amministratore;
 grant execute on function func_insert_team(team) to amministratore;
 grant execute on function func_insert_match(match) to amministratore;
 grant execute on function func_insert_country(country.name%TYPE) to amministratore;

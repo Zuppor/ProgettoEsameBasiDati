@@ -47,7 +47,8 @@ returns int as $result$
             return -2;
         when unique_violation then
             raise info 'Errore: stai inserendo dati relativi ad un paese già presente';
-            return -3;
+            select id into ret_id from country where name like country_name limit 1;
+            return ret_id;
     end;
 $result$ language plpgsql;
 
@@ -71,7 +72,8 @@ exception
         return -2;
     when unique_violation then
         raise info 'Errore: stai inserendo dati relativi ad una league già presente';
-        return -3;
+        select id into ret_id from league where name like league_name limit 1;
+        return ret_id;
 end;
 $result$ language plpgsql;
 
@@ -223,7 +225,7 @@ returns char as $$
   end;
 $$ language plpgsql;
 */
-
+/*
 create type best_players as(
   match_id int,
   a_name varchar(100),
@@ -270,13 +272,13 @@ returns setof best_players as $$
       end loop;
   end;
 $$ language plpgsql;
+*/
 
 
-
-create or replace function func_player_team_assoc(p participation)
+create or replace function func_player_formation_assoc(p initial_formation)
 returns char as $result$
     begin
-        insert into participation (team_id, player_id) values (p.team_id,p.player_id);
+        insert into initial_formation (match_id, player_id) values (p.match_id,p.player_id);
 
         if FOUND then
             return '0';
@@ -305,7 +307,7 @@ returns integer as $result$
     declare
         ret_id player.id%TYPE;
     begin
-        insert into player values (p.id,p.name,p.birthday,p.height,p.weight) returning id into ret_id;
+        insert into player values (p.id,p.name,p.birthday,p.height,p.weight,p.team_id) returning id into ret_id;
 
         if FOUND then
             return ret_id;
