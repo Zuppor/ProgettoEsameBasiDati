@@ -163,6 +163,33 @@ if($_FILES['csv']['error'] > 0){
 
 
 
+
+                    //die();
+
+
+
+
+                    //id, home_team_id, away_team_id, season, stage, date, a_team_goal, h_team_goal, league_id, country_id, operator_id
+
+                    //echo "inserimento match...<br>";
+
+                    //$sql = "select func_insert_match(row($1,$2,$3,$4,$5,$6::timestamp,$7,$8,$9,$10,$11)) as result";
+                    //$resource = pg_prepare($db,"",$sql);
+                    //if($resource === false)
+                    //    die("eee".pg_last_error($resource));
+                    $values = array($data[0],$data[6],$data[9],$data[3],$data[4],$data[5],$data[13],$data[12],$data[2],$data[1],$_SESSION['user_id']);
+                    //print_r($values);
+                    $resource = pg_execute($db,"insert_match",$values);
+
+                    $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
+
+
+
+                    if($arr['result'] !== '0' && $arr['result'] !== '3'){
+                        die( '<br>Error inserting row number '.$row.'<br> cause: '.pg_last_error($resource).'<br>code: '.$arr['result']);
+                    }
+
+
                     //inserisci giocatori
                     $curr_player = 14;
                     for($i = 0;$i < 22;$i++){
@@ -187,37 +214,13 @@ if($_FILES['csv']['error'] > 0){
                             //print_r2($arr);
 
                             if($arr['result'] !== '0'){
-                                die("Error inserting participation. Code: ".$arr['result']." Data:".$data[6]." ".$data[$curr_player]);
+                                echo "<p style=\"color:red\">ERROR inserting participation. Code: ".$arr['result']." Data: ".$data[0]." ".$data[$curr_player]." Association with formation will be skipped</p><br>";
                             }
                         }
                         else{
                             echo "Player id null. Skipping<br>";
                         }
                         $curr_player+=5;
-                    }
-                    //die();
-
-
-
-
-                    //id, home_team_id, away_team_id, season, stage, date, a_team_goal, h_team_goal, league_id, country_id, operator_id
-
-                    //echo "inserimento match...<br>";
-
-                    //$sql = "select func_insert_match(row($1,$2,$3,$4,$5,$6::timestamp,$7,$8,$9,$10,$11)) as result";
-                    //$resource = pg_prepare($db,"",$sql);
-                    //if($resource === false)
-                    //    die("eee".pg_last_error($resource));
-                    $values = array($data[0],$data[6],$data[9],$data[3],$data[4],$data[5],$data[13],$data[12],$data[2],$data[1],$_SESSION['user_id']);
-                    //print_r($values);
-                    $resource = pg_execute($db,"insert_match",$values);
-
-                    $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
-
-
-
-                    if($arr['result'] !== '0' && $arr['result'] !== '3'){
-                        die( '<br>Error inserting row number '.$row.'<br> cause: '.pg_last_error($resource).'<br>code: '.$arr['result']);
                     }
 
                     //pg_close($db);

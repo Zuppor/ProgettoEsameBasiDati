@@ -13,7 +13,7 @@
     <database id="3" parent="1" name="soccerdb">
       <ObjectId>16859</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>348001</IntrospectionStateNumber>
+      <IntrospectionStateNumber>356100</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|20172|20174|1
 sequence|table|20180|20182|1
@@ -126,7 +126,7 @@ sequence|table|20248|20250|1
       <ObjectId>20167</ObjectId>
       <StateNumber>330759</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>348002</IntrospectionStateNumber>
+      <IntrospectionStateNumber>356101</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -283,9 +283,9 @@ sequence|table|20248|20250|1
       <StateNumber>330698</StateNumber>
     </table>
     <table id="42" parent="21" name="initial_formation">
-      <ObjectId>20328</ObjectId>
+      <ObjectId>20376</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>330739</StateNumber>
+      <StateNumber>354645</StateNumber>
     </table>
     <table id="43" parent="21" name="league">
       <ObjectId>20220</ObjectId>
@@ -300,12 +300,12 @@ sequence|table|20248|20250|1
     <table id="45" parent="21" name="match">
       <ObjectId>20250</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>330750</StateNumber>
+      <StateNumber>354645</StateNumber>
     </table>
     <table id="46" parent="21" name="player">
       <ObjectId>20207</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>330739</StateNumber>
+      <StateNumber>354645</StateNumber>
     </table>
     <table id="47" parent="21" name="player_attribute">
       <ObjectId>20288</ObjectId>
@@ -332,7 +332,7 @@ sequence|table|20248|20250|1
       <ObjectId>20352</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>620</SourceTextLength>
-      <StateNumber>330784</StateNumber>
+      <StateNumber>352356</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>country_name character varying</ArgumentsDefinition>
       <ResultsDefinition>integer</ResultsDefinition>
@@ -344,7 +344,7 @@ sequence|table|20248|20250|1
       <ObjectId>20353</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>545</SourceTextLength>
-      <StateNumber>330790</StateNumber>
+      <StateNumber>352357</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>league_name character varying</ArgumentsDefinition>
       <ResultsDefinition>integer</ResultsDefinition>
@@ -356,7 +356,7 @@ sequence|table|20248|20250|1
       <ObjectId>20351</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>731</SourceTextLength>
-      <StateNumber>330762</StateNumber>
+      <StateNumber>352355</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>m match</ArgumentsDefinition>
       <ResultsDefinition>character</ResultsDefinition>
@@ -367,8 +367,8 @@ sequence|table|20248|20250|1
     <routine id="54" parent="21" name="func_insert_player">
       <ObjectId>20356</ObjectId>
       <Owner>postgres</Owner>
-      <SourceTextLength>565</SourceTextLength>
-      <StateNumber>348000</StateNumber>
+      <SourceTextLength>690</SourceTextLength>
+      <StateNumber>352365</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>p player</ArgumentsDefinition>
       <ResultsDefinition>integer</ResultsDefinition>
@@ -380,7 +380,7 @@ sequence|table|20248|20250|1
       <ObjectId>20357</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>2258</SourceTextLength>
-      <StateNumber>330768</StateNumber>
+      <StateNumber>352361</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>attr player_attribute</ArgumentsDefinition>
       <ResultsDefinition>character</ResultsDefinition>
@@ -392,7 +392,7 @@ sequence|table|20248|20250|1
       <ObjectId>20354</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>498</SourceTextLength>
-      <StateNumber>330765</StateNumber>
+      <StateNumber>352358</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>t team</ArgumentsDefinition>
       <ResultsDefinition>character</ResultsDefinition>
@@ -401,10 +401,10 @@ sequence|table|20248|20250|1
       <Cost>100.0</Cost>
     </routine>
     <routine id="57" parent="21" name="func_player_formation_assoc">
-      <ObjectId>20370</ObjectId>
+      <ObjectId>20391</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>594</SourceTextLength>
-      <StateNumber>330775</StateNumber>
+      <StateNumber>356099</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>p initial_formation</ArgumentsDefinition>
       <ResultsDefinition>character</ResultsDefinition>
@@ -416,7 +416,7 @@ sequence|table|20248|20250|1
       <ObjectId>20358</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>71</SourceTextLength>
-      <StateNumber>330769</StateNumber>
+      <StateNumber>352362</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ResultsDefinition>trigger</ResultsDefinition>
       <LanguageName>plpgsql</LanguageName>
@@ -648,31 +648,33 @@ bet</ColNames>
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>330699</StateNumber>
+      <StateNumber>354645</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="89" parent="42" name="player_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>330699</StateNumber>
+      <StateNumber>354645</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="90" parent="42" name="initial_formation_player_id_key">
-      <ObjectId>20331</ObjectId>
-      <StateNumber>330699</StateNumber>
-      <ColNames>player_id</ColNames>
+    <index id="90" parent="42" name="initial_formation_match_id_player_id_key">
+      <ObjectId>20379</ObjectId>
+      <StateNumber>354645</StateNumber>
+      <ColNames>match_id
+player_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="91" parent="42" name="initial_formation_player_id_key">
-      <ObjectId>20332</ObjectId>
-      <StateNumber>330699</StateNumber>
-      <ColNames>player_id</ColNames>
-      <UnderlyingIndexName>initial_formation_player_id_key</UnderlyingIndexName>
+    <key id="91" parent="42" name="initial_formation_match_id_player_id_key">
+      <ObjectId>20380</ObjectId>
+      <StateNumber>354645</StateNumber>
+      <ColNames>match_id
+player_id</ColNames>
+      <UnderlyingIndexName>initial_formation_match_id_player_id_key</UnderlyingIndexName>
     </key>
     <foreign-key id="92" parent="42" name="initial_formation_match_id_fkey">
-      <ObjectId>20333</ObjectId>
-      <StateNumber>330699</StateNumber>
+      <ObjectId>20381</ObjectId>
+      <StateNumber>354645</StateNumber>
       <ColNames>match_id</ColNames>
       <RefTableId>20250</RefTableId>
       <RefColPositions>1</RefColPositions>
@@ -683,8 +685,8 @@ bet</ColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
     <foreign-key id="93" parent="42" name="initial_formation_player_id_fkey">
-      <ObjectId>20338</ObjectId>
-      <StateNumber>330699</StateNumber>
+      <ObjectId>20386</ObjectId>
+      <StateNumber>354645</StateNumber>
       <ColNames>player_id</ColNames>
       <RefTableId>20207</RefTableId>
       <RefColPositions>1</RefColPositions>
@@ -976,10 +978,10 @@ away_team_id</ColNames>
     </column>
     <column id="129" parent="46" name="height">
       <Position>4</Position>
-      <DataType>integer|0s</DataType>
+      <DataType>real|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>330692</StateNumber>
-      <TypeId>23</TypeId>
+      <StateNumber>352368</StateNumber>
+      <TypeId>700</TypeId>
     </column>
     <column id="130" parent="46" name="weight">
       <Position>5</Position>
@@ -996,7 +998,7 @@ away_team_id</ColNames>
     </column>
     <index id="132" parent="46" name="player_pkey">
       <ObjectId>20211</ObjectId>
-      <StateNumber>330692</StateNumber>
+      <StateNumber>352368</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>

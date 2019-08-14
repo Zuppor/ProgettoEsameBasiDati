@@ -322,6 +322,9 @@ returns integer as $result$
         when unique_violation then
             raise info 'Errore: stai inserendo dati relativi ad un giocatore già presente';
             return -3;
+        when foreign_key_violation then
+            raise info 'Errore: chiave esterna non presente';
+            return -4;
     end;
 $result$ language plpgsql;
 

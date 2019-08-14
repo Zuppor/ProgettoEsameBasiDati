@@ -29,7 +29,7 @@ create table player(
   id serial primary key not null ,
   name varchar(100) not null ,
   birthday date not null ,
-  height int not null ,
+  height float4 not null ,
   weight int not null,
   team_id int references team(id) on update cascade on delete set null
 );
@@ -124,7 +124,8 @@ create table bets(
 
 create table initial_formation(--todo: sistemare tabelle participation e match
   match_id int not null references match(id) on update cascade on delete cascade ,
-  player_id int not null unique references player(id) on update cascade on delete no action
+  player_id int not null references player(id) on update cascade on delete no action,
+  unique (match_id,player_id)
 );
 
 create table login_attempt(
