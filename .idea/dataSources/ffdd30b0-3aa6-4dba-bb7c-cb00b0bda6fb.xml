@@ -13,7 +13,7 @@
     <database id="3" parent="1" name="soccerdb">
       <ObjectId>16859</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>356100</IntrospectionStateNumber>
+      <IntrospectionStateNumber>491927</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|20172|20174|1
 sequence|table|20180|20182|1
@@ -126,7 +126,7 @@ sequence|table|20248|20250|1
       <ObjectId>20167</ObjectId>
       <StateNumber>330759</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>356101</IntrospectionStateNumber>
+      <IntrospectionStateNumber>491928</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -265,7 +265,7 @@ sequence|table|20248|20250|1
     <table id="38" parent="21" name="bet_society">
       <ObjectId>20174</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>330757</StateNumber>
+      <StateNumber>491926</StateNumber>
     </table>
     <table id="39" parent="21" name="bets">
       <ObjectId>20303</ObjectId>
@@ -275,7 +275,7 @@ sequence|table|20248|20250|1
     <table id="40" parent="21" name="country">
       <ObjectId>20230</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>330741</StateNumber>
+      <StateNumber>356103</StateNumber>
     </table>
     <table id="41" parent="21" name="currency">
       <ObjectId>20238</ObjectId>
@@ -285,12 +285,12 @@ sequence|table|20248|20250|1
     <table id="42" parent="21" name="initial_formation">
       <ObjectId>20376</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>354645</StateNumber>
+      <StateNumber>356103</StateNumber>
     </table>
     <table id="43" parent="21" name="league">
       <ObjectId>20220</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>330739</StateNumber>
+      <StateNumber>356103</StateNumber>
     </table>
     <table id="44" parent="21" name="login_attempt">
       <ObjectId>20343</ObjectId>
@@ -300,22 +300,22 @@ sequence|table|20248|20250|1
     <table id="45" parent="21" name="match">
       <ObjectId>20250</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>354645</StateNumber>
+      <StateNumber>356103</StateNumber>
     </table>
     <table id="46" parent="21" name="player">
       <ObjectId>20207</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>354645</StateNumber>
+      <StateNumber>356103</StateNumber>
     </table>
     <table id="47" parent="21" name="player_attribute">
       <ObjectId>20288</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>330739</StateNumber>
+      <StateNumber>356103</StateNumber>
     </table>
     <table id="48" parent="21" name="team">
       <ObjectId>20199</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>330739</StateNumber>
+      <StateNumber>491926</StateNumber>
     </table>
     <table id="49" parent="21" name="users">
       <ObjectId>20182</ObjectId>
@@ -325,7 +325,7 @@ sequence|table|20248|20250|1
     <materialized-view id="50" parent="21" name="classifica">
       <ObjectId>20359</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>330757</StateNumber>
+      <StateNumber>491926</StateNumber>
       <SourceTextLength>383</SourceTextLength>
     </materialized-view>
     <routine id="51" parent="21" name="func_insert_country">
@@ -404,7 +404,7 @@ sequence|table|20248|20250|1
       <ObjectId>20391</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>594</SourceTextLength>
-      <StateNumber>356099</StateNumber>
+      <StateNumber>356102</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>p initial_formation</ArgumentsDefinition>
       <ResultsDefinition>character</ResultsDefinition>

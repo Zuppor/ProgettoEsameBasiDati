@@ -11,6 +11,7 @@ grant execute on function func_insert_player_attributes(attr player_attribute) t
 grant execute on function func_refresh_classifica() to amministratore;
 
 create user operatore with encrypted password 'P4pj92v5Gk7sDk8NaWaNTK2h';
+grant select on team to operatore;
 grant insert,update,delete on match to operatore;
 grant trigger on classifica to operatore;
 grant execute on function func_refresh_classifica() to operatore;
@@ -20,7 +21,7 @@ grant insert,update,delete on bets to partner;
 
 create user login_user with encrypted password 'rH4KJz5Es2ex7QUqvVntMjSM';
 grant select,insert on users,login_attempt to login_user;
-grant select on bet_society,public.classifica to login_user;
+grant select on team,bet_society,public.classifica to login_user;
 grant select,usage on sequence users_id_seq to login_user;
 
 grant usage on schema public to amministratore,operatore,partner,login_user;
