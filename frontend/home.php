@@ -1,4 +1,4 @@
-<html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,10 +16,12 @@
         echo $_GET['attribute_upload_msg']."<br>";
     }
 
-    include '../backend/functions.php';
+    /*include '../backend/functions.php';
     include '../backend/db_connect_login.php';
 
-    start_secure_session();
+    start_secure_session();*/
+
+    include_once 'navbar.php';
 
     if(login_check($db) === true):
         switch ($_SESSION['user_level']){
@@ -31,17 +33,24 @@
             //ADMIN:
             case 0:
 ?>
+            <div class="container-fluid">
     Carica match<br>
             <form action="../backend/insert_match_from_csv.php" method="post" enctype="multipart/form-data">
-                <input type="file" name="csv" id="csv" value="" required><br>
-                <input type="submit" name="submit" value="Submit">
+                <div class="form-control-file">
+                <label class="custom-file-label" for="csv">Choose file</label>
+                <input type="file" class="custom-file-input" name="csv" id="csv" value="" required><br>
+                <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+                </div>
             </form>
     Carica player attribute<br>
             <form action="../backend/insert_player_attribute.php" method="post" enctype="multipart/form-data">
-                <input type="file" name="csv" id="csv" value="" required><br>
-                <input type="submit" name="submit" value="Submit">
+                <div class="form-control-file">
+                <label class="custom-file-label" for="csv">Choose file</label>
+                <input type="file" class="custom-file-input" name="csv" id="csv" value="" required><br>
+                <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+                </div>
             </form>
-
+            </div>
     <?php
     break;
 
@@ -77,7 +86,7 @@
         ?>
 
         <label for="team_h">Team home</label>
-        <select name="team_h" id="team_h" required>
+        <select name="team_h" id="team_h" class="custom-select-sm" required>
             <?php
             for($i = 0;$i<sizeof($rows);$i++) {
                 ?>
@@ -89,7 +98,7 @@
         </select><br>
 
         <label for="team_a">Team away</label>
-        <select name="team_a" id="team_a" required>
+        <select name="team_a" id="team_a" class="custom-select-sm" required>
 
             <?php
             for($i = 0;$i<sizeof($rows);$i++) {
@@ -108,7 +117,7 @@
         <label for="a_goal">Away goals</label>
         <input type="number" name="a_goal" id="a_goal" value="0" min="0" required><br>
 
-        <input type="submit" name="submit" value="Submit">
+        <input type="submit" class="btn btn-primary" name="submit" value="Submit">
     </form>
 <?php break;
 

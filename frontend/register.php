@@ -33,6 +33,6 @@
         </select><br>
         <input type="button" value="Register" onclick="formhash(this.form,this.form.p);"/>
     </form>
-<a href="home.php">Torna alla home</a>
+<a href="../index.php">Torna alla home</a>
 </body>
 </html>
