@@ -16,10 +16,10 @@
         echo $_GET['attribute_upload_msg']."<br>";
     }
 
-    /*include '../backend/functions.php';
+    include '../backend/functions.php';
     include '../backend/db_connect_login.php';
 
-    start_secure_session();*/
+    start_secure_session();
 
     include_once 'navbar.php';
 
@@ -33,7 +33,6 @@
             //ADMIN:
             case 0:
 ?>
-            <div class="container-fluid">
     Carica match<br>
             <form action="../backend/insert_match_from_csv.php" method="post" enctype="multipart/form-data">
                 <div class="form-control-file">
@@ -50,7 +49,6 @@
                 <input type="submit" class="btn btn-primary" name="submit" value="Submit">
                 </div>
             </form>
-            </div>
     <?php
     break;
 

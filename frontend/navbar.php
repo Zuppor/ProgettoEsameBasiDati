@@ -4,7 +4,7 @@ include_once 'backend/db_connect_login.php';
 
 start_secure_session();
 ?>
-<nav class="navbar navbar-expand-md navbar-light bg-light">
+<nav class="navbar navbar-expand-md navbar-light bg-light" role="navigation">
     <a class="navbar-brand" href="../index.php">LottoCalcio</a>
 
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -19,15 +19,15 @@ start_secure_session();
     </div>
     <span>
         <?php
-        if(login_check($db) !== false) {
+        if(login_check($db) === true) {
             ?>
-            <a href="/frontend/login.php" class="btn btn-outline-primary">Login</a>
-            <a href="/frontend/register.php" class="btn btn-outline-primary">Sign up</a>
+            Hello, <?php echo $_SESSION['username'] ?> <a href="/backend/process_logout.php" class="btn btn-outline-primary">Logout</a>
             <?php
         }
         else{
             ?>
-            Hello, <?php echo $_SESSION['username'] ?> <a href="../backend/process_logout.php" class="btn btn-outline-primary">Logout</a>
+            <a href="/frontend/login.php" class="btn btn-outline-primary">Login</a>
+            <a href="/frontend/register.php" class="btn btn-outline-primary">Sign up</a>
         <?php }?>
     </span>
 </nav>

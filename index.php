@@ -12,7 +12,13 @@
     <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
     <title>Main</title>
 </head>
-<?php include_once 'frontend/navbar.php' ?>
+<?php
+/*include_once 'backend/functions.php';
+include_once 'backend/db_connect_login.php';
+
+start_secure_session();*/
+include_once 'frontend/navbar.php'
+?>
 <body>
 <div id="carousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
