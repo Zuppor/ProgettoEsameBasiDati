@@ -21,7 +21,7 @@ start_secure_session();
         <?php
         if(login_check($db) === true) {
             ?>
-            Hello, <?php echo $_SESSION['username'] ?> <a href="/backend/process_logout.php" class="btn btn-outline-primary">Logout</a>
+            Hello, <?php echo $_SESSION['username']." " ?> <a href="/backend/process_logout.php" class="btn btn-outline-primary">Logout</a>
             <?php
         }
         else{

@@ -3,6 +3,8 @@
     <script type="text/javascript" src="../backend/sha512.js"></script>
     <script type="text/javascript" src="../backend/forms.js"></script>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
     <title>Register</title>
 </head>
 <body>
@@ -33,6 +35,12 @@
         </select><br>
         <input type="button" value="Register" onclick="formhash(this.form,this.form.p);"/>
     </form>
-<a href="../index.php">Torna alla home</a>
+<button onclick="goBack()" class="btn btn-outline-secondary">< Back</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 </body>
 </html>
