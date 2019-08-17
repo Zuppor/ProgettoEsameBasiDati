@@ -41,7 +41,7 @@
         echo '<div class="alert alert-success" role="alert">'.$_GET['success'].'</div><br><br>';
     }
 ?>
-
+<!--fixme: attributo required non sembra funzionare -->
     <form method="post" action="../backend/process_registration.php">
         <label class="col-form-label" for="u">Username</label><br>
         <input type="text" name="username" value="" id="u" maxlength="100" minlength="1" oninvalid="alert('Il nome utente è obbligatorio');" required/><br>

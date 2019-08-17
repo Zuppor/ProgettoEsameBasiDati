@@ -5,15 +5,32 @@
     <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
     <title>Home</title>
 </head>
+<script>
+    var seasonComp;
 
-<body>
-<?php
+    function onload(){
+        seasonComp = document.getElementById("seasonComp");
+        var y = new Date().getFullYear();
 
-    if(isset($_GET['match_upload_msg'])){
-        echo $_GET['match_upload_msg']."<br>";
+        document.getElementById("season").setAttribute("value",y.toString());
+        y++;
+        seasonComp.innerHTML = "/" + y;
     }
-    if(isset($_GET['attribute_upload_msg'])){
-        echo $_GET['attribute_upload_msg']."<br>";
+
+    function adjustSeason(year){
+        year = Number(year);
+        year++;
+        seasonComp.innerHTML = "/" + year;
+    }
+</script>
+
+<body onload="onload()">
+<?php
+    if(isset($_GET['error'])){
+        echo '<div class="alert alert-danger" role="alert">'.$_GET['error'].'</div><br><br>';
+    }
+    elseif (isset($_GET['success'])){
+        echo '<div class="alert alert-success" role="alert">'.$_GET['success'].'</div><br><br>';
     }
 
     include '../backend/functions.php';
@@ -37,16 +54,16 @@
             <form action="../backend/insert_match_from_csv.php" method="post" enctype="multipart/form-data">
                 <div class="form-control-file">
                 <label class="custom-file-label" for="csv">Choose file</label>
-                <input type="file" class="custom-file-input" name="csv" id="csv" value="" required><br>
-                <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+                <input type="file" class="custom-file-input" name="csv" id="csv" value="" required/><br>
+                <input type="submit" class="btn btn-primary" name="submit" value="Submit"/>
                 </div>
             </form>
     Carica player attribute<br>
             <form action="../backend/insert_player_attribute.php" method="post" enctype="multipart/form-data">
                 <div class="form-control-file">
                 <label class="custom-file-label" for="csv">Choose file</label>
-                <input type="file" class="custom-file-input" name="csv" id="csv" value="" required><br>
-                <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+                <input type="file" class="custom-file-input" name="csv" id="csv" value="" required/><br>
+                <input type="submit" class="btn btn-primary" name="submit" value="Submit"/>
                 </div>
             </form>
     <?php
@@ -58,21 +75,21 @@
 
     //OPERATORE:
     case 1:?>
-    <form action="../backend/insert_match_from_csv.php" method="post">
+    <form action="../backend/insert_match_from_form.php" method="post">
         <label for="country">Country</label>
-        <input type="text" name="country" id="country" value="" required><br>
+        <input type="text" name="country" id="country" value="" required/><br>
 
         <label for="league">League</label>
-        <input type="text" name="league" id="league" value="" required><br>
+        <input type="text" name="league" id="league" value="" required/><br>
 
         <label for="season">Season</label>
-        <input type="date" name="season" id="season" value="" required><br>
+        <input type="number" name="season" id="season" value="" min="0" oninput="adjustSeason(this.value)" required/> <p id="seasonComp"></p><br>
 
         <label for="stage">Stage</label>
-        <input type="number" name="stage" id="stage" value="1" min="1" required><br>
+        <input type="number" name="stage" id="stage" value="1" min="1" required/><br>
 
         <label for="date">Date</label>
-        <input type="date" name="date" id="date" value="" required><br>
+        <input type="date" name="date" id="date" value="" required/><br>
 
         <?php
             $resource = pg_query($db,"select id,long_name,short_name from team order by long_name");
@@ -110,12 +127,12 @@
 
 
         <label for="h_goal">Home goals</label>
-        <input type="number" name="h_goal" id="h_goal" value="0" min="0" required><br>
+        <input type="number" name="h_goal" id="h_goal" value="0" min="0" required/><br>
 
         <label for="a_goal">Away goals</label>
-        <input type="number" name="a_goal" id="a_goal" value="0" min="0" required><br>
+        <input type="number" name="a_goal" id="a_goal" value="0" min="0" required/><br>
 
-        <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+        <input type="submit" class="btn btn-primary" name="submit" value="Submit"/>
     </form>
 <?php break;
 

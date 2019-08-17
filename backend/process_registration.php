@@ -12,7 +12,7 @@ include 'functions.php';
 start_secure_session();
 
 if(isset($_POST['username'],$_POST['password'],$_POST['level'])){
-    die($_POST['username']." ".$_POST['password']." ".$_POST['level']);
+    //die($_POST['username']." ".$_POST['password']." ".$_POST['level']);
     if($_POST['level'] != '2') $society = null;
     else $society = $_POST['society'];
     $result = register_new_user($_POST['username'],$_POST['password'],$_POST['level'],$society,$db);

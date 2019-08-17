@@ -15,6 +15,14 @@ start_secure_session();
             <li class="nav-item">
                 <a class="nav-link" href="/frontend/best_players.php">Best players</a>
             </li>
+            <?php
+            if(login_check($db) === true) {
+            ?>
+            <li class="nav-item">
+                <a class="nav-link" href="/frontend/home.php">Dashboard</a>
+            </li>
+                <?php
+            } ?>
         </ul>
     </div>
     <span>
