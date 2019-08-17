@@ -13,7 +13,7 @@
     <database id="3" parent="1" name="soccerdb">
       <ObjectId>16859</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>491927</IntrospectionStateNumber>
+      <IntrospectionStateNumber>491930</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|20172|20174|1
 sequence|table|20180|20182|1
@@ -126,7 +126,7 @@ sequence|table|20248|20250|1
       <ObjectId>20167</ObjectId>
       <StateNumber>330759</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>491928</IntrospectionStateNumber>
+      <IntrospectionStateNumber>491931</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>

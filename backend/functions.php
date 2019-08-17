@@ -26,8 +26,8 @@ function start_secure_session(){
 }
 
 function login($username,$password,$db){
-    $resource = pg_prepare($db, "cmd", "select id,username,password,salt,level from users where username = $1 limit 1");
-    $resource = pg_execute($db, "cmd", array($username));
+    $resource = pg_prepare($db, "", "select id,username,password,salt,level from users where username = $1 limit 1");
+    $resource = pg_execute($db, "", array($username));
 
     if (pg_num_rows($resource) == 1) {//se l'utente esiste
         $row = pg_fetch_row($resource, null, PGSQL_ASSOC);
@@ -62,7 +62,9 @@ function login($username,$password,$db){
 
                 //registrazione tentativo fallito
                 $now = time();
-                pg_query($db, "insert into login_attempt (user_id,time) values ('" . $row['id'] . "','" . $now . "')");
+                pg_prepare($db,"","insert into login_attempt (user_id,time) values ($1,$2)");
+                pg_execute($db,"",array($row['id'],$now));
+                //pg_query($db, "insert into login_attempt (user_id,time) values ('" . $row['id'] . "','" . $now . "')");
                 return 'username o password errati';
             }
         }
@@ -78,9 +80,8 @@ function checkbrute($user_id,$db){
 
     //analizzo tutti i tentativi di accesso delle ultime 2 ore
     $valid_attempts = $now - (7200);
-    $resource = pg_prepare($db,"cmd","select time from login_attempt where user_id = $1 and time > $2");
-    $value = array($user_id,$valid_attempts);
-    $resource = pg_execute($db,"cmd",$value);
+    $resource = pg_prepare($db,"","select time from login_attempt where user_id = $1 and time > $2");
+    $resource = pg_execute($db,"",array($user_id,$valid_attempts));
 
     //verifico se il login è fallito più di 5 volte
     if(pg_num_rows($resource) > 5){
@@ -95,8 +96,8 @@ function login_check($db){
     //verifca che tutte le variabili di sessione siano impostate correttamente
     if(isset($_SESSION['user_id'],$_SESSION['username'],$_SESSION['login_string'],$_SESSION['user_level'])){
 
-        $resource = pg_prepare($db,null,"select password from users where id = $1 limit 1");
-        $resource = pg_execute($db,null,array($_SESSION['user_id']));
+        $resource = pg_prepare($db,"","select password from users where id = $1 limit 1");
+        $resource = pg_execute($db,"",array($_SESSION['user_id']));
 
         if(pg_num_rows($resource) == 1){//se l'utente esiste
             $row = pg_fetch_row($resource,null,PGSQL_ASSOC);
@@ -122,8 +123,8 @@ function login_check($db){
 
 function register_new_user($username,$password,$level,$society,$db){
     //verifica che l'utente non sia già registrato
-    $resource = pg_prepare($db,"cmd","select username from users where username = ?");
-    $resource = pg_execute($db,"cmd",array($_POST['username']));
+    $resource = pg_prepare($db,"","select username from users where username = $1");
+    $resource = pg_execute($db,"",array($_POST['username']));
 
     if(pg_num_rows($resource)>=1){
         //l'utente esiste già
@@ -134,9 +135,14 @@ function register_new_user($username,$password,$level,$society,$db){
 
         pg_free_result($resource);
 
+        //controlla che le password coincidano
+        /*if(strcmp($password,$password2) !== 0){
+            return 'Le password non coincidono: '.$password.' '.$password2;
+        }*/
+
         //se è di livello 2, controlla che la società sia settata
         if($level == 2 && !isset($society)){
-            return 'società inesistente';
+            return 'Società non specificata';
         }
 
         //genera chiave casuale
@@ -147,15 +153,18 @@ function register_new_user($username,$password,$level,$society,$db){
 
         //$resource = pg_prepare($db,"cmd","insert into users (username,password,salt,level,bet_society_id) values ($1,$2,$3,$4,$5)");
         //$resource = pg_execute($db,"cmd",array($username,$password,$random_salt,$level,$society));
-
+/*
         if($level == 2){
-            $resource = pg_prepare($db,"cmd","insert into users (username,password,salt,level,bet_society_id) values ($1,$2,$3,$4,$5)");
-            $resource = pg_execute($db,"cmd",array($username,$password,$random_salt,$level,$society));
+            $resource = pg_prepare($db,"","insert into users (username,password,salt,level,bet_society_id) values ($1,$2,$3,$4,$5)");
+            $resource = pg_execute($db,"",array($username,$password,$random_salt,$level,$society));
         }
         else{
-            $resource = pg_prepare($db,"cmd","insert into users (username,password,salt,level) values ($1,$2,$3,$4)");
-            $resource = pg_execute($db,"cmd",array($username,$password,$random_salt,$level));
-        }
+            $resource = pg_prepare($db,"","insert into users (username,password,salt,level) values ($1,$2,$3,$4)");
+            $resource = pg_execute($db,"",array($username,$password,$random_salt,$level));
+        }*/
+
+        $resource = pg_prepare($db,"","insert into users (username,password,salt,level,bet_society_id) values ($1,$2,$3,$4,$5)");
+        $resource = pg_execute($db,"",array($username,$password,$random_salt,$level,$society));
 
 
         if(pg_affected_rows($resource) == 0){

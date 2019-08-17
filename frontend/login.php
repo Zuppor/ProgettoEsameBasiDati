@@ -10,18 +10,21 @@
 <body>
     <?php
         if(isset($_GET['error'])){
-            echo $_GET['error'].'<br><br>';
+            echo '<div class="alert alert-danger" role="alert">'.$_GET['error'].'</div><br><br>';
+        }
+        elseif (isset($_GET['success'])){
+            echo '<div class="alert alert-success" role="alert">'.$_GET['success'].'</div><br><br>';
         }
     ?>
     <div class="container justify-content-center">
     <form method="post" action="../backend/process_login.php" name="login_form">
-        <label>Username</label><br>
-        <input type="text" name="username" required/><br>
+        <label class="col-form-label" for="u">Username</label><br>
+        <input type="text" name="username" id="u" required/><br>
         <br>
-        <label>Password</label><br>
+        <label class="col-form-label" for="p">Password</label><br>
         <input type="password" name="password" id="p" required/><br>
         <br>
-        <input type="submit" value="Login" onclick="formhash(this.form,this.form.p);"/>
+        <input type="submit" class="btn btn-primary" value="Login" onclick="formhash(this.form,this.form.p);"/>
     </form>
     <br>
     Non hai un account? <a href="register.php">Registrati</a><br>

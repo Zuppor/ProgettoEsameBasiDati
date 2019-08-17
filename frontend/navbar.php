@@ -10,10 +10,10 @@ start_secure_session();
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="classification.php">Classifica</a>
+                <a class="nav-link" href="/frontend/classification.php">Classifica</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="best_players.php">Best players</a>
+                <a class="nav-link" href="/frontend/best_players.php">Best players</a>
             </li>
         </ul>
     </div>
