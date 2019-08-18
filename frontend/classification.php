@@ -12,6 +12,9 @@
     </style>
 </head>
 <body>
+<?php
+include 'navbar.php';
+?>
 <table style="width: 100%">
     <tr>
         <th>Date</th>
@@ -25,6 +28,7 @@
     </tr>
     <?php
         include '../backend/db_connect_login.php';
+
 
         $resource = pg_query($db,"select date::date as d,to_char(date,'HH24:MM') as t,name,stage,season,team_a,team_h,h_team_goal,a_team_goal from public.classifica");
 
