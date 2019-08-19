@@ -70,37 +70,31 @@
             //ADMIN:
             case 0:
 ?>
-            <div class="col-12 col-md-3 col-xl-2">
-                <ul class="nav nav-pills nav-fill flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            Upload from file
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Manage matches
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Manage leagues
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Manage player attributes
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Manage countries
-                        </a>
-                    </li>
+            <div class="col-12 col-md-3 col-xl-2 border-right border-secondary">
+                <ul class="nav nav-pills align-items-start flex-column">
+                    <?php
+                        $items = array("Upload from file","Manage matches","Manage leagues","Manage player attributes","Manage teams","Manage countries");
+
+                        for($i = 0;$i<count($items);$i++){
+                            ?>
+                            <li class="nav-item">
+                                <a class="nav-link <?php if(isset($_GET['sidenav_active'])) echo $_GET['sidenav_active']==$i?"active":"";else if($i == 0){ echo "active";$_GET['sidenav_active'] = 0;}?>" href="/frontend/home.php?sidenav_active=<?php echo $i; ?>">
+                                    <?php echo $items[$i]; ?>
+                                </a>
+                            </li>
+                    <?php
+                        }
+                    ?>
                 </ul>
             </div>
 
+
+
             <main class="col-12 col-ms-9 col-xl-8 py-md-3 pl-md-5" role="main">
+            <?php
+            include_once "admin_main_content/admin_content_".$_GET['sidenav_active'].".php";
+        ?>
+            <!--
             <form action="../backend/insert_match_from_csv.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                 <label for="csv">Upload match.csv</label>
@@ -115,8 +109,7 @@
                 <input type="file" class="form-control-file" name="csv" value="" required/><br>
                 <input type="submit" class="btn btn-primary" name="submit" value="Submit"/>
                 </div>
-            </form>
-            </main>
+            </form>-->
     <?php
     break;
 
@@ -127,6 +120,7 @@
     //OPERATORE:
     case 1:?>
     <form action="../backend/insert_match_from_form.php" method="post">
+        <div class="form-group">
         <label for="country">Country</label>
         <select name="country" id="country" class="custom-select-sm" required>
             <?php
@@ -203,6 +197,7 @@
         <input type="number" name="a_goal" id="a_goal" value="0" min="0" required/><br>
 
         <input type="submit" class="btn btn-primary" name="submit" value="Submit"/>
+        </div>
     </form>
 <?php break;
 
@@ -236,6 +231,7 @@ case 2:?>
    <?php else:?>
 Devi <a href="login.php">accedere ad un account</a> prima di entrare in questa pagina<br>
 <?php endif;?>
+            </main>
     </div>
 </div>
 </body>
