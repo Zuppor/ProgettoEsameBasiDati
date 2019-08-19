@@ -46,6 +46,12 @@
     start_secure_session();
 
     include_once 'navbar.php';
+    ?>
+
+<div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+
+<?php
 
     if(isset($_GET['error'])){
         echo '<div class="alert alert-danger" role="alert">'.$_GET['error'].'</div><br><br>';
@@ -64,24 +70,53 @@
             //ADMIN:
             case 0:
 ?>
+            <div class="col-12 col-md-3 col-xl-2">
+                <ul class="nav nav-pills nav-fill flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            Upload from file
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Manage matches
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Manage leagues
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Manage player attributes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Manage countries
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
+            <main class="col-12 col-ms-9 col-xl-8 py-md-3 pl-md-5" role="main">
             <form action="../backend/insert_match_from_csv.php" method="post" enctype="multipart/form-data">
-                Carica match<br>
-                <div class="form-control-file">
-                <label class="custom-file-label" for="csv">Choose file</label>
-                <input type="file" class="custom-file-input" name="csv" id="csv" value="" required/><br>
+                <div class="form-group">
+                <label for="csv">Upload match.csv</label>
+                <input type="file" class="form-control-file" name="csv" value="" required/><br>
                 <input type="submit" class="btn btn-primary" name="submit" value="Submit"/>
                 </div>
             </form>
 
             <form action="../backend/insert_player_attribute.php" method="post" enctype="multipart/form-data">
-                Carica player attribute<br>
-                <div class="form-control-file">
-                <label class="custom-file-label" for="csv">Choose file</label>
-                <input type="file" class="custom-file-input" name="csv" id="csv" value="" required/><br>
+                <div class="form-group">
+                <label for="csv">Upload player_attribute.csv</label>
+                <input type="file" class="form-control-file" name="csv" value="" required/><br>
                 <input type="submit" class="btn btn-primary" name="submit" value="Submit"/>
                 </div>
             </form>
+            </main>
     <?php
     break;
 
@@ -194,12 +229,15 @@ case 2:?>
 
 
 
-
+<!--
         <a href="classification.php">Visualizza classifica</a><br>
         <a href="../backend/process_logout.php">Logout</a>
+        -->
    <?php else:?>
 Devi <a href="login.php">accedere ad un account</a> prima di entrare in questa pagina<br>
 <?php endif;?>
+    </div>
+</div>
 </body>
 
 </html>

@@ -2,9 +2,9 @@
 include_once 'backend/functions.php';
 include_once 'backend/db_connect_login.php';
 
-start_secure_session();
+//start_secure_session();
 ?>
-<nav class="navbar navbar-expand-md navbar-light bg-light" role="navigation">
+<header class="navbar navbar-expand-md navbar-light bg-light">
     <a class="navbar-brand" href="../index.php">LottoCalcio</a>
 
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -38,4 +38,4 @@ start_secure_session();
             <a href="/frontend/register.php" class="btn btn-outline-primary">Sign up</a>
         <?php }?>
     </span>
-</nav>
+</header>

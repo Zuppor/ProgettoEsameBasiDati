@@ -6,6 +6,15 @@
     <title>Home</title>
 </head>
 <body>
+<?php
+include '../backend/functions.php';
+include '../backend/db_connect_login.php';
+
+start_secure_session();
+
+include_once 'navbar.php';
+?>
+<!--
 <button onclick="goBack()" class="btn btn-outline-secondary">< Back</button>
 
 <script>
@@ -13,5 +22,6 @@
         window.history.back();
     }
 </script>
+-->
 </body>
 </html>
