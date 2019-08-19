@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b213ae3-c0c9-460f-8edf-85cf43bda014" name="Default Changelist" comment="Ancora problemi con league">
-      <change afterPath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_0.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_1.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_2.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_3.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_4.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_5.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/admin_main_content/admin_content.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/users.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -198,7 +192,7 @@
       <workItem from="1566030992814" duration="19012000" />
       <workItem from="1566115858744" duration="6119000" />
       <workItem from="1566135428883" duration="759000" />
-      <workItem from="1566201782493" duration="17569000" />
+      <workItem from="1566201782493" duration="18481000" />
     </task>
     <task id="LOCAL-00001" summary="Ancora problemi con league">
       <created>1560597949614</created>

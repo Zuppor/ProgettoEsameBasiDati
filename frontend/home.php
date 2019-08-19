@@ -92,7 +92,24 @@
 
             <main class="col-12 col-ms-9 col-xl-8 py-md-3 pl-md-5" role="main">
             <?php
-            include_once "admin_main_content/admin_content_".$_GET['sidenav_active'].".php";
+            include_once "admin_main_content/admin_content.php";
+            switch ($_GET['sidenav_active']){
+            case 0:
+                include_once "admin_main_content/admin_content_0.php";
+
+                break;
+            case 1:
+                create_content($db,);
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            }
         ?>
             <!--
             <form action="../backend/insert_match_from_csv.php" method="post" enctype="multipart/form-data">
