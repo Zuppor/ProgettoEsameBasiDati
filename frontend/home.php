@@ -13,7 +13,6 @@
         seasonComp = document.getElementById("seasonComp");
         teamComp = document.getElementById("teamComp");
 
-        //document.getElementById("date").value = new Date().getDate().toString();
         var y = new Date().getFullYear();
 
         document.getElementById("season").setAttribute("value",y.toString());
@@ -92,41 +91,13 @@
 
             <main class="col-12 col-ms-9 col-xl-8 py-md-3 pl-md-5" role="main">
             <?php
-            include_once "admin_main_content/admin_content.php";
-            switch ($_GET['sidenav_active']){
-            case 0:
-                include_once "admin_main_content/admin_content_0.php";
-
-                break;
-            case 1:
-                create_content($db,);
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            }
+            include_once 'admin_main_content/admin_content_'.$_GET['sidenav_active'].'.php';
+            /*if($_GET['sidenav_active'] == 0)
+                include_once 'admin_main_content/admin_content_0.php';
+            else
+                include_once "admin_main_content/admin_content.php?content=".$_GET['sidenav_active'];*/
         ?>
-            <!--
-            <form action="../backend/insert_match_from_csv.php" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                <label for="csv">Upload match.csv</label>
-                <input type="file" class="form-control-file" name="csv" value="" required/><br>
-                <input type="submit" class="btn btn-primary" name="submit" value="Submit"/>
-                </div>
-            </form>
-
-            <form action="../backend/insert_player_attribute.php" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                <label for="csv">Upload player_attribute.csv</label>
-                <input type="file" class="form-control-file" name="csv" value="" required/><br>
-                <input type="submit" class="btn btn-primary" name="submit" value="Submit"/>
-                </div>
-            </form>-->
+            </main>
     <?php
     break;
 
@@ -135,7 +106,14 @@
 
 
     //OPERATORE:
-    case 1:?>
+    case 1:
+        ?>
+
+        <?php
+        //include_once 'form_insert_match.php';
+        ?>
+
+
     <form action="../backend/insert_match_from_form.php" method="post">
         <div class="form-group">
         <label for="country">Country</label>
@@ -194,7 +172,7 @@
         </select><br>
 
         <label for="team_a">Team away</label>
-        <select name="team_a" id="team_a" class="custom-select-sm" onchange="checkTeams(this,this.form.team_h)" required>
+        <select name="team_a" id="team_a" class="custom-select-sm" onchange="checkTeams(this,this.form.team_h)"  required>
 
             <?php
             for($i = 0;$i<sizeof($rows);$i++) {
@@ -248,7 +226,7 @@ case 2:?>
    <?php else:?>
 Devi <a href="login.php">accedere ad un account</a> prima di entrare in questa pagina<br>
 <?php endif;?>
-            </main>
+
     </div>
 </div>
 </body>

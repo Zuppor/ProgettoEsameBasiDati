@@ -59,3 +59,7 @@
     </div>
 
 </form>
+
+<?php
+include_once '../form_insert_match.php';
+?>

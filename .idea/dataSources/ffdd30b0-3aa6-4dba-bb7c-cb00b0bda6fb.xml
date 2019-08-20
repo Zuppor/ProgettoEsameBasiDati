@@ -17,11 +17,11 @@
       <Current>1</Current>
       <Relations>sequence|table|20197|20199|1
 sequence|table|20205|20207|1
-sequence|table|20172|20174|1
-sequence|table|20180|20182|1
 sequence|table|20218|20220|1
 sequence|table|20228|20230|1
 sequence|table|20248|20250|1
+sequence|table|20172|20174|1
+sequence|table|20180|20182|1
 </Relations>
       <Visible>1</Visible>
     </database>
