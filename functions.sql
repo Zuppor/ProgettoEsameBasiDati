@@ -100,6 +100,42 @@ returns char as $result$
     $result$
 language plpgsql;
 
+
+create or replace function func_insert_bet(b bets)
+returns char as $result$
+    declare
+        tmp record;
+        tmp2 users.bet_society_id%TYPE;
+    begin
+        for tmp in (select match_id,bet,currency_id,partner_id from bets where match_id = b.match_id and bet = b.bet and currency_id = b.currency_id) loop
+            select bet_society_id into tmp2 from users where id = tmp.partner_id;
+            if tmp2 = (select bet_society_id from users where id = b.partner_id) then
+                raise info 'Errore: scommessa già presente da parte di questa società';
+                return '5';
+            end if;
+        end loop;
+
+        insert into bets (match_id, partner_id, bet, currency_id) values (b.match_id,b.partner_id,b.bet,b.currency_id);
+
+        if FOUND then
+            return '0';
+        else
+            return '1';
+        end if;
+
+        exception
+            when not_null_violation then
+                raise info 'Errore: vincolo di not null violato';
+                return '2';
+            when unique_violation then
+                raise info 'Errore: stai inserendo dati relativi ad un team già presente';
+                return '3';
+            when foreign_key_violation then
+                raise info 'Errore: vincolo chiave esterna violato';
+                return '4';
+    end;
+$result$ language plpgsql;
+
 /*
 create or replace function modify_match(m_id int,c_id int,l_id int,se int,st int,d time,home_id int,away_id int,h_goals int,a_goals int,o_id int)
 returns char as $$

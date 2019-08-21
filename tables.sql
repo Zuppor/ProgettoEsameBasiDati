@@ -45,8 +45,8 @@ create table country(
 );
 
 create table currency(
-  code char(3) not null primary key ,
-  country_id int not null references country(id) on update cascade on delete cascade
+  code char(3) not null primary key /*,
+  country_id int not null references country(id) on update cascade on delete cascade*/
 );
 
 create table match(
@@ -118,7 +118,7 @@ create table bets(
   bet char(1) not null ,
   value numeric not null default 0,
   currency_id char(3) not null references currency(code),
-  primary key (match_id,partner_id,bet),
+  primary key (match_id,partner_id,bet,currency_id),
   check ( bet in('a','h','d') )
 );
 

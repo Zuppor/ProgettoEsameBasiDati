@@ -48,16 +48,18 @@
     ?>
 
 <div class="container-fluid">
+    <?php
+        if(isset($_GET['error'])){
+            echo '<div class="alert alert-danger" role="alert">'.$_GET['error'].'</div><br><br>';
+        }
+        elseif (isset($_GET['success'])){
+            echo '<div class="alert alert-success" role="alert">'.$_GET['success'].'</div><br><br>';
+        }
+    ?>
     <div class="row flex-xl-nowrap">
-
 <?php
 
-    if(isset($_GET['error'])){
-        echo '<div class="alert alert-danger" role="alert">'.$_GET['error'].'</div><br><br>';
-    }
-    elseif (isset($_GET['success'])){
-        echo '<div class="alert alert-success" role="alert">'.$_GET['success'].'</div><br><br>';
-    }
+
 
     if(login_check($db) === true):
         switch ($_SESSION['user_level']){
@@ -108,92 +110,38 @@
     //OPERATORE:
     case 1:
         ?>
-
-        <?php
-        //include_once 'form_insert_match.php';
-        ?>
-
-
-    <form action="../backend/insert_match_from_form.php" method="post">
-        <div class="form-group">
-        <label for="country">Country</label>
-        <select name="country" id="country" class="custom-select-sm" required>
-            <?php
-            $resource = pg_query($db,"select id,name from country order by name");
-
-            while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)) {
-                ?>
-                <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+        <div class="col-12 col-md-3 col-xl-2 border-right border-secondary">
+            <ul class="nav nav-pills align-items-start flex-column">
                 <?php
-            }
-            ?>
+                $items = array("Insert match","Manage matches");
 
-        </select><br>
-
-        <label for="league">League</label>
-        <select name="league" id="league" class="custom-select-sm" required>
-            <?php
-            $resource = pg_query($db,"select id,name from league order by name");
-
-            while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)) {
+                for($i = 0;$i<count($items);$i++){
+                    ?>
+                    <li class="nav-item">
+                        <a class="nav-link <?php if(isset($_GET['sidenav_active'])) echo $_GET['sidenav_active']==$i?"active":"";else if($i == 0){ echo "active";$_GET['sidenav_active'] = 0;}?>" href="/frontend/home.php?sidenav_active=<?php echo $i; ?>">
+                            <?php echo $items[$i]; ?>
+                        </a>
+                    </li>
+                    <?php
+                }
                 ?>
-                <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
-                <?php
-            }
-            ?>
-
-        </select><br>
-
-        <label for="season">Season</label>
-        <input type="number" name="season" id="season" value="" min="0" oninput="adjustSeason(this.value)" required/> <p id="seasonComp"></p><br>
-
-        <label for="stage">Stage</label>
-        <input type="number" name="stage" id="stage" value="1" min="1" required/><br>
-
-        <label for="date">Date</label>
-        <input type="date" name="date" id="date" value="" required/><br>
-
-        <?php
-            $resource = pg_query($db,"select id,long_name,short_name from team order by long_name");
-
-            $rows = pg_fetch_all($resource);
-        ?>
-
-        <label for="team_h">Team home</label>
-        <select name="team_h" id="team_h" class="custom-select-sm" onchange="checkTeams(this,this.form.team_a)" required>
-            <?php
-            for($i = 0;$i<sizeof($rows);$i++) {
-                ?>
-                <option value="<?php echo $rows[$i]['id']; ?>"><?php echo $rows[$i]['long_name'] . ' (' . $rows[$i]['short_name'] . ')'; ?></option>
-                <?php
-            }
-            ?>
-
-        </select><br>
-
-        <label for="team_a">Team away</label>
-        <select name="team_a" id="team_a" class="custom-select-sm" onchange="checkTeams(this,this.form.team_h)"  required>
-
-            <?php
-            for($i = 0;$i<sizeof($rows);$i++) {
-                ?>
-                <option value="<?php echo $rows[$i]['id']; ?>"><?php echo $rows[$i]['long_name'] . ' (' . $rows[$i]['short_name'] . ')'; ?></option>
-                <?php
-            }
-            ?>
-
-        </select><p class="text-danger" id="teamComp"></p> <br>
-
-
-        <label for="h_goal">Home goals</label>
-        <input type="number" name="h_goal" id="h_goal" value="0" min="0" required/><br>
-
-        <label for="a_goal">Away goals</label>
-        <input type="number" name="a_goal" id="a_goal" value="0" min="0" required/><br>
-
-        <input type="submit" class="btn btn-primary" name="submit" value="Submit"/>
+            </ul>
         </div>
-    </form>
+        <main class="col-12 col-ms-9 col-xl-8 py-md-3 pl-md-5" role="main">
+        <?php
+        switch ($_GET['sidenav_active']){
+            case 0:
+                include_once 'form_insert_match.php';
+                break;
+            case 1:
+                include_once 'op_main_content/op_main_content_1.php';
+                break;
+            default:
+                echo "Nothing to display.";
+        }
+        //include_once 'op_main_content/op_main_content_'.$_GET['sidenav_active'].'.php';
+        ?>
+        </main>
 <?php break;
 
 
@@ -203,7 +151,38 @@
 
 //PARTNER:
 case 2:?>
-    <a href="">Inserisci quota</a><br>
+    <div class="col-12 col-md-3 col-xl-2 border-right border-secondary">
+        <ul class="nav nav-pills align-items-start flex-column">
+            <?php
+            $items = array("Insert bet","Manage bets");
+
+            for($i = 0;$i<count($items);$i++){
+                ?>
+                <li class="nav-item">
+                    <a class="nav-link <?php if(isset($_GET['sidenav_active'])) echo $_GET['sidenav_active']==$i?"active":"";else if($i == 0){ echo "active";$_GET['sidenav_active'] = 0;}?>" href="/frontend/home.php?sidenav_active=<?php echo $i; ?>">
+                        <?php echo $items[$i]; ?>
+                    </a>
+                </li>
+                <?php
+            }
+            ?>
+        </ul>
+    </div>
+    <main class="col-12 col-ms-9 col-xl-8 py-md-3 pl-md-5" role="main">
+        <?php
+        switch ($_GET['sidenav_active']){
+            case 0:
+                include_once 'form_insert_bet.php';
+                break;
+            case 1:
+                include_once 'partner_main_content/partner_main_content_1.php';
+                break;
+            default:
+                echo "Nothing to display.";
+        }
+        //include_once 'op_main_content/op_main_content_'.$_GET['sidenav_active'].'.php';
+        ?>
+    </main>
 <?php break;
 
 

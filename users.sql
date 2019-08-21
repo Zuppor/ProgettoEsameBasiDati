@@ -18,11 +18,13 @@ grant trigger on classifica to operatore;
 grant execute on function func_refresh_classifica() to operatore;
 
 create user partner with encrypted password 'sL3FBmAxjFYnjsgBBN4HV8UF';
-grant insert,update,delete on bets to partner;
+grant execute on function func_insert_bet(bets) to partner;
+grant insert,update,delete,select on bets to partner;
 
 create user login_user with encrypted password 'rH4KJz5Es2ex7QUqvVntMjSM';
 grant select,insert on users,login_attempt to login_user;
-grant select on team,player,country,match,player_attribute,league,bet_society,public.classifica to login_user;
+grant select on team,currency,player,country,match,player_attribute,
+    league,bet_society,public.classifica to login_user;
 grant select,usage on sequence users_id_seq to login_user;
 
 grant usage on schema public to amministratore,operatore,partner,login_user;

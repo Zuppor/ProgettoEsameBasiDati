@@ -1,5 +1,5 @@
 <script type="text/javascript">
-/*    function submit(form,action){
+    function submit(form,action){
         var act = document.createElement("input");
 
         form.appendChild(act);
@@ -9,7 +9,7 @@
         act.value = action;
 
         form.submit();
-    }*/
+    }
 
     function toggle_buttons(t){
         document.getElementById("modify").disabled = t;
@@ -30,12 +30,13 @@
             from public.match
             join team th on public.match.home_team_id = th.id
             join team ta on public.match.away_team_id = ta.id
+            where public.match.operator_id = ".$_SESSION['user_id']."
             order by date desc");
 
             while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)) {
                 ?>
                 <option value="<?php echo $row['id']; ?>">
-                        <?php echo "Date: ".$row['date']." | Stage: ".$row['stage']." | Home team: ".$row['thl']." (".$row['ths'].") | Away team: ".$row['tal']." (".$row['tas'].") "; ?>
+                    <?php echo "Date: ".$row['date']." | Stage: ".$row['stage']." | Home team: ".$row['thl']." (".$row['ths'].") | Away team: ".$row['tal']." (".$row['tas'].") "; ?>
                 </option>
                 <?php
             }
@@ -50,10 +51,10 @@
                 <input type="reset" class="btn btn-outline-primary" name="reset" id="reset" value="Reset selection" onclick="toggle_buttons(true)"/>
             </li>
             <li>
-                <input type="submit" class="btn btn-primary" name="submit" id="modify" value="Modify" disabled/>
+                <input type="button" class="btn btn-primary" name="submit" id="modify" value="Modify" onclick="submit(this.form,this.value)" disabled/>
             </li>
             <li>
-                <input type="submit" class="btn btn-danger" name="submit" id="delete" value="Delete"  disabled/>
+                <input type="button" class="btn btn-danger" name="submit" id="delete" value="Delete" onclick="submit(this.form,this.value)" disabled/>
             </li>
         </ul>
     </div>
