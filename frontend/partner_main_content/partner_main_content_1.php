@@ -21,7 +21,7 @@
         <label for="bets">Bets placed by your society:</label><br>
 
 
-        <select multiple name="bets" id="bets" class="form-control" onchange="toggle_buttons(false)" required>
+        <select multiple="multiple" name="bets[]" id="bets" class="form-control" onchange="toggle_buttons(false)" required>
             <?php
 
             include_once '../../backend/db_connect_login.php';
@@ -49,9 +49,6 @@
         <ul class="nav nav-justified">
             <li>
                 <input type="reset" class="btn btn-outline-primary" name="reset" id="reset" value="Reset selection" onclick="toggle_buttons(true)"/>
-            </li>
-            <li>
-                <input type="submit" class="btn btn-primary" name="submit" id="modify" value="Modify" disabled/>
             </li>
             <li>
                 <input type="submit" class="btn btn-danger" name="submit" id="delete" value="Delete"  disabled/>

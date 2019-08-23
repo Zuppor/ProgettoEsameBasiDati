@@ -110,6 +110,7 @@ returns char as $result$
         for tmp in (select match_id,bet,currency_id,partner_id from bets where match_id = b.match_id and bet = b.bet and currency_id = b.currency_id) loop
             select bet_society_id into tmp2 from users where id = tmp.partner_id;
             if tmp2 = (select bet_society_id from users where id = b.partner_id) then
+                --never enter this if
                 raise info 'Errore: scommessa già presente da parte di questa società';
                 return '5';
             end if;

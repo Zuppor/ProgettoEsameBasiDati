@@ -3,7 +3,7 @@
         document.getElementById("submit").disabled = t;
     }
 </script>
-<form action="../backend/insert_bet.php" method="post">
+<form action="../../backend/insert_bet.php" method="post">
     <div class="form-group">
         <label for="matches">Select one or more matches</label><br>
         <select multiple="multiple" name="matches[]" id="matches" class="form-control" onchange="toggle_buttons(false)" required>

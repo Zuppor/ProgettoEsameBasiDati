@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6b213ae3-c0c9-460f-8edf-85cf43bda014" name="Default Changelist" comment="creata interfaccia per operatore e partner. aggiunta funzione carica scommessa.">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="6b213ae3-c0c9-460f-8edf-85cf43bda014" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/manage_bets.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/partner_main_content/partner_main_content_2.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/insert_bet.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/insert_bet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/form_insert_bet.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/form_insert_bet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/form_insert_bet.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/partner_main_content/partner_main_content_0.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/partner_main_content/partner_main_content_1.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/partner_main_content/partner_main_content_1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/functions.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,22 +101,24 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/Change SQL Dialect" value="PostgreSQL" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect" value="PostgreSQL" />
     <property name="database.console.LAST_STATE" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/partner_main_content" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/backend" />
-      <recent name="$PROJECT_DIR$/frontend/op_main_content" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/partner_main_content" />
       <recent name="$PROJECT_DIR$/images" />
       <recent name="$PROJECT_DIR$/frontend/admin_main_content" />
       <recent name="$PROJECT_DIR$/frontend" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/partner_main_content" />
+      <recent name="$PROJECT_DIR$/backend" />
+      <recent name="$PROJECT_DIR$/frontend/op_main_content" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -139,11 +142,6 @@
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6e1782d" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6e1782d" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@53646fa0" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
@@ -208,7 +206,7 @@
       <workItem from="1566201782493" duration="18558000" />
       <workItem from="1566291253238" duration="8284000" />
       <workItem from="1566388471237" duration="9779000" />
-      <workItem from="1566550232358" duration="7229000" />
+      <workItem from="1566550232358" duration="12807000" />
     </task>
     <task id="LOCAL-00001" summary="Ancora problemi con league">
       <created>1560597949614</created>
@@ -238,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566398007166</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ora si possono aggiungere più bets in una volta sola">
+      <created>1566560216979</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1566560216979</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,6 +267,7 @@
     <MESSAGE value="compressing some things" />
     <MESSAGE value="polishing UI again" />
     <MESSAGE value="creata interfaccia per operatore e partner. aggiunta funzione carica scommessa." />
-    <option name="LAST_COMMIT_MESSAGE" value="creata interfaccia per operatore e partner. aggiunta funzione carica scommessa." />
+    <MESSAGE value="ora si possono aggiungere più bets in una volta sola" />
+    <option name="LAST_COMMIT_MESSAGE" value="ora si possono aggiungere più bets in una volta sola" />
   </component>
 </project>

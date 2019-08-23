@@ -154,7 +154,7 @@ case 2:?>
     <div class="col-12 col-md-3 col-xl-2 border-right border-secondary">
         <ul class="nav nav-pills align-items-start flex-column">
             <?php
-            $items = array("Insert bet","Manage bets");
+            $items = array("Insert bet","Delete bets","Modify bets");
 
             for($i = 0;$i<count($items);$i++){
                 ?>
@@ -170,16 +170,20 @@ case 2:?>
     </div>
     <main class="col-12 col-ms-9 col-xl-8 py-md-3 pl-md-5" role="main">
         <?php
+
+        include_once 'partner_main_content/partner_main_content_'.$_GET['sidenav_active'].'.php';
+
+        /*
         switch ($_GET['sidenav_active']){
             case 0:
-                include_once 'form_insert_bet.php';
+                include_once 'partner_main_content_0.php';
                 break;
             case 1:
                 include_once 'partner_main_content/partner_main_content_1.php';
                 break;
             default:
                 echo "Nothing to display.";
-        }
+        }*/
         //include_once 'op_main_content/op_main_content_'.$_GET['sidenav_active'].'.php';
         ?>
     </main>
