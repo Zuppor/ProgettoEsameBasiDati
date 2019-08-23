@@ -19,7 +19,7 @@ grant execute on function func_refresh_classifica() to operatore;
 
 create user partner with encrypted password 'sL3FBmAxjFYnjsgBBN4HV8UF';
 grant execute on function func_insert_bet(bets) to partner;
-grant insert,update,delete,select on bets to partner;
+grant all privileges on table bets to partner;
 
 create user login_user with encrypted password 'rH4KJz5Es2ex7QUqvVntMjSM';
 grant select,insert on users,login_attempt to login_user;
