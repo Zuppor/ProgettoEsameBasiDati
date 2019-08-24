@@ -14,10 +14,7 @@ $errors = "";
 $errNumber = count($_POST['matches']);
 
 if(isset($_POST['matches'],$_POST['bet'],$_POST['sum'],$_POST['currency'])){
-    //print_r2($_POST);
-    //die();
 
-    //fixme: valore della scommessa è sempre 0
     $resource = pg_prepare($db,"","select func_insert_bet(row($1,$2,$3,$4,$5)) as result");
 
     foreach ($_POST['matches'] as $match){

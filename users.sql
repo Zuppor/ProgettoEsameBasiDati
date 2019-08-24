@@ -18,6 +18,7 @@ grant trigger on classifica to operatore;
 grant execute on function func_refresh_classifica() to operatore;
 
 create user partner with encrypted password 'sL3FBmAxjFYnjsgBBN4HV8UF';
+grant select on users to partner;
 grant execute on function func_insert_bet(bets) to partner;
 grant execute on function func_delete_bet(m_id int,p_id int, b char, curr char(3)) to partner;
 grant execute on function func_update_bet(m_id int,p_id int, b char, curr char(3), new_m_id int, new_b char, new_curr char(3), new_val numeric) to partner;

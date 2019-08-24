@@ -101,28 +101,41 @@ returns char as $result$
 language plpgsql;
 
 
+create or replace function func_check_bet(b bets)
+returns int as $result$
+begin
+    perform match_id,bet,currency_id,partner_id
+    from bets
+    join users s on bets.partner_id = s.id
+    where s.bet_society_id = (select bet_society_id from users where id = b.partner_id)
+      and match_id = b.match_id and bet = b.bet and currency_id = b.currency_id;
+
+    if FOUND then
+        return 1;
+    else
+        return 0;
+    end if;
+end;
+$result$ language plpgsql;
+
+
 create or replace function func_insert_bet(b bets)
 returns char as $result$
-    declare
-        tmp record;
-        tmp2 users.bet_society_id%TYPE;
     begin
-        for tmp in (select match_id,bet,currency_id,partner_id from bets where match_id = b.match_id and bet = b.bet and currency_id = b.currency_id) loop
-            select bet_society_id into tmp2 from users where id = tmp.partner_id;
-            if tmp2 = (select bet_society_id from users where id = b.partner_id) then
-                --fixme: never enter this if
-                raise info 'Errore: scommessa già presente da parte di questa società';
-                return '5';
+
+        if (select func_check_bet(b) = 0)  then
+            insert into bets (match_id, partner_id, bet, currency_id, value) values (b.match_id,b.partner_id,b.bet,b.currency_id,b.value);
+
+            if FOUND then
+                return '0';
+            else
+                return '1';
             end if;
-        end loop;
-
-        insert into bets (match_id, partner_id, bet, currency_id) values (b.match_id,b.partner_id,b.bet,b.currency_id);
-
-        if FOUND then
-            return '0';
         else
-            return '1';
+            raise info 'Errore: scommessa già presente da parte di questa società';
+            return '5';
         end if;
+
 
         exception
             when not_null_violation then
@@ -142,15 +155,23 @@ create or replace function func_update_bet(m_id int,p_id int, b char, curr char(
 returns char as $result$
     begin
 
-        update bets
-        set match_id = new_m_id,bet = new_b,currency_id = new_curr, value = new_val
-        where partner_id = p_id and match_id = m_id and bet = b and currency_id = curr;
+        if (select func_check_bet(row(new_m_id,p_id,new_b,new_val,new_curr)) = 0) then
 
-        if FOUND then
-            return '0';
+            update bets
+            set match_id = new_m_id,bet = new_b,currency_id = new_curr, value = new_val
+            where partner_id = p_id and match_id = m_id and bet = b and currency_id = curr;
+
+            if FOUND then
+                return '0';
+            else
+                return '1';
+            end if;
         else
-            return '1';
+            raise info 'Errore: scommessa già presente da parte di questa società';
+            return '5';
         end if;
+
+
 
         exception
             when not_null_violation then
