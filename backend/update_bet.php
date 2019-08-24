@@ -20,8 +20,12 @@ if(isset($_POST['bet'],$_POST['match'],$_POST['new_bet'],$_POST['sum'],$_POST['c
         else {
             $arr = pg_fetch_array($resource, null, PGSQL_ASSOC);
 
-            if($arr['result'] !== '0'){
-                $error = "Error. Code: " . $arr['result'];
+            switch($arr['result']){
+                case 5:
+                    $error = "SCommessa già presente per questa società";
+                    break;
+                default:
+                    $error = "Error. Code: " . $arr['result'];
             }
         }
 }

@@ -21,7 +21,6 @@ if(isset($_POST['matches'],$_POST['bet'],$_POST['sum'],$_POST['currency'])){
         $resource = pg_execute($db,"",array($match,$_SESSION['user_id'],$_POST['bet'],$_POST['sum'],$_POST['currency']));
 
         if($resource === false){
-            //$hdr = 'Location: ../frontend/home.php?error=Error: '.pg_last_error($resource);
             $errors = addError($errors,"Error: ".pg_last_error($resource));
         }
         else{
@@ -32,19 +31,15 @@ if(isset($_POST['matches'],$_POST['bet'],$_POST['sum'],$_POST['currency'])){
                     $errNumber--;
                     break;
                 case 5:
-                    //$hdr = 'Location: ../frontend/home.php?error=Scommessa già presente';
                     $errors = addError($errors,"Error: Scommessa già presente");
                     break;
                 default:
-                    //$hdr = 'Location: ../frontend/home.php?error='.$arr['result'];
                     $errors = addError($errors,"Error: code ".$arr['result']);
             }
         }
     }
 }
 else{
-
-    //$hdr = 'Location: ../frontend/home.php?error=Parametri richiesti';
     $errors = addError($errors,"Error: Scommessa già presente");
 }
 

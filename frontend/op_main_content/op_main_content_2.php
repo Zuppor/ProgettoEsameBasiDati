@@ -16,7 +16,7 @@
         document.getElementById("delete").disabled = t;
     }
 </script>
-<form action="../../backend/delete_matches.php" method="post">
+<form action="../../backend/update_match.php" method="post">
     <div class="form-group">
         <label for="matches">Select one or more matches</label><br>
 
@@ -26,12 +26,14 @@
 
             include_once '../../backend/db_connect_login.php';
 
-            $resource = pg_query($db,"select public.match.id,date,stage,th.long_name as thl,th.short_name as ths,ta.long_name as tal,ta.short_name as tas 
+            $resource = pg_prepare($db,"","select public.match.id,date,stage,th.long_name as thl,th.short_name as ths,ta.long_name as tal,ta.short_name as tas 
             from public.match
             join team th on public.match.home_team_id = th.id
             join team ta on public.match.away_team_id = ta.id
-            where public.match.operator_id = ".$_SESSION['user_id']."
+            where public.match.operator_id = $1
             order by date desc");
+
+            $resource = pg_execute($db,"",array($_SESSION['user_id']));
 
             while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)) {
                 ?>
@@ -53,14 +55,7 @@
             <li>
                 <input type="button" class="btn btn-primary" name="submit" id="modify" value="Modify" onclick="submit(this.form,this.value)" disabled/>
             </li>
-            <li>
-                <input type="button" class="btn btn-danger" name="submit" id="delete" value="Delete" onclick="submit(this.form,this.value)" disabled/>
-            </li>
         </ul>
     </div>
 
 </form>
-
-<?php
-include_once '../form_insert_match.php';
-?>
