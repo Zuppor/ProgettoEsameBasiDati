@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="soccerdb@localhost">
-  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.15">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.16">
     <root id="1">
       <ServerVersion>10.5</ServerVersion>
     </root>
@@ -8,12 +8,11 @@
       <ObjectId>12297</ObjectId>
       <Comment>default administrative connection database</Comment>
       <Owner>postgres</Owner>
-      <Substituted>1</Substituted>
     </database>
     <database id="3" parent="1" name="soccerdb">
       <ObjectId>16859</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>492020</IntrospectionStateNumber>
+      <IntrospectionStateNumber>492054</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|20172|20174|1
 sequence|table|20180|20182|1
@@ -23,7 +22,6 @@ sequence|table|20218|20220|1
 sequence|table|20228|20230|1
 sequence|table|20248|20250|1
 </Relations>
-      <Visible>1</Visible>
     </database>
     <role id="4" parent="1" name="amministratore">
       <ObjectId>20366</ObjectId>
@@ -85,52 +83,26 @@ sequence|table|20248|20250|1
       <Replication>1</Replication>
       <BypassRls>1</BypassRls>
     </role>
-    <schema id="14" parent="2" name="information_schema">
-      <Substituted>1</Substituted>
-    </schema>
-    <schema id="15" parent="2" name="pg_catalog">
-      <Comment>system catalog schema</Comment>
-      <Substituted>1</Substituted>
-    </schema>
-    <schema id="16" parent="3" name="information_schema">
+    <schema id="14" parent="3" name="information_schema">
       <ObjectId>12006</ObjectId>
       <StateNumber>353</StateNumber>
       <Owner>postgres</Owner>
-      <Substituted>1</Substituted>
     </schema>
-    <schema id="17" parent="3" name="pg_catalog">
+    <schema id="15" parent="3" name="pg_catalog">
       <ObjectId>11</ObjectId>
       <Comment>system catalog schema</Comment>
       <StateNumber>350</StateNumber>
       <Owner>postgres</Owner>
       <IntrospectionStateNumber>185400</IntrospectionStateNumber>
-      <Substituted>1</Substituted>
     </schema>
-    <schema id="18" parent="3" name="pg_temp_1">
-      <ObjectId>11736</ObjectId>
-      <StateNumber>113</StateNumber>
-      <Owner>postgres</Owner>
-    </schema>
-    <schema id="19" parent="3" name="pg_toast">
-      <ObjectId>99</ObjectId>
-      <Comment>reserved schema for TOAST tables</Comment>
-      <StateNumber>1</StateNumber>
-      <Owner>postgres</Owner>
-    </schema>
-    <schema id="20" parent="3" name="pg_toast_temp_1">
-      <ObjectId>11737</ObjectId>
-      <StateNumber>113</StateNumber>
-      <Owner>postgres</Owner>
-    </schema>
-    <schema id="21" parent="3" name="public">
+    <schema id="16" parent="3" name="public">
       <ObjectId>20167</ObjectId>
       <StateNumber>330759</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>492021</IntrospectionStateNumber>
+      <IntrospectionStateNumber>492055</IntrospectionStateNumber>
       <Current>1</Current>
-      <Visible>1</Visible>
     </schema>
-    <access-method id="22" parent="3" name="btree">
+    <access-method id="17" parent="3" name="btree">
       <ObjectId>403</ObjectId>
       <Comment>b-tree index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -138,7 +110,7 @@ sequence|table|20248|20250|1
       <HandlerId>330</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="23" parent="3" name="hash">
+    <access-method id="18" parent="3" name="hash">
       <ObjectId>405</ObjectId>
       <Comment>hash index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -146,7 +118,7 @@ sequence|table|20248|20250|1
       <HandlerId>331</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="24" parent="3" name="gist">
+    <access-method id="19" parent="3" name="gist">
       <ObjectId>783</ObjectId>
       <Comment>GiST index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -154,7 +126,7 @@ sequence|table|20248|20250|1
       <HandlerId>332</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="25" parent="3" name="gin">
+    <access-method id="20" parent="3" name="gin">
       <ObjectId>2742</ObjectId>
       <Comment>GIN index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -162,7 +134,7 @@ sequence|table|20248|20250|1
       <HandlerId>333</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="26" parent="3" name="spgist">
+    <access-method id="21" parent="3" name="spgist">
       <ObjectId>4000</ObjectId>
       <Comment>SP-GiST index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -170,7 +142,7 @@ sequence|table|20248|20250|1
       <HandlerId>334</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="27" parent="3" name="brin">
+    <access-method id="22" parent="3" name="brin">
       <ObjectId>3580</ObjectId>
       <Comment>block range index (BRIN) access method</Comment>
       <StateNumber>1</StateNumber>
@@ -178,7 +150,7 @@ sequence|table|20248|20250|1
       <HandlerId>335</HandlerId>
       <Type>index</Type>
     </access-method>
-    <extension id="28" parent="3" name="plpgsql">
+    <extension id="23" parent="3" name="plpgsql">
       <ObjectId>12283</ObjectId>
       <Comment>PL/pgSQL procedural language</Comment>
       <StateNumber>505</StateNumber>
@@ -186,7 +158,7 @@ sequence|table|20248|20250|1
       <SchemaName>pg_catalog</SchemaName>
       <SchemaId>11</SchemaId>
     </extension>
-    <sequence id="29" parent="21" name="bet_society_id_seq">
+    <sequence id="24" parent="16" name="bet_society_id_seq">
       <ObjectId>20172</ObjectId>
       <StateNumber>330689</StateNumber>
       <Owner>postgres</Owner>
@@ -194,7 +166,7 @@ sequence|table|20248|20250|1
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <sequence id="30" parent="21" name="country_id_seq">
+    <sequence id="25" parent="16" name="country_id_seq">
       <ObjectId>20228</ObjectId>
       <StateNumber>330740</StateNumber>
       <Owner>postgres</Owner>
@@ -202,7 +174,7 @@ sequence|table|20248|20250|1
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <sequence id="31" parent="21" name="league_id_seq">
+    <sequence id="26" parent="16" name="league_id_seq">
       <ObjectId>20218</ObjectId>
       <StateNumber>330740</StateNumber>
       <Owner>postgres</Owner>
@@ -210,7 +182,7 @@ sequence|table|20248|20250|1
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <sequence id="32" parent="21" name="match_id_seq">
+    <sequence id="27" parent="16" name="match_id_seq">
       <ObjectId>20248</ObjectId>
       <StateNumber>491944</StateNumber>
       <Owner>postgres</Owner>
@@ -218,7 +190,7 @@ sequence|table|20248|20250|1
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <sequence id="33" parent="21" name="player_id_seq">
+    <sequence id="28" parent="16" name="player_id_seq">
       <ObjectId>20205</ObjectId>
       <StateNumber>330692</StateNumber>
       <Owner>postgres</Owner>
@@ -226,7 +198,7 @@ sequence|table|20248|20250|1
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <sequence id="34" parent="21" name="team_id_seq">
+    <sequence id="29" parent="16" name="team_id_seq">
       <ObjectId>20197</ObjectId>
       <StateNumber>330740</StateNumber>
       <Owner>postgres</Owner>
@@ -234,7 +206,7 @@ sequence|table|20248|20250|1
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <sequence id="35" parent="21" name="users_id_seq">
+    <sequence id="30" parent="16" name="users_id_seq">
       <ObjectId>20180</ObjectId>
       <StateNumber>330758</StateNumber>
       <Owner>postgres</Owner>
@@ -242,7 +214,7 @@ sequence|table|20248|20250|1
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <object-type id="36" parent="21" name="percentage">
+    <object-type id="31" parent="16" name="percentage">
       <ObjectId>20168</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>330685</StateNumber>
@@ -252,7 +224,7 @@ sequence|table|20248|20250|1
       <BaseTypeId>21</BaseTypeId>
       <SubCategory>numeric</SubCategory>
     </object-type>
-    <object-type id="37" parent="21" name="rate">
+    <object-type id="32" parent="16" name="rate">
       <ObjectId>20170</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>330686</StateNumber>
@@ -262,77 +234,89 @@ sequence|table|20248|20250|1
       <BaseTypeId>1042</BaseTypeId>
       <SubCategory>string</SubCategory>
     </object-type>
-    <table id="38" parent="21" name="bet_society">
+    <table id="33" parent="16" name="bet_society">
       <ObjectId>20174</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>491974</StateNumber>
+      <StateNumber>492030</StateNumber>
     </table>
-    <table id="39" parent="21" name="bets">
+    <table id="34" parent="16" name="bets">
       <ObjectId>20402</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>491999</StateNumber>
+      <StateNumber>492030</StateNumber>
     </table>
-    <table id="40" parent="21" name="country">
+    <table id="35" parent="16" name="country">
       <ObjectId>20230</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>491974</StateNumber>
+      <StateNumber>492030</StateNumber>
     </table>
-    <table id="41" parent="21" name="currency">
+    <table id="36" parent="16" name="currency">
       <ObjectId>20396</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>491999</StateNumber>
+      <StateNumber>492030</StateNumber>
     </table>
-    <table id="42" parent="21" name="initial_formation">
+    <table id="37" parent="16" name="initial_formation">
       <ObjectId>20376</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>356103</StateNumber>
     </table>
-    <table id="43" parent="21" name="league">
+    <table id="38" parent="16" name="league">
       <ObjectId>20220</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>491974</StateNumber>
+      <StateNumber>492030</StateNumber>
     </table>
-    <table id="44" parent="21" name="login_attempt">
+    <table id="39" parent="16" name="login_attempt">
       <ObjectId>20343</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>330756</StateNumber>
     </table>
-    <table id="45" parent="21" name="match">
+    <table id="40" parent="16" name="match">
       <ObjectId>20250</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>491999</StateNumber>
+      <StateNumber>492030</StateNumber>
     </table>
-    <table id="46" parent="21" name="player">
+    <table id="41" parent="16" name="player">
       <ObjectId>20207</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>491974</StateNumber>
+      <StateNumber>492030</StateNumber>
     </table>
-    <table id="47" parent="21" name="player_attribute">
+    <table id="42" parent="16" name="player_attribute">
       <ObjectId>20288</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>491974</StateNumber>
+      <StateNumber>492030</StateNumber>
     </table>
-    <table id="48" parent="21" name="team">
+    <table id="43" parent="16" name="team">
       <ObjectId>20199</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>491974</StateNumber>
+      <StateNumber>492030</StateNumber>
     </table>
-    <table id="49" parent="21" name="users">
+    <table id="44" parent="16" name="users">
       <ObjectId>20182</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>491999</StateNumber>
     </table>
-    <materialized-view id="50" parent="21" name="classifica">
+    <materialized-view id="45" parent="16" name="classifica">
       <ObjectId>20359</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>491974</StateNumber>
+      <StateNumber>492030</StateNumber>
       <SourceTextLength>383</SourceTextLength>
     </materialized-view>
-    <routine id="51" parent="21" name="func_insert_bet">
+    <routine id="46" parent="16" name="func_delete_bet">
+      <ObjectId>20430</ObjectId>
+      <Owner>postgres</Owner>
+      <SourceTextLength>567</SourceTextLength>
+      <StateNumber>492048</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>m_id integer, p_id integer, b character, curr character</ArgumentsDefinition>
+      <ResultsDefinition>character</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Cost>100.0</Cost>
+    </routine>
+    <routine id="47" parent="16" name="func_insert_bet">
       <ObjectId>20429</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>1243</SourceTextLength>
-      <StateNumber>492014</StateNumber>
+      <StateNumber>492023</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>b bets</ArgumentsDefinition>
       <ResultsDefinition>character</ResultsDefinition>
@@ -340,7 +324,7 @@ sequence|table|20248|20250|1
       <RoutineKind>function</RoutineKind>
       <Cost>100.0</Cost>
     </routine>
-    <routine id="52" parent="21" name="func_insert_country">
+    <routine id="48" parent="16" name="func_insert_country">
       <ObjectId>20352</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>620</SourceTextLength>
@@ -352,7 +336,7 @@ sequence|table|20248|20250|1
       <RoutineKind>function</RoutineKind>
       <Cost>100.0</Cost>
     </routine>
-    <routine id="53" parent="21" name="func_insert_league">
+    <routine id="49" parent="16" name="func_insert_league">
       <ObjectId>20353</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>545</SourceTextLength>
@@ -364,7 +348,7 @@ sequence|table|20248|20250|1
       <RoutineKind>function</RoutineKind>
       <Cost>100.0</Cost>
     </routine>
-    <routine id="54" parent="21" name="func_insert_match">
+    <routine id="50" parent="16" name="func_insert_match">
       <ObjectId>20351</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>731</SourceTextLength>
@@ -376,7 +360,7 @@ sequence|table|20248|20250|1
       <RoutineKind>function</RoutineKind>
       <Cost>100.0</Cost>
     </routine>
-    <routine id="55" parent="21" name="func_insert_player">
+    <routine id="51" parent="16" name="func_insert_player">
       <ObjectId>20356</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>690</SourceTextLength>
@@ -388,7 +372,7 @@ sequence|table|20248|20250|1
       <RoutineKind>function</RoutineKind>
       <Cost>100.0</Cost>
     </routine>
-    <routine id="56" parent="21" name="func_insert_player_attributes">
+    <routine id="52" parent="16" name="func_insert_player_attributes">
       <ObjectId>20357</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>2258</SourceTextLength>
@@ -400,7 +384,7 @@ sequence|table|20248|20250|1
       <RoutineKind>function</RoutineKind>
       <Cost>100.0</Cost>
     </routine>
-    <routine id="57" parent="21" name="func_insert_team">
+    <routine id="53" parent="16" name="func_insert_team">
       <ObjectId>20354</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>498</SourceTextLength>
@@ -412,7 +396,7 @@ sequence|table|20248|20250|1
       <RoutineKind>function</RoutineKind>
       <Cost>100.0</Cost>
     </routine>
-    <routine id="58" parent="21" name="func_player_formation_assoc">
+    <routine id="54" parent="16" name="func_player_formation_assoc">
       <ObjectId>20391</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>594</SourceTextLength>
@@ -424,7 +408,7 @@ sequence|table|20248|20250|1
       <RoutineKind>function</RoutineKind>
       <Cost>100.0</Cost>
     </routine>
-    <routine id="59" parent="21" name="func_refresh_classifica">
+    <routine id="55" parent="16" name="func_refresh_classifica">
       <ObjectId>20358</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>71</SourceTextLength>
@@ -436,17 +420,29 @@ sequence|table|20248|20250|1
       <SecurityDefiner>1</SecurityDefiner>
       <Cost>100.0</Cost>
     </routine>
-    <check id="60" parent="36" name="percentage_check">
+    <routine id="56" parent="16" name="func_update_bet">
+      <ObjectId>20431</ObjectId>
+      <Owner>postgres</Owner>
+      <SourceTextLength>774</SourceTextLength>
+      <StateNumber>492049</StateNumber>
+      <VolatilityKind>volatile</VolatilityKind>
+      <ArgumentsDefinition>m_id integer, p_id integer, b character, curr character, new_m_id integer, new_b character, new_curr character, new_val numeric</ArgumentsDefinition>
+      <ResultsDefinition>character</ResultsDefinition>
+      <LanguageName>plpgsql</LanguageName>
+      <RoutineKind>function</RoutineKind>
+      <Cost>100.0</Cost>
+    </routine>
+    <check id="57" parent="31" name="percentage_check">
       <ObjectId>20169</ObjectId>
       <StateNumber>330685</StateNumber>
       <Predicate>((VALUE &gt;= 0) AND (VALUE &lt;= 100))</Predicate>
     </check>
-    <check id="61" parent="37" name="rate_check">
+    <check id="58" parent="32" name="rate_check">
       <ObjectId>20171</ObjectId>
       <StateNumber>330686</StateNumber>
       <Predicate>(VALUE = ANY (ARRAY[&apos;l&apos;::bpchar, &apos;n&apos;::bpchar, &apos;m&apos;::bpchar, &apos;h&apos;::bpchar]))</Predicate>
     </check>
-    <column id="62" parent="38" name="id">
+    <column id="59" parent="33" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -454,56 +450,56 @@ sequence|table|20248|20250|1
       <DefaultExpression>nextval(&apos;bet_society_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="63" parent="38" name="short_name">
+    <column id="60" parent="33" name="short_name">
       <Position>2</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330689</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="64" parent="38" name="long_name">
+    <column id="61" parent="33" name="long_name">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330689</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="65" parent="38" name="bet_society_pkey">
+    <index id="62" parent="33" name="bet_society_pkey">
       <ObjectId>20178</ObjectId>
       <StateNumber>330689</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="66" parent="38" name="bet_society_pkey">
+    <key id="63" parent="33" name="bet_society_pkey">
       <ObjectId>20179</ObjectId>
       <StateNumber>330689</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>bet_society_pkey</UnderlyingIndexName>
     </key>
-    <column id="67" parent="39" name="match_id">
+    <column id="64" parent="34" name="match_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>491999</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="68" parent="39" name="partner_id">
+    <column id="65" parent="34" name="partner_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>491999</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="69" parent="39" name="bet">
+    <column id="66" parent="34" name="bet">
       <Position>3</Position>
       <DataType>char|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>491999</StateNumber>
       <TypeId>1042</TypeId>
     </column>
-    <column id="70" parent="39" name="value">
+    <column id="67" parent="34" name="value">
       <Position>4</Position>
       <DataType>numeric|0s</DataType>
       <NotNull>1</NotNull>
@@ -511,14 +507,14 @@ sequence|table|20248|20250|1
       <DefaultExpression>0</DefaultExpression>
       <TypeId>1700</TypeId>
     </column>
-    <column id="71" parent="39" name="currency_id">
+    <column id="68" parent="34" name="currency_id">
       <Position>5</Position>
       <DataType>char(3)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>491999</StateNumber>
       <TypeId>1042</TypeId>
     </column>
-    <index id="72" parent="39" name="bets_pkey">
+    <index id="69" parent="34" name="bets_pkey">
       <ObjectId>20410</ObjectId>
       <StateNumber>491999</StateNumber>
       <ColNames>match_id
@@ -528,7 +524,7 @@ currency_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="73" parent="39" name="bets_pkey">
+    <key id="70" parent="34" name="bets_pkey">
       <ObjectId>20411</ObjectId>
       <StateNumber>491999</StateNumber>
       <ColNames>match_id
@@ -538,7 +534,7 @@ currency_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>bets_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="74" parent="39" name="bets_match_id_fkey">
+    <foreign-key id="71" parent="34" name="bets_match_id_fkey">
       <ObjectId>20412</ObjectId>
       <StateNumber>491999</StateNumber>
       <ColNames>match_id</ColNames>
@@ -550,7 +546,7 @@ currency_id</ColNames>
       <OnDelete>set-null</OnDelete>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <foreign-key id="75" parent="39" name="bets_partner_id_fkey">
+    <foreign-key id="72" parent="34" name="bets_partner_id_fkey">
       <ObjectId>20417</ObjectId>
       <StateNumber>491999</StateNumber>
       <ColNames>partner_id</ColNames>
@@ -561,7 +557,7 @@ currency_id</ColNames>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <foreign-key id="76" parent="39" name="bets_currency_id_fkey">
+    <foreign-key id="73" parent="34" name="bets_currency_id_fkey">
       <ObjectId>20422</ObjectId>
       <StateNumber>491999</StateNumber>
       <ColNames>currency_id</ColNames>
@@ -571,13 +567,13 @@ currency_id</ColNames>
       <RefKeyName>currency_pkey</RefKeyName>
       <RefColNames>code</RefColNames>
     </foreign-key>
-    <check id="77" parent="39" name="bets_bet_check">
+    <check id="74" parent="34" name="bets_bet_check">
       <ObjectId>20406</ObjectId>
       <StateNumber>491999</StateNumber>
       <ColNames>bet</ColNames>
       <Predicate>bet = ANY (ARRAY[&apos;a&apos;::bpchar, &apos;h&apos;::bpchar, &apos;d&apos;::bpchar])</Predicate>
     </check>
-    <column id="78" parent="40" name="id">
+    <column id="75" parent="35" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -585,89 +581,89 @@ currency_id</ColNames>
       <DefaultExpression>nextval(&apos;country_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="79" parent="40" name="name">
+    <column id="76" parent="35" name="name">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330694</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="80" parent="40" name="country_pkey">
+    <index id="77" parent="35" name="country_pkey">
       <ObjectId>20234</ObjectId>
       <StateNumber>330694</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="81" parent="40" name="country_name_key">
+    <index id="78" parent="35" name="country_name_key">
       <ObjectId>20236</ObjectId>
       <StateNumber>330694</StateNumber>
       <ColNames>name</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="82" parent="40" name="country_pkey">
+    <key id="79" parent="35" name="country_pkey">
       <ObjectId>20235</ObjectId>
       <StateNumber>330694</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>country_pkey</UnderlyingIndexName>
     </key>
-    <key id="83" parent="40" name="country_name_key">
+    <key id="80" parent="35" name="country_name_key">
       <ObjectId>20237</ObjectId>
       <StateNumber>330694</StateNumber>
       <ColNames>name</ColNames>
       <UnderlyingIndexName>country_name_key</UnderlyingIndexName>
     </key>
-    <column id="84" parent="41" name="code">
+    <column id="81" parent="36" name="code">
       <Position>1</Position>
       <DataType>char(3)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>491971</StateNumber>
       <TypeId>1042</TypeId>
     </column>
-    <index id="85" parent="41" name="currency_pkey">
+    <index id="82" parent="36" name="currency_pkey">
       <ObjectId>20399</ObjectId>
       <StateNumber>491971</StateNumber>
       <ColNames>code</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="86" parent="41" name="currency_pkey">
+    <key id="83" parent="36" name="currency_pkey">
       <ObjectId>20400</ObjectId>
       <StateNumber>491971</StateNumber>
       <ColNames>code</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>currency_pkey</UnderlyingIndexName>
     </key>
-    <column id="87" parent="42" name="match_id">
+    <column id="84" parent="37" name="match_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>354645</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="88" parent="42" name="player_id">
+    <column id="85" parent="37" name="player_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>354645</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="89" parent="42" name="initial_formation_match_id_player_id_key">
+    <index id="86" parent="37" name="initial_formation_match_id_player_id_key">
       <ObjectId>20379</ObjectId>
       <StateNumber>354645</StateNumber>
       <ColNames>match_id
 player_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="90" parent="42" name="initial_formation_match_id_player_id_key">
+    <key id="87" parent="37" name="initial_formation_match_id_player_id_key">
       <ObjectId>20380</ObjectId>
       <StateNumber>354645</StateNumber>
       <ColNames>match_id
 player_id</ColNames>
       <UnderlyingIndexName>initial_formation_match_id_player_id_key</UnderlyingIndexName>
     </key>
-    <foreign-key id="91" parent="42" name="initial_formation_match_id_fkey">
+    <foreign-key id="88" parent="37" name="initial_formation_match_id_fkey">
       <ObjectId>20381</ObjectId>
       <StateNumber>354645</StateNumber>
       <ColNames>match_id</ColNames>
@@ -679,7 +675,7 @@ player_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <foreign-key id="92" parent="42" name="initial_formation_player_id_fkey">
+    <foreign-key id="89" parent="37" name="initial_formation_player_id_fkey">
       <ObjectId>20386</ObjectId>
       <StateNumber>354645</StateNumber>
       <ColNames>player_id</ColNames>
@@ -690,7 +686,7 @@ player_id</ColNames>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="93" parent="43" name="id">
+    <column id="90" parent="38" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -698,54 +694,54 @@ player_id</ColNames>
       <DefaultExpression>nextval(&apos;league_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="94" parent="43" name="name">
+    <column id="91" parent="38" name="name">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330693</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="95" parent="43" name="league_pkey">
+    <index id="92" parent="38" name="league_pkey">
       <ObjectId>20224</ObjectId>
       <StateNumber>330693</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="96" parent="43" name="league_name_key">
+    <index id="93" parent="38" name="league_name_key">
       <ObjectId>20226</ObjectId>
       <StateNumber>330693</StateNumber>
       <ColNames>name</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="97" parent="43" name="league_pkey">
+    <key id="94" parent="38" name="league_pkey">
       <ObjectId>20225</ObjectId>
       <StateNumber>330693</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>league_pkey</UnderlyingIndexName>
     </key>
-    <key id="98" parent="43" name="league_name_key">
+    <key id="95" parent="38" name="league_name_key">
       <ObjectId>20227</ObjectId>
       <StateNumber>330693</StateNumber>
       <ColNames>name</ColNames>
       <UnderlyingIndexName>league_name_key</UnderlyingIndexName>
     </key>
-    <column id="99" parent="44" name="user_id">
+    <column id="96" parent="39" name="user_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330700</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="100" parent="44" name="time">
+    <column id="97" parent="39" name="time">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330700</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="101" parent="44" name="login_attempt_user_id_fkey">
+    <foreign-key id="98" parent="39" name="login_attempt_user_id_fkey">
       <ObjectId>20346</ObjectId>
       <StateNumber>330700</StateNumber>
       <ColNames>user_id</ColNames>
@@ -757,7 +753,7 @@ player_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="102" parent="45" name="id">
+    <column id="99" parent="40" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -765,42 +761,42 @@ player_id</ColNames>
       <DefaultExpression>nextval(&apos;match_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="103" parent="45" name="home_team_id">
+    <column id="100" parent="40" name="home_team_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330696</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="104" parent="45" name="away_team_id">
+    <column id="101" parent="40" name="away_team_id">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330696</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="105" parent="45" name="season">
+    <column id="102" parent="40" name="season">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330696</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="106" parent="45" name="stage">
+    <column id="103" parent="40" name="stage">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330696</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="107" parent="45" name="date">
+    <column id="104" parent="40" name="date">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330696</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="108" parent="45" name="a_team_goal">
+    <column id="105" parent="40" name="a_team_goal">
       <Position>7</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -808,7 +804,7 @@ player_id</ColNames>
       <DefaultExpression>0</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="109" parent="45" name="h_team_goal">
+    <column id="106" parent="40" name="h_team_goal">
       <Position>8</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -816,35 +812,35 @@ player_id</ColNames>
       <DefaultExpression>0</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="110" parent="45" name="league_id">
+    <column id="107" parent="40" name="league_id">
       <Position>9</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330696</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="111" parent="45" name="country_id">
+    <column id="108" parent="40" name="country_id">
       <Position>10</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330696</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="112" parent="45" name="operator_id">
+    <column id="109" parent="40" name="operator_id">
       <Position>11</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330696</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="113" parent="45" name="match_pkey">
+    <index id="110" parent="40" name="match_pkey">
       <ObjectId>20259</ObjectId>
       <StateNumber>330696</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="114" parent="45" name="match_date_league_id_country_id_home_team_id_away_team_id_s_key">
+    <index id="111" parent="40" name="match_date_league_id_country_id_home_team_id_away_team_id_s_key">
       <ObjectId>20261</ObjectId>
       <StateNumber>330696</StateNumber>
       <ColNames>date
@@ -855,14 +851,14 @@ away_team_id
 stage</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="115" parent="45" name="match_pkey">
+    <key id="112" parent="40" name="match_pkey">
       <ObjectId>20260</ObjectId>
       <StateNumber>330696</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>match_pkey</UnderlyingIndexName>
     </key>
-    <key id="116" parent="45" name="match_date_league_id_country_id_home_team_id_away_team_id_s_key">
+    <key id="113" parent="40" name="match_date_league_id_country_id_home_team_id_away_team_id_s_key">
       <ObjectId>20262</ObjectId>
       <StateNumber>330696</StateNumber>
       <ColNames>date
@@ -873,7 +869,7 @@ away_team_id
 stage</ColNames>
       <UnderlyingIndexName>match_date_league_id_country_id_home_team_id_away_team_id_s_key</UnderlyingIndexName>
     </key>
-    <foreign-key id="117" parent="45" name="match_home_team_id_fkey">
+    <foreign-key id="114" parent="40" name="match_home_team_id_fkey">
       <ObjectId>20263</ObjectId>
       <StateNumber>330696</StateNumber>
       <ColNames>home_team_id</ColNames>
@@ -884,7 +880,7 @@ stage</ColNames>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <foreign-key id="118" parent="45" name="match_away_team_id_fkey">
+    <foreign-key id="115" parent="40" name="match_away_team_id_fkey">
       <ObjectId>20268</ObjectId>
       <StateNumber>330696</StateNumber>
       <ColNames>away_team_id</ColNames>
@@ -895,7 +891,7 @@ stage</ColNames>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <foreign-key id="119" parent="45" name="match_league_id_fkey">
+    <foreign-key id="116" parent="40" name="match_league_id_fkey">
       <ObjectId>20273</ObjectId>
       <StateNumber>330696</StateNumber>
       <ColNames>league_id</ColNames>
@@ -907,7 +903,7 @@ stage</ColNames>
       <OnDelete>set-null</OnDelete>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <foreign-key id="120" parent="45" name="match_country_id_fkey">
+    <foreign-key id="117" parent="40" name="match_country_id_fkey">
       <ObjectId>20278</ObjectId>
       <StateNumber>330696</StateNumber>
       <ColNames>country_id</ColNames>
@@ -919,7 +915,7 @@ stage</ColNames>
       <OnDelete>set-null</OnDelete>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <foreign-key id="121" parent="45" name="match_operator_id_fkey">
+    <foreign-key id="118" parent="40" name="match_operator_id_fkey">
       <ObjectId>20283</ObjectId>
       <StateNumber>330696</StateNumber>
       <ColNames>operator_id</ColNames>
@@ -930,26 +926,26 @@ stage</ColNames>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <check id="122" parent="45" name="match_a_team_goal_check">
+    <check id="119" parent="40" name="match_a_team_goal_check">
       <ObjectId>20257</ObjectId>
       <StateNumber>330696</StateNumber>
       <ColNames>a_team_goal</ColNames>
       <Predicate>a_team_goal &gt;= 0</Predicate>
     </check>
-    <check id="123" parent="45" name="match_h_team_goal_check">
+    <check id="120" parent="40" name="match_h_team_goal_check">
       <ObjectId>20258</ObjectId>
       <StateNumber>330696</StateNumber>
       <ColNames>h_team_goal</ColNames>
       <Predicate>h_team_goal &gt;= 0</Predicate>
     </check>
-    <check id="124" parent="45" name="match_check">
+    <check id="121" parent="40" name="match_check">
       <ObjectId>20256</ObjectId>
       <StateNumber>330696</StateNumber>
       <ColNames>home_team_id
 away_team_id</ColNames>
       <Predicate>home_team_id &lt;&gt; away_team_id</Predicate>
     </check>
-    <column id="125" parent="46" name="id">
+    <column id="122" parent="41" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -957,55 +953,55 @@ away_team_id</ColNames>
       <DefaultExpression>nextval(&apos;player_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="126" parent="46" name="name">
+    <column id="123" parent="41" name="name">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330692</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="127" parent="46" name="birthday">
+    <column id="124" parent="41" name="birthday">
       <Position>3</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330692</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="128" parent="46" name="height">
+    <column id="125" parent="41" name="height">
       <Position>4</Position>
       <DataType>real|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>352368</StateNumber>
       <TypeId>700</TypeId>
     </column>
-    <column id="129" parent="46" name="weight">
+    <column id="126" parent="41" name="weight">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330692</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="130" parent="46" name="team_id">
+    <column id="127" parent="41" name="team_id">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>330692</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="131" parent="46" name="player_pkey">
+    <index id="128" parent="41" name="player_pkey">
       <ObjectId>20211</ObjectId>
       <StateNumber>352368</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="132" parent="46" name="player_pkey">
+    <key id="129" parent="41" name="player_pkey">
       <ObjectId>20212</ObjectId>
       <StateNumber>330692</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>player_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="133" parent="46" name="player_team_id_fkey">
+    <foreign-key id="130" parent="41" name="player_team_id_fkey">
       <ObjectId>20213</ObjectId>
       <StateNumber>330692</StateNumber>
       <ColNames>team_id</ColNames>
@@ -1017,33 +1013,33 @@ away_team_id</ColNames>
       <OnDelete>set-null</OnDelete>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="134" parent="47" name="player_id">
+    <column id="131" parent="42" name="player_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330697</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="135" parent="47" name="date">
+    <column id="132" parent="42" name="date">
       <Position>2</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330697</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="136" parent="47" name="overall_rating">
+    <column id="133" parent="42" name="overall_rating">
       <Position>3</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="137" parent="47" name="potential">
+    <column id="134" parent="42" name="potential">
       <Position>4</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="138" parent="47" name="preferred_foot">
+    <column id="135" parent="42" name="preferred_foot">
       <Position>5</Position>
       <DataType>char|0s</DataType>
       <NotNull>1</NotNull>
@@ -1051,217 +1047,217 @@ away_team_id</ColNames>
       <DefaultExpression>&apos;r&apos;::bpchar</DefaultExpression>
       <TypeId>1042</TypeId>
     </column>
-    <column id="139" parent="47" name="attacking_work_rate">
+    <column id="136" parent="42" name="attacking_work_rate">
       <Position>6</Position>
       <DataType>rate|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20170</TypeId>
     </column>
-    <column id="140" parent="47" name="defensive_work_rate">
+    <column id="137" parent="42" name="defensive_work_rate">
       <Position>7</Position>
       <DataType>rate|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20170</TypeId>
     </column>
-    <column id="141" parent="47" name="crossing">
+    <column id="138" parent="42" name="crossing">
       <Position>8</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="142" parent="47" name="finishing">
+    <column id="139" parent="42" name="finishing">
       <Position>9</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="143" parent="47" name="heading_accuracy">
+    <column id="140" parent="42" name="heading_accuracy">
       <Position>10</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="144" parent="47" name="short_passing">
+    <column id="141" parent="42" name="short_passing">
       <Position>11</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="145" parent="47" name="volleys">
+    <column id="142" parent="42" name="volleys">
       <Position>12</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="146" parent="47" name="dribbling">
+    <column id="143" parent="42" name="dribbling">
       <Position>13</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="147" parent="47" name="curve">
+    <column id="144" parent="42" name="curve">
       <Position>14</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="148" parent="47" name="free_kick_accuracy">
+    <column id="145" parent="42" name="free_kick_accuracy">
       <Position>15</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="149" parent="47" name="long_passing">
+    <column id="146" parent="42" name="long_passing">
       <Position>16</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="150" parent="47" name="ball_control">
+    <column id="147" parent="42" name="ball_control">
       <Position>17</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="151" parent="47" name="acceleration">
+    <column id="148" parent="42" name="acceleration">
       <Position>18</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="152" parent="47" name="sprint_speed">
+    <column id="149" parent="42" name="sprint_speed">
       <Position>19</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="153" parent="47" name="agility">
+    <column id="150" parent="42" name="agility">
       <Position>20</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="154" parent="47" name="reactions">
+    <column id="151" parent="42" name="reactions">
       <Position>21</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="155" parent="47" name="balance">
+    <column id="152" parent="42" name="balance">
       <Position>22</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="156" parent="47" name="shot_power">
+    <column id="153" parent="42" name="shot_power">
       <Position>23</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="157" parent="47" name="jumping">
+    <column id="154" parent="42" name="jumping">
       <Position>24</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="158" parent="47" name="stamina">
+    <column id="155" parent="42" name="stamina">
       <Position>25</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="159" parent="47" name="strength">
+    <column id="156" parent="42" name="strength">
       <Position>26</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="160" parent="47" name="long_shots">
+    <column id="157" parent="42" name="long_shots">
       <Position>27</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="161" parent="47" name="aggression">
+    <column id="158" parent="42" name="aggression">
       <Position>28</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="162" parent="47" name="interception">
+    <column id="159" parent="42" name="interception">
       <Position>29</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="163" parent="47" name="positioning">
+    <column id="160" parent="42" name="positioning">
       <Position>30</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="164" parent="47" name="vision">
+    <column id="161" parent="42" name="vision">
       <Position>31</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="165" parent="47" name="penalties">
+    <column id="162" parent="42" name="penalties">
       <Position>32</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="166" parent="47" name="marking">
+    <column id="163" parent="42" name="marking">
       <Position>33</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="167" parent="47" name="standing_tackle">
+    <column id="164" parent="42" name="standing_tackle">
       <Position>34</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="168" parent="47" name="sliding_tackle">
+    <column id="165" parent="42" name="sliding_tackle">
       <Position>35</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="169" parent="47" name="gk_diving">
+    <column id="166" parent="42" name="gk_diving">
       <Position>36</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="170" parent="47" name="gk_handling">
+    <column id="167" parent="42" name="gk_handling">
       <Position>37</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="171" parent="47" name="gk_kicking">
+    <column id="168" parent="42" name="gk_kicking">
       <Position>38</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="172" parent="47" name="gk_positioning">
+    <column id="169" parent="42" name="gk_positioning">
       <Position>39</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <column id="173" parent="47" name="gk_reflexes">
+    <column id="170" parent="42" name="gk_reflexes">
       <Position>40</Position>
       <DataType>percentage|0s</DataType>
       <StateNumber>330697</StateNumber>
       <TypeId>20168</TypeId>
     </column>
-    <index id="174" parent="47" name="player_attribute_pkey">
+    <index id="171" parent="42" name="player_attribute_pkey">
       <ObjectId>20296</ObjectId>
       <StateNumber>330697</StateNumber>
       <ColNames>player_id
@@ -1269,7 +1265,7 @@ date</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="175" parent="47" name="player_attribute_pkey">
+    <key id="172" parent="42" name="player_attribute_pkey">
       <ObjectId>20297</ObjectId>
       <StateNumber>330697</StateNumber>
       <ColNames>player_id
@@ -1277,7 +1273,7 @@ date</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>player_attribute_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="176" parent="47" name="player_attribute_player_id_fkey">
+    <foreign-key id="173" parent="42" name="player_attribute_player_id_fkey">
       <ObjectId>20298</ObjectId>
       <StateNumber>330697</StateNumber>
       <ColNames>player_id</ColNames>
@@ -1289,13 +1285,13 @@ date</ColNames>
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <check id="177" parent="47" name="player_attribute_preferred_foot_check">
+    <check id="174" parent="42" name="player_attribute_preferred_foot_check">
       <ObjectId>20292</ObjectId>
       <StateNumber>330697</StateNumber>
       <ColNames>preferred_foot</ColNames>
       <Predicate>preferred_foot = ANY (ARRAY[&apos;r&apos;::bpchar, &apos;l&apos;::bpchar])</Predicate>
     </check>
-    <column id="178" parent="48" name="id">
+    <column id="175" parent="43" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1303,35 +1299,35 @@ date</ColNames>
       <DefaultExpression>nextval(&apos;team_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="179" parent="48" name="short_name">
+    <column id="176" parent="43" name="short_name">
       <Position>2</Position>
       <DataType>char(3)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330691</StateNumber>
       <TypeId>1042</TypeId>
     </column>
-    <column id="180" parent="48" name="long_name">
+    <column id="177" parent="43" name="long_name">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330691</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="181" parent="48" name="team_pkey">
+    <index id="178" parent="43" name="team_pkey">
       <ObjectId>20203</ObjectId>
       <StateNumber>330691</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="182" parent="48" name="team_pkey">
+    <key id="179" parent="43" name="team_pkey">
       <ObjectId>20204</ObjectId>
       <StateNumber>330691</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>team_pkey</UnderlyingIndexName>
     </key>
-    <column id="183" parent="49" name="id">
+    <column id="180" parent="44" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1339,28 +1335,28 @@ date</ColNames>
       <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="184" parent="49" name="username">
+    <column id="181" parent="44" name="username">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330690</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="185" parent="49" name="password">
+    <column id="182" parent="44" name="password">
       <Position>3</Position>
       <DataType>char(128)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330690</StateNumber>
       <TypeId>1042</TypeId>
     </column>
-    <column id="186" parent="49" name="salt">
+    <column id="183" parent="44" name="salt">
       <Position>4</Position>
       <DataType>char(128)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>330690</StateNumber>
       <TypeId>1042</TypeId>
     </column>
-    <column id="187" parent="49" name="level">
+    <column id="184" parent="44" name="level">
       <Position>5</Position>
       <DataType>smallint|0s</DataType>
       <NotNull>1</NotNull>
@@ -1368,39 +1364,39 @@ date</ColNames>
       <DefaultExpression>2</DefaultExpression>
       <TypeId>21</TypeId>
     </column>
-    <column id="188" parent="49" name="bet_society_id">
+    <column id="185" parent="44" name="bet_society_id">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>330690</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="189" parent="49" name="users_pkey">
+    <index id="186" parent="44" name="users_pkey">
       <ObjectId>20188</ObjectId>
       <StateNumber>330690</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="190" parent="49" name="users_username_key">
+    <index id="187" parent="44" name="users_username_key">
       <ObjectId>20190</ObjectId>
       <StateNumber>330690</StateNumber>
       <ColNames>username</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="191" parent="49" name="users_pkey">
+    <key id="188" parent="44" name="users_pkey">
       <ObjectId>20189</ObjectId>
       <StateNumber>330690</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
     </key>
-    <key id="192" parent="49" name="users_username_key">
+    <key id="189" parent="44" name="users_username_key">
       <ObjectId>20191</ObjectId>
       <StateNumber>330690</StateNumber>
       <ColNames>username</ColNames>
       <UnderlyingIndexName>users_username_key</UnderlyingIndexName>
     </key>
-    <foreign-key id="193" parent="49" name="users_bet_society_id_fkey">
+    <foreign-key id="190" parent="44" name="users_bet_society_id_fkey">
       <ObjectId>20192</ObjectId>
       <StateNumber>330690</StateNumber>
       <ColNames>bet_society_id</ColNames>
@@ -1411,119 +1407,175 @@ date</ColNames>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <check id="194" parent="49" name="users_level_check">
+    <check id="191" parent="44" name="users_level_check">
       <ObjectId>20187</ObjectId>
       <StateNumber>330690</StateNumber>
       <ColNames>level</ColNames>
       <Predicate>(level &gt;= 0) AND (level &lt;= 2)</Predicate>
     </check>
-    <column id="195" parent="50" name="date">
+    <column id="192" parent="45" name="date">
       <Position>1</Position>
       <DataType>timestamp|0s</DataType>
       <StateNumber>330713</StateNumber>
     </column>
-    <column id="196" parent="50" name="name">
+    <column id="193" parent="45" name="name">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <StateNumber>330713</StateNumber>
     </column>
-    <column id="197" parent="50" name="stage">
+    <column id="194" parent="45" name="stage">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>330713</StateNumber>
     </column>
-    <column id="198" parent="50" name="season">
+    <column id="195" parent="45" name="season">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>330713</StateNumber>
     </column>
-    <column id="199" parent="50" name="team_a">
+    <column id="196" parent="45" name="team_a">
       <Position>5</Position>
       <DataType>varchar(100)|0s</DataType>
       <StateNumber>330713</StateNumber>
     </column>
-    <column id="200" parent="50" name="team_h">
+    <column id="197" parent="45" name="team_h">
       <Position>6</Position>
       <DataType>varchar(100)|0s</DataType>
       <StateNumber>330713</StateNumber>
     </column>
-    <column id="201" parent="50" name="h_team_goal">
+    <column id="198" parent="45" name="h_team_goal">
       <Position>7</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>330713</StateNumber>
     </column>
-    <column id="202" parent="50" name="a_team_goal">
+    <column id="199" parent="45" name="a_team_goal">
       <Position>8</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>330713</StateNumber>
     </column>
-    <argument id="203" parent="51" name="b">
+    <argument id="200" parent="46" name="m_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="201" parent="46" name="p_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="202" parent="46" name="b">
+      <Position>3</Position>
+      <DataType>char|0s</DataType>
+    </argument>
+    <argument id="203" parent="46" name="curr">
+      <Position>4</Position>
+      <DataType>char|0s</DataType>
+    </argument>
+    <argument id="204" parent="46">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>char|0s</DataType>
+    </argument>
+    <argument id="205" parent="47" name="b">
       <Position>1</Position>
       <DataType>bets|0s</DataType>
     </argument>
-    <argument id="204" parent="51">
+    <argument id="206" parent="47">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>char|0s</DataType>
     </argument>
-    <argument id="205" parent="52" name="country_name">
+    <argument id="207" parent="48" name="country_name">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="206" parent="52">
+    <argument id="208" parent="48">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="207" parent="53" name="league_name">
+    <argument id="209" parent="49" name="league_name">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="208" parent="53">
+    <argument id="210" parent="49">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="209" parent="54" name="m">
+    <argument id="211" parent="50" name="m">
       <Position>1</Position>
       <DataType>match|0s</DataType>
     </argument>
-    <argument id="210" parent="54">
+    <argument id="212" parent="50">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>char|0s</DataType>
     </argument>
-    <argument id="211" parent="55" name="p">
+    <argument id="213" parent="51" name="p">
       <Position>1</Position>
       <DataType>player|0s</DataType>
     </argument>
-    <argument id="212" parent="55">
+    <argument id="214" parent="51">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="213" parent="56" name="attr">
+    <argument id="215" parent="52" name="attr">
       <Position>1</Position>
       <DataType>player_attribute|0s</DataType>
     </argument>
-    <argument id="214" parent="56">
+    <argument id="216" parent="52">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>char|0s</DataType>
     </argument>
-    <argument id="215" parent="57" name="t">
+    <argument id="217" parent="53" name="t">
       <Position>1</Position>
       <DataType>team|0s</DataType>
     </argument>
-    <argument id="216" parent="57">
+    <argument id="218" parent="53">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>char|0s</DataType>
     </argument>
-    <argument id="217" parent="58" name="p">
+    <argument id="219" parent="54" name="p">
       <Position>1</Position>
       <DataType>initial_formation|0s</DataType>
     </argument>
-    <argument id="218" parent="58">
+    <argument id="220" parent="54">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>char|0s</DataType>
     </argument>
-    <argument id="219" parent="59">
+    <argument id="221" parent="55">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>trigger|0s</DataType>
+    </argument>
+    <argument id="222" parent="56" name="m_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="223" parent="56" name="p_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="224" parent="56" name="b">
+      <Position>3</Position>
+      <DataType>char|0s</DataType>
+    </argument>
+    <argument id="225" parent="56" name="curr">
+      <Position>4</Position>
+      <DataType>char|0s</DataType>
+    </argument>
+    <argument id="226" parent="56" name="new_m_id">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+    </argument>
+    <argument id="227" parent="56" name="new_b">
+      <Position>6</Position>
+      <DataType>char|0s</DataType>
+    </argument>
+    <argument id="228" parent="56" name="new_curr">
+      <Position>7</Position>
+      <DataType>char|0s</DataType>
+    </argument>
+    <argument id="229" parent="56" name="new_val">
+      <Position>8</Position>
+      <DataType>numeric|0s</DataType>
+    </argument>
+    <argument id="230" parent="56">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>char|0s</DataType>
     </argument>
   </database-model>
 </dataSource>

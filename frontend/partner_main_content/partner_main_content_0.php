@@ -9,7 +9,7 @@
         <select multiple="multiple" name="matches[]" id="matches" class="form-control" onchange="toggle_buttons(false)" required>
             <?php
 
-            include_once '../backend/db_connect_login.php';
+            include_once '../../backend/db_connect_login.php';
 
             $resource = pg_query($db,"select public.match.id,date,stage,th.long_name as thl,th.short_name as ths,ta.long_name as tal,ta.short_name as tas 
             from public.match
@@ -37,7 +37,7 @@
     </div>
     <div class="form-group">
         <label for="sum">Sum to bet: </label>
-        <input name="sum" id="sum" type="number" value="0.01" min="0.01" required/>
+        <input name="sum" id="sum" type="number" value="0.01" min="0.01" step="any" required/>
         <label for="currency">Currency:</label>
         <select name="currency" id="currency" class="form-control-sm" required>
             <?php

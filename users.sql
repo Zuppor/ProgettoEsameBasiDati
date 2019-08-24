@@ -19,11 +19,13 @@ grant execute on function func_refresh_classifica() to operatore;
 
 create user partner with encrypted password 'sL3FBmAxjFYnjsgBBN4HV8UF';
 grant execute on function func_insert_bet(bets) to partner;
+grant execute on function func_delete_bet(m_id int,p_id int, b char, curr char(3)) to partner;
+grant execute on function func_update_bet(m_id int,p_id int, b char, curr char(3), new_m_id int, new_b char, new_curr char(3), new_val numeric) to partner;
 grant all privileges on table bets to partner;
 
 create user login_user with encrypted password 'rH4KJz5Es2ex7QUqvVntMjSM';
 grant select,insert on users,login_attempt to login_user;
-grant select on team,currency,player,country,match,player_attribute,
+grant select on team,bets,currency,player,country,match,player_attribute,
     league,bet_society,public.classifica to login_user;
 grant select,usage on sequence users_id_seq to login_user;
 

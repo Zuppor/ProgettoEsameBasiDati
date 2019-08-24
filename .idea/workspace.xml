@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b213ae3-c0c9-460f-8edf-85cf43bda014" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/manage_bets.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/partner_main_content/partner_main_content_2.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/update_bet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/form_insert_bet.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/partner_main_content/partner_main_content_0.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/manage_bets.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/delete_bets.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/partner_main_content/partner_main_content_0.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/partner_main_content/partner_main_content_0.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/partner_main_content/partner_main_content_1.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/partner_main_content/partner_main_content_1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/partner_main_content/partner_main_content_2.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/partner_main_content/partner_main_content_2.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/functions.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/users.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -141,12 +146,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6e1782d" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6a87be8b" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6e1782d" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@64d1528b" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6a87be8b" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@1c31aaf4" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -206,7 +211,9 @@
       <workItem from="1566201782493" duration="18558000" />
       <workItem from="1566291253238" duration="8284000" />
       <workItem from="1566388471237" duration="9779000" />
-      <workItem from="1566550232358" duration="12807000" />
+      <workItem from="1566550232358" duration="12847000" />
+      <workItem from="1566640033145" duration="21000" />
+      <workItem from="1566640481696" duration="12778000" />
     </task>
     <task id="LOCAL-00001" summary="Ancora problemi con league">
       <created>1560597949614</created>
@@ -243,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566560216979</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="lavorando su modifica delle bets">
+      <created>1566586794227</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1566586794227</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,6 +282,7 @@
     <MESSAGE value="polishing UI again" />
     <MESSAGE value="creata interfaccia per operatore e partner. aggiunta funzione carica scommessa." />
     <MESSAGE value="ora si possono aggiungere più bets in una volta sola" />
-    <option name="LAST_COMMIT_MESSAGE" value="ora si possono aggiungere più bets in una volta sola" />
+    <MESSAGE value="lavorando su modifica delle bets" />
+    <option name="LAST_COMMIT_MESSAGE" value="lavorando su modifica delle bets" />
   </component>
 </project>

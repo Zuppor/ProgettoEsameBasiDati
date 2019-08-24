@@ -110,7 +110,7 @@ returns char as $result$
         for tmp in (select match_id,bet,currency_id,partner_id from bets where match_id = b.match_id and bet = b.bet and currency_id = b.currency_id) loop
             select bet_society_id into tmp2 from users where id = tmp.partner_id;
             if tmp2 = (select bet_society_id from users where id = b.partner_id) then
-                --never enter this if
+                --fixme: never enter this if
                 raise info 'Errore: scommessa già presente da parte di questa società';
                 return '5';
             end if;
@@ -136,6 +136,61 @@ returns char as $result$
                 return '4';
     end;
 $result$ language plpgsql;
+
+
+create or replace function func_update_bet(m_id int,p_id int, b char, curr char(3), new_m_id int, new_b char, new_curr char(3), new_val numeric)
+returns char as $result$
+    begin
+
+        update bets
+        set match_id = new_m_id,bet = new_b,currency_id = new_curr, value = new_val
+        where partner_id = p_id and match_id = m_id and bet = b and currency_id = curr;
+
+        if FOUND then
+            return '0';
+        else
+            return '1';
+        end if;
+
+        exception
+            when not_null_violation then
+                raise info 'Errore: vincolo di not null violato';
+                return '2';
+            when unique_violation then
+                raise info 'Errore: stai inserendo dati relativi ad un team già presente';
+                return '3';
+            when foreign_key_violation then
+                raise info 'Errore: vincolo chiave esterna violato';
+                return '4';
+    end;
+$result$ language plpgsql;
+
+
+create or replace function func_delete_bet(m_id int,p_id int, b char, curr char(3))
+    returns char as $result$
+begin
+
+    delete from bets where match_id = m_id and partner_id = p_id and bet = b and currency_id = curr;
+
+    if FOUND then
+        return '0';
+    else
+        return '1';
+    end if;
+
+exception
+    when not_null_violation then
+        raise info 'Errore: vincolo di not null violato';
+        return '2';
+    when unique_violation then
+        raise info 'Errore: stai inserendo dati relativi ad un team già presente';
+        return '3';
+    when foreign_key_violation then
+        raise info 'Errore: vincolo chiave esterna violato';
+        return '4';
+end;
+$result$ language plpgsql;
+
 
 /*
 create or replace function modify_match(m_id int,c_id int,l_id int,se int,st int,d time,home_id int,away_id int,h_goals int,a_goals int,o_id int)
