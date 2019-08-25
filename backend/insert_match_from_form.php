@@ -1,25 +1,43 @@
 <?php
 
-include_once 'functions.php';
 include_once 'db_connect_operator.php';
+include_once 'functions.php';
 
-$msg = "";
+start_secure_session();
 
-//fixme: dice che non tutti i campi sono stati compilati
+
+
 if(isset($_POST['country'],$_POST['season'],$_POST['league'],$_POST['stage'],$_POST['date'],$_POST['team_h'],$_POST['team_a'],$_POST['h_goal'],$_POST['a_goal'])){
-    $resource = pg_prepare($db,"","insert into public.match(id,country_id,season,league_id,stage,date,home_team_id,away_team_id,h_team_goal,a_team_goal)
-    values((select max(id)+1 from match),$1,$2,$3,$4,$5,$6,$7,$8,$9)");
-    $resource = pg_execute($db,"",array($_POST['country'],$_POST['season'],$_POST['league'],$_POST['stage'],$_POST['date'],$_POST['team_h'],$_POST['team_a'],$_POST['h_goal'],$_POST['a_goal']));
+    $resource = pg_prepare($db,"","select func_insert_match(row((select max(id)+1 from public.match),$1,$2,$3,$4,$5::timestamp ,$6,$7,$8,$9,$10)) as result");
+    $resource = pg_execute($db,"",array($_POST['team_h'],$_POST['team_a'],$_POST['season'],$_POST['stage'],$_POST['date'],$_POST['a_goal'],$_POST['h_goal'],$_POST['league'],$_POST['country'],$_SESSION['user_id']));
 
     if($resource === false){
-        $msg = "Errore durante il caricamento del match: '".pg_last_error($resource);
-        Header('Location: ../frontend/home.php?error=Errore durante il caricamento del match: '.pg_last_error($resource));
+        $error = "Errore durante il caricamento del match: '".pg_last_error($resource);
     }
     else{
-        Header('Location: ../frontend/home.php?success=Database aggiornato correttamente');
+        $arr = pg_fetch_array($resource,null,PGSQL_ASSOC);
+
+        switch($arr['result']){
+            case 0:
+                $error = "";
+                break;
+            case 3:
+                $error = 'Error: match already in the database';
+                break;
+            default:
+                $error = 'Error. Code: '.$arr['result'];
+        }
     }
 }
 else{
-    Header('Location: ../frontend/home.php?error=Errore: alcuni campi non sono stati compilati');
+    $error = 'Alcuni campi non sono stati compilati';
 }
 
+if($error == ""){
+    $hdr = 'Location: ../frontend/home.php?success=Database aggiornato correttamente';
+}
+else{
+    $hdr = 'Location: ../frontend/home.php?error='.$error;
+}
+
+Header($hdr);

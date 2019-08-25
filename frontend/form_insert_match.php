@@ -1,14 +1,27 @@
-<?php
+<script type="text/javascript">
+    function adjustSeason(year){
+        year = Number(year);
+        year++;
+        document.getElementById("seasonComp").innerHTML = "/" + year;
+    }
 
-include_once '../backend/db_connect_login.php';
-
-?>
+    function checkTeams(team1,team2){
+        if(team1.value === team2.value){
+            document.getElementById("teamComp").innerHTML = "Le squadre devono essere diverse";
+        }
+        else{
+            document.getElementById("teamComp").innerHTML = "";
+        }
+    }
+</script>
 
 <form action="../backend/insert_match_from_form.php" method="post">
     <div class="form-group">
         <label for="country">Country</label>
         <select name="country" id="country" class="custom-select-sm" required>
             <?php
+            include_once '../backend/db_connect_login.php';
+
             $resource = pg_query($db,"select id,name from country order by name");
 
             while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)) {
@@ -72,7 +85,7 @@ include_once '../backend/db_connect_login.php';
             }
             ?>
 
-        </select><p class="text-danger" id="teamComp"></p> <br>
+        </select><p class="text-danger" id="teamComp">Le squadre devono essere diverse</p> <br>
 
 
         <label for="h_goal">Home goals</label>
@@ -83,4 +96,13 @@ include_once '../backend/db_connect_login.php';
 
         <input type="submit" class="btn btn-primary" name="submit" value="Submit"/>
     </div>
+    <script type="text/javascript">
+        (function () {
+            var y = new Date().getFullYear();
+
+            document.getElementById("season").setAttribute("value",y.toString());
+            y++;
+            document.getElementById("seasonComp").innerHTML = "/" + y
+        })();
+    </script>
 </form>

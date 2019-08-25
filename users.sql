@@ -12,10 +12,13 @@ grant execute on function func_refresh_classifica() to amministratore;
 
 create user operatore with encrypted password 'P4pj92v5Gk7sDk8NaWaNTK2h';
 grant select on team to operatore;
-grant insert,update,delete on match to operatore;
+grant all privileges on match to operatore;
 grant select,usage on match_id_seq to operatore;
 grant trigger on classifica to operatore;
 grant execute on function func_refresh_classifica() to operatore;
+grant execute on function func_insert_match(match) to operatore;
+grant execute on function func_delete_match(public.match.id%TYPE,public.match.operator_id%TYPE) to operatore;
+grant execute on function func_update_match(match) to operatore;
 
 create user partner with encrypted password 'sL3FBmAxjFYnjsgBBN4HV8UF';
 grant select on users to partner;

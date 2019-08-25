@@ -21,9 +21,51 @@ begin
       raise info 'Errore: stai inserendo dati relativi ad un match già presente';
       return '3';
     when foreign_key_violation then
-      raise info 'Errore: chiave etserna non presente';
+      raise info 'Errore: chiave esterna non presente';
       return '4';
 end;
+$result$ language plpgsql;
+
+
+
+create or replace function func_delete_match(m_id match.id%TYPE,op_id match.operator_id%TYPE)
+returns char as $result$
+    begin
+        delete from public.match where id = m_id and operator_id = op_id;
+
+        if FOUND then
+            return '0';
+        else
+            return '1';
+        end if;
+    end;
+$result$ language plpgsql;
+
+
+create or replace function func_update_match(m match)
+returns char as $result$
+    begin
+        update public.match
+        set home_team_id = m.home_team_id, away_team_id = m.away_team_id, season = m.season, stage = m.stage, date= m.date, a_team_goal = m.a_team_goal, h_team_goal = m.h_team_goal, league_id = m.league_id, country_id = m.country_id
+        where id = m.id and operator_id = m.operator_id;
+
+        if FOUND then
+            return '0';
+        else
+            return '1';
+        end if;
+
+    exception
+        when not_null_violation then
+            raise info 'Errore: vincolo di not null violato';
+            return '2';
+        when unique_violation then
+            raise info 'Errore: stai inserendo dati relativi ad un match già presente';
+            return '3';
+        when foreign_key_violation then
+            raise info 'Errore: chiave etserna non presente';
+            return '4';
+    end;
 $result$ language plpgsql;
 
 

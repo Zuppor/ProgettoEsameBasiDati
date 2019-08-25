@@ -5,38 +5,8 @@
     <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
     <title>Home</title>
 </head>
-<script>
-    var seasonComp;
-    var teamComp;
 
-    function onload(){
-        seasonComp = document.getElementById("seasonComp");
-        teamComp = document.getElementById("teamComp");
-
-        var y = new Date().getFullYear();
-
-        document.getElementById("season").setAttribute("value",y.toString());
-        y++;
-        seasonComp.innerHTML = "/" + y;
-    }
-
-    function adjustSeason(year){
-        year = Number(year);
-        year++;
-        seasonComp.innerHTML = "/" + year;
-    }
-
-    function checkTeams(team1,team2){
-        if(team1.value === team2.value){
-            teamComp.innerHTML = "Le squadre devono essere diverse";
-        }
-        else{
-            teamComp.innerHTML = "";
-        }
-    }
-</script>
-
-<body onload="onload()">
+<body>
 <?php
 
     include '../backend/functions.php';
@@ -94,10 +64,6 @@
             <main class="col-12 col-ms-9 col-xl-8 py-md-3 pl-md-5" role="main">
             <?php
             include_once 'admin_main_content/admin_content_'.$_GET['sidenav_active'].'.php';
-            /*if($_GET['sidenav_active'] == 0)
-                include_once 'admin_main_content/admin_content_0.php';
-            else
-                include_once "admin_main_content/admin_content.php?content=".$_GET['sidenav_active'];*/
         ?>
             </main>
     <?php
@@ -130,8 +96,8 @@
         <main class="col-12 col-ms-9 col-xl-8 py-md-3 pl-md-5" role="main">
         <?php
 
-        if($_GET['sidenav_active'] === 0){
-            include_once 'form_insert_match.php';
+        if($_GET['sidenav_active'] == 0){
+            include 'form_insert_match.php';
         }
         else{
             include_once 'op_main_content/op_main_content_'.$_GET['sidenav_active'].'.php';
