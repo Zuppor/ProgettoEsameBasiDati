@@ -2,19 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b213ae3-c0c9-460f-8edf-85cf43bda014" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/manage_league.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/manage_team.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/delete_matches.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/delete_matches.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/insert_match_from_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/insert_match_from_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/update_match.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/update_match.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/form_insert_match.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/form_insert_match.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/op_main_content/op_main_content_1.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/op_main_content/op_main_content_1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/op_main_content/op_main_content_2.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/op_main_content/op_main_content_2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_2.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_4.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_4.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/functions.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/tables.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/users.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -87,7 +85,7 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="match: table" type="69fad909:PgImplModel$LocalTable" />
+        <item name="team: table" type="69fad909:PgImplModel$LocalTable" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -148,17 +146,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3a89643c" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@da528bcb" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3a89643c" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@2ebacb2b" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3a89643c" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@59d12ece" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@da528bcb" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@2eb27629" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -221,7 +214,8 @@
       <workItem from="1566550232358" duration="12847000" />
       <workItem from="1566640033145" duration="21000" />
       <workItem from="1566640481696" duration="21541000" />
-      <workItem from="1566723755524" duration="19277000" />
+      <workItem from="1566723755524" duration="20043000" />
+      <workItem from="1566811703586" duration="15306000" />
     </task>
     <task id="LOCAL-00001" summary="Ancora problemi con league">
       <created>1560597949614</created>
@@ -286,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566667017329</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="operatore può eseguire tutte le operazioni correttamente">
+      <created>1566748342939</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1566748342939</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,6 +316,7 @@
     <MESSAGE value="i partner possono cancellare e modificare le bets correttamente" />
     <MESSAGE value="i partner possono eseguire tutte le operazioni (inserimento,modifica, cancellazione) correttamente" />
     <MESSAGE value="comincio a lavorare su operatore" />
-    <option name="LAST_COMMIT_MESSAGE" value="comincio a lavorare su operatore" />
+    <MESSAGE value="operatore può eseguire tutte le operazioni correttamente" />
+    <option name="LAST_COMMIT_MESSAGE" value="operatore può eseguire tutte le operazioni correttamente" />
   </component>
 </project>

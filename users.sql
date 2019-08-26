@@ -5,9 +5,14 @@ grant select on country to amministratore;
 grant trigger on classifica to amministratore;
 grant execute on function func_player_formation_assoc(initial_formation) to amministratore;
 grant execute on function func_insert_team(team) to amministratore;
+grant execute on function func_delete_team(team.id%TYPE) to amministratore;
+grant execute on function func_update_team(team) to amministratore;
 grant execute on function func_insert_match(match) to amministratore;
 grant execute on function func_insert_country(country.name%TYPE) to amministratore;
 grant execute on function func_insert_player_attributes(attr player_attribute) to amministratore;
+grant execute on function func_insert_league(league.name%TYPE) to amministratore;
+grant execute on function func_delete_league(league.id%TYPE) to amministratore;
+grant execute on function func_update_league(league.id%TYPE,league.name%TYPE) to amministratore;
 grant execute on function func_refresh_classifica() to amministratore;
 
 create user operatore with encrypted password 'P4pj92v5Gk7sDk8NaWaNTK2h';

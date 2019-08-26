@@ -120,6 +120,47 @@ end;
 $result$ language plpgsql;
 
 
+create or replace function func_delete_league(l_id league.id%TYPE)
+returns char as $result$
+    begin
+        delete from league where id = l_id;
+
+        if FOUND then
+            return '0';
+        else
+            return '1';
+        end if;
+
+        exception
+        when case_not_found then
+            raise info 'Id league non presente';
+            return '2';
+    end;
+$result$ language plpgsql;
+
+
+
+create or replace function func_update_league(l_id league.id%TYPE,new_name league.name%TYPE)
+    returns char as $result$
+begin
+    update league
+    set name = new_name
+    where id = l_id;
+
+    if FOUND then
+        return '0';
+    else
+        return '1';
+    end if;
+
+exception
+    when unique_violation then
+        raise info 'League già presente';
+        return '2';
+end;
+$result$ language plpgsql;
+
+
 create or replace function func_insert_team(t team)
 returns char as $result$
     begin
@@ -141,6 +182,52 @@ returns char as $result$
     end;
     $result$
 language plpgsql;
+
+
+create or replace function func_delete_team(t_id team.id%TYPE)
+    returns char as $result$
+begin
+    delete from team where id = t_id;
+
+    if FOUND then
+        return '0';
+    else
+        return '1';
+    end if;
+
+exception
+    when case_not_found then
+        raise info 'Errore: team non presente';
+        return '2';
+
+end;
+$result$
+    language plpgsql;
+
+
+create or replace function func_update_team(t team)
+    returns char as $result$
+begin
+    update team
+    set short_name = t.short_name,long_name = t.long_name
+    where id = t.id;
+
+    if FOUND then
+        return '0';
+    else
+        return '1';
+    end if;
+
+exception
+    when not_null_violation then
+        raise info 'Errore: vincolo di not null violato';
+        return '2';
+    when unique_violation then
+        raise info 'Errore: stai inserendo dati relativi ad un team già presente';
+        return '3';
+end;
+$result$
+    language plpgsql;
 
 
 create or replace function func_check_bet(b bets)

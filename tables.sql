@@ -58,7 +58,7 @@ create table match(
   date timestamp not null ,
   a_team_goal int not null default 0,
   h_team_goal int not null default 0,
-  league_id int not null references league(id) on update cascade on delete set null ,
+  league_id int references league(id) on update cascade on delete set null ,
   country_id int not null references country(id) on update cascade on delete set null ,
   operator_id int not null references users(id) on update cascade on delete no action ,
   unique (date,league_id,country_id,home_team_id,away_team_id,stage),
@@ -66,6 +66,8 @@ create table match(
   check ( a_team_goal >= 0 ),
   check ( h_team_goal >= 0 )
 );
+
+
 
 create table player_attribute(
   player_id int not null references player(id) on update cascade on delete cascade ,
