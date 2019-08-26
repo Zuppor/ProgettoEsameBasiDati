@@ -95,6 +95,47 @@ returns int as $result$
 $result$ language plpgsql;
 
 
+create or replace function func_delete_country(c_id country.id%TYPE)
+    returns char as $result$
+begin
+    delete from country where id = c_id;
+
+    if FOUND then
+        return '0';
+    else
+        return '1';
+    end if;
+
+exception
+    when case_not_found then
+        raise info 'Id league non presente';
+        return '2';
+end;
+$result$ language plpgsql;
+
+
+
+create or replace function func_update_country(c country)
+    returns char as $result$
+begin
+    update country
+    set name = c.name
+    where id = c.id;
+
+    if FOUND then
+        return '0';
+    else
+        return '1';
+    end if;
+
+exception
+    when unique_violation then
+        raise info 'League già presente';
+        return '2';
+end;
+$result$ language plpgsql;
+
+
 create or replace function func_insert_league(league_name league.name%TYPE)
     returns int as $result$
 declare
@@ -140,12 +181,12 @@ $result$ language plpgsql;
 
 
 
-create or replace function func_update_league(l_id league.id%TYPE,new_name league.name%TYPE)
+create or replace function func_update_league(l league)
     returns char as $result$
 begin
     update league
-    set name = new_name
-    where id = l_id;
+    set name = l.name
+    where id = l.id;
 
     if FOUND then
         return '0';

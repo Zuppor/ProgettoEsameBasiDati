@@ -10,9 +10,9 @@ $errors = "";
 if(isset($_POST['submit'])){
     switch ($_POST['submit']){
         case "Insert":
-            if(isset($_POST['league'])){
-                $resource = pg_prepare($db,"","select func_insert_league($1) as result");
-                $resource = pg_execute($db,"",array($_POST['league']));
+            if(isset($_POST['country'])){
+                $resource = pg_prepare($db,"","select func_insert_country($1) as result");
+                $resource = pg_execute($db,"",array($_POST['country']));
 
                 if(!$resource){
                     $errors = "Error: ".pg_last_error($resource);
@@ -30,10 +30,10 @@ if(isset($_POST['submit'])){
             }
             break;
         case "Delete":
-            if(isset($_POST['leagues'])){
-                $resource = pg_prepare($db,"","select func_delete_league($1) as result");
-                foreach ($_POST['leagues'] as $league){
-                    $resource = pg_execute($db,"",array($league));
+            if(isset($_POST['countries'])){
+                $resource = pg_prepare($db,"","select func_delete_country($1) as result");
+                foreach ($_POST['countries'] as $country){
+                    $resource = pg_execute($db,"",array($country));
 
                     if(!$resource){
                         $errors = $errors."Error: ".pg_last_error($resource)."<br>";
@@ -52,11 +52,11 @@ if(isset($_POST['submit'])){
             }
             break;
         case "Modify":
-            if(isset($_POST['league_new_name'],$_POST['league'])){
-                $_POST['league'] = substr($_POST['league'],0,strpos($_POST['league']," "));
+            if(isset($_POST['country_new_name'],$_POST['country'])){
+                $_POST['country'] = substr($_POST['country'],0,strpos($_POST['country']," "));
 
-                $resource = pg_prepare($db,"","select func_update_league(row($1,$2)) as result");
-                $resource = pg_execute($db,"",array($_POST['league'],$_POST['league_new_name']));
+                $resource = pg_prepare($db,"","select func_update_country(row($1,$2)) as result");
+                $resource = pg_execute($db,"",array($_POST['country'],$_POST['country_new_name']));
 
                 if(!$resource){
                     $errors = "Error: ".pg_last_error($resource);

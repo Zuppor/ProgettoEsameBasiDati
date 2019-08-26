@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b213ae3-c0c9-460f-8edf-85cf43bda014" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/manage_league.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/manage_team.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/manage_country.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_2.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_4.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/manage_league.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/manage_league.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_5.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_5.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/functions.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/tables.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/users.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -215,7 +212,7 @@
       <workItem from="1566640033145" duration="21000" />
       <workItem from="1566640481696" duration="21541000" />
       <workItem from="1566723755524" duration="20043000" />
-      <workItem from="1566811703586" duration="15306000" />
+      <workItem from="1566811703586" duration="16328000" />
     </task>
     <task id="LOCAL-00001" summary="Ancora problemi con league">
       <created>1560597949614</created>
@@ -287,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566748342939</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="manage league and manage team parts of admin completed">
+      <created>1566833912535</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1566833912535</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,6 +321,7 @@
     <MESSAGE value="i partner possono eseguire tutte le operazioni (inserimento,modifica, cancellazione) correttamente" />
     <MESSAGE value="comincio a lavorare su operatore" />
     <MESSAGE value="operatore può eseguire tutte le operazioni correttamente" />
-    <option name="LAST_COMMIT_MESSAGE" value="operatore può eseguire tutte le operazioni correttamente" />
+    <MESSAGE value="manage league and manage team parts of admin completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="manage league and manage team parts of admin completed" />
   </component>
 </project>
