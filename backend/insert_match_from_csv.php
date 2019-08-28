@@ -136,6 +136,10 @@ if($_FILES['csv']['error'] > 0){
                     for($i = 0;$i < 22;$i++){
 
                         if($data[$curr_player] != null){
+
+                            $data[$curr_player] = preg_replace('/[0-9]+/', '',$data[$curr_player]);
+                            $data[$curr_player] = preg_replace("\p{P}", "", $data[$curr_player]);
+                                //fixme: return code -2 every time
                             echo "Inserting player: ".$data[$curr_player]." ".$data[$curr_player+1]." ".$data[$curr_player+2]." ".$data[$curr_player+3]." ".$data[$curr_player+4]."<br>";
                             $resource = pg_execute($db,"insert_player",array($data[$curr_player],$data[$curr_player+1],$data[$curr_player+2],$data[$curr_player+3],$data[$curr_player+4],$i<=10?$data[6]:$data[9]));
                             if($resource === false)

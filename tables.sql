@@ -119,9 +119,11 @@ create table bets(
   check ( bet in('a','h','d') )
 );
 
+drop table initial_formation cascade ;
+
 create table initial_formation(
   match_id int not null references match(id) on update cascade on delete cascade ,
-  player_id int not null references player(id) on update cascade on delete no action,
+  player_id int references player(id) on update cascade on delete set null,
   unique (match_id,player_id)
 );
 
