@@ -14,6 +14,8 @@
 
     start_secure_session();
 
+    $_GET['navbar_active'] = 3;
+
     include_once 'navbar.php';
     ?>
 
@@ -44,7 +46,7 @@
             <div class="col-12 col-md-3 col-xl-2 border-right border-secondary">
                 <ul class="nav nav-pills align-items-start flex-column">
                     <?php
-                        $items = array("Upload from file","Manage matches","Manage leagues","Manage player attributes","Manage teams","Manage countries");
+                        $items = array("Upload from file","Manage leagues","Manage teams","Manage countries");
 
                         for($i = 0;$i<count($items);$i++){
                             ?>
@@ -63,7 +65,9 @@
 
             <main class="col-12 col-ms-9 col-xl-8 py-md-3 pl-md-5" role="main">
             <?php
+
             include_once 'admin_main_content/admin_content_'.$_GET['sidenav_active'].'.php';
+
         ?>
             </main>
     <?php
@@ -150,10 +154,6 @@ case 2:?>
 
 
 
-<!--
-        <a href="classification.php">Visualizza classifica</a><br>
-        <a href="../backend/process_logout.php">Logout</a>
-        -->
    <?php else:?>
 Devi <a href="login.php">accedere ad un account</a> prima di entrare in questa pagina<br>
 <?php endif;?>

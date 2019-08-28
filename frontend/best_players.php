@@ -7,21 +7,33 @@
 </head>
 <body>
 <?php
-include '../backend/functions.php';
-include '../backend/db_connect_login.php';
+
+include_once '../backend/functions.php';
+include_once '../backend/db_connect_login.php';
 
 start_secure_session();
 
-include_once 'navbar.php';
-?>
-<!--
-<button onclick="goBack()" class="btn btn-outline-secondary">< Back</button>
+$_GET['navbar_active'] = 2;
 
-<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
--->
+include_once 'navbar.php';
+
+$resource = pg_query($db,"select get_best_players() as result");
+
+?>
+        <?php
+            while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)){
+                $row = $row['result'];
+                $row['result'] = str_replace("\""," ",$row);
+                $row = str_replace("("," ",$row);
+                $row = str_replace(")"," ",$row);
+                $row = split(",",$row);
+                print_r2($row);
+                die();
+        ?>
+
+
+        <?php }?>
+
+
 </body>
 </html>

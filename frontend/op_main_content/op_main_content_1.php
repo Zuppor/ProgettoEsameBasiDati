@@ -12,14 +12,16 @@
 
             include_once '../../backend/db_connect_login.php';
 
+
             $resource = pg_prepare($db,"","select m.id,m.date,m.stage,th.long_name as thl,th.short_name as ths,ta.long_name as tal,ta.short_name as tas 
-            from public.match m
-            join team th on m.home_team_id = th.id
-            join team ta on m.away_team_id = ta.id
-            where m.operator_id = $1
-            order by date desc");
+                from public.match m
+                join team th on m.home_team_id = th.id
+                join team ta on m.away_team_id = ta.id
+                where m.operator_id = $1
+                order by date desc");
 
             $resource = pg_execute($db,"",array($_SESSION['user_id']));
+
 
             while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)) {
                 ?>

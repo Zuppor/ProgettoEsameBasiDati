@@ -13,11 +13,6 @@ create table users(
   bet_society_id int references bet_society(id) on update cascade on delete no action default null,
   check ( level between 0 and 2)
 );
-/*
-create table users (
-    level smallint not null default 1,
-    check ( level between 0 and 1)
-)inherits (user_credentials);*/
 
 create table team(
   id serial primary key not null ,

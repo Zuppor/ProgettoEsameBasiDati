@@ -118,7 +118,6 @@ if($_FILES['csv']['error'] > 0){
                     //id, home_team_id, away_team_id, season, stage, date, a_team_goal, h_team_goal, league_id, country_id, operator_id
 
                     $values = array($data[0],$data[6],$data[9],$data[3],$data[4],$data[5],$data[13],$data[12],$data[2],$data[1],$_SESSION['user_id']);
-                    //print_r($values);
                     $resource = pg_execute($db,"insert_match",$values);
 
                     $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
@@ -168,7 +167,7 @@ if($_FILES['csv']['error'] > 0){
 
             fclose($handle);
 
-            header('Location: ../frontend/home.php?match_upload_msg=Database aggiornato con successo');
+            header('Location: ../frontend/home.php?success=Database aggiornato correttamente');
         }
     /*}
     else{

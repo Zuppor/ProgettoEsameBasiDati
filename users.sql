@@ -1,5 +1,5 @@
 create user amministratore with encrypted password 'V4Nb3Vy4QJHmgGL9bj7Npds9';
-grant select,insert,update,delete on player_attribute,team,player,league,match,country,initial_formation to amministratore;
+grant select,insert,update,delete on player_attribute,team,player,league,public.match,country,initial_formation to amministratore;
 grant select,usage on sequence league_id_seq,team_id_seq,country_id_seq to amministratore;
 grant select on country to amministratore;
 grant trigger on classifica to amministratore;
@@ -39,6 +39,7 @@ grant select,insert on users,login_attempt to login_user;
 grant select on team,bets,currency,player,country,match,player_attribute,
     league,bet_society,public.classifica to login_user;
 grant select,usage on sequence users_id_seq to login_user;
+grant execute on function get_best_players() to login_user;
 
 grant usage on schema public to amministratore,operatore,partner,login_user;
 

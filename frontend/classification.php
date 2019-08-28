@@ -12,6 +12,8 @@ include '../backend/db_connect_login.php';
 
 start_secure_session();
 
+$_GET['navbar_active'] = 1;
+
 include_once 'navbar.php';
 ?>
 <table class="table">
