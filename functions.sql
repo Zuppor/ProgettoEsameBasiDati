@@ -386,21 +386,17 @@ exception
 end;
 $result$ language plpgsql;
 
+
+
 drop type best_players cascade;
 
 create type best_players as(
     match_id int,
     a_team int,
     a_name varchar(100),
-    a_birthday date,
-    a_height int,
-    a_weight int,
     a_rating int,
     h_team int,
     h_name varchar(100),
-    h_birthday date,
-    h_height int,
-    h_weight int,
     h_rating int);
 
 
@@ -413,12 +409,12 @@ returns setof best_players as $$
         tmp2 record;
         best best_players;
   begin
-      for tmp in (select id,date,home_team_id,away_team_id from match order by date desc ) loop
+      for tmp in (select id,date,home_team_id,away_team_id from public.match order by date desc ) loop
         best.match_id := tmp.id;
         best.h_team := tmp.home_team_id;
         best.a_team := tmp.away_team_id;
 
-        select p.name,p.birthday,p.height,p.weight,pa.overall_rating
+        select p.name,pa.overall_rating
         into tmp2
         from player p
         join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date
@@ -429,13 +425,10 @@ returns setof best_players as $$
                                    join team t on p.team_id = t.id and p.team_id = tmp.home_team_id);
 
         best.h_name := tmp2.name;
-        best.h_birthday := tmp2.birthday;
-        best.h_height := tmp2.height;
-        best.h_weight := tmp2.weight;
         best.h_rating := tmp2.overall_rating;
 
 
-        select p.name,p.birthday,p.height,p.weight,pa.overall_rating
+        select p.name,pa.overall_rating
         into tmp2
         from player p
                  join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date
@@ -446,9 +439,6 @@ returns setof best_players as $$
                                      join team t on p.team_id = t.id and p.team_id = tmp.away_team_id);
 
         best.a_name := tmp2.name;
-        best.a_birthday := tmp2.birthday;
-        best.a_height := tmp2.height;
-        best.a_weight := tmp2.weight;
         best.a_rating := tmp2.overall_rating;
 
         return next best;

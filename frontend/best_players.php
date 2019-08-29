@@ -29,23 +29,17 @@ $resource = pg_query($db,"select get_best_players() as result");
             while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)){
                 $row = $row['result'];
 
-                echo $row."<br>";
-
                 $row= str_replace("\"","",$row);
 
                 $row = str_replace("(","",$row);
 
                 $row = str_replace(")","",$row);
 
-                echo $row."<br>";
-
                 $row = explode(",",$row);
-
-                print_r2($row);
         ?>
 <table class="table table-bordered" style="text-align: center;vertical-align: middle">
                 <tr class="table-primary">
-                    <td colspan="8">
+                    <td colspan="2">
                         <?php
                         $r = pg_query($db,"select date,season,stage,l.name from public.match m join league l on m.league_id = l.id where m.id = ".$row[0]);
                         $arr = pg_fetch_array($r,null,PGSQL_ASSOC);
@@ -53,52 +47,42 @@ $resource = pg_query($db,"select get_best_players() as result");
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="4" style="border-right: 1px solid grey">
+                    <td  style="border-right: 1px solid grey">
                         <?php
                         $r = pg_query($db,"select long_name,short_name from team where id = ".$row[1]);
                         $arr = pg_fetch_array($r,null,PGSQL_ASSOC);
-                        echo "Team away: ".$arr['long_name']." (".$arr['short_name'].")"; ?>
+                        echo "<b>Team away: </b>".$arr['long_name']." (".$arr['short_name'].")"; ?>
                     </td>
-                    <td colspan="4">
+                    <td >
                         <?php
-                        $r = pg_query($db,"select long_name,short_name from team where id = ".$row[7]);
+                        $r = pg_query($db,"select long_name,short_name from team where id = ".$row[4]);
                         $arr = pg_fetch_array($r,null,PGSQL_ASSOC);
-                        echo "Team home: ".$arr['long_name']." (".$arr['short_name'].")"; ?>
+                        echo "<b>Team home: </b>".$arr['long_name']." (".$arr['short_name'].")"; ?>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="4" style="border-right: 1px solid grey">
-                        <?php echo "Best player: ".$row[2]; ?>
+                    <td  style="border-right: 1px solid grey">
+                        <?php echo "<b>Best player: </b>";
+                        if(strcmp($row[2],"") != 0) echo $row[2]; else echo "No data available";
+                        ?>
                     </td>
-                    <td colspan="4">
-                        <?php echo "Best player: ".$row[8]; ?>
+                    <td >
+                        <?php echo "<b>Best player: </b>";
+                        if(strcmp($row[5],"") != 0) echo $row[5]; else echo "No data available";
+                        ?>
                     </td>
                 </tr>
     <tr>
-        <td>
-            <?php echo "Birthday: ".$row[3]; ?>
-        </td>
-        <td>
-            <?php echo "Height: ".$row[4]; ?>
-        </td>
-        <td>
-            <?php echo "Weight: ".$row[5]; ?>
-        </td>
         <td style="border-right: 1px solid grey">
-            <?php echo "Overall rating: ".$row[6]; ?>
+            <?php echo "<b>Overall rating: </b>";
+            if(strcmp($row[3],"") != 0) echo $row[3]; else echo "N/A";
+            ?>
         </td>
 
         <td>
-            <?php echo "Birthday: ".$row[9]; ?>
-        </td>
-        <td>
-            <?php echo "Height: ".$row[10]; ?>
-        </td>
-        <td>
-            <?php echo "Weight: ".$row[11]; ?>
-        </td>
-        <td>
-            <?php echo "Overall rating: ".$row[12]; ?>
+            <?php echo "<b>Overall rating: </b>";
+            if(strcmp($row[6],"") != 0) echo $row[6]; else echo "N/A";
+            ?>
         </td>
     </tr>
 
