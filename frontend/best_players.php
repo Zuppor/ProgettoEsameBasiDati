@@ -19,13 +19,6 @@ include_once 'navbar.php';
 
 $resource = pg_query($db,"select get_best_players() as result");
 
-//$row = pg_fetch_array($resource,null,PGSQL_ASSOC);
-//print_r2($row);
-
-
-?>
-
-        <?php
             while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)){
                 $row = $row['result'];
 
@@ -85,8 +78,6 @@ $resource = pg_query($db,"select get_best_players() as result");
             ?>
         </td>
     </tr>
-
-
 </table>
         <?php }?>
 

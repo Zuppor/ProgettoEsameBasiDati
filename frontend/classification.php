@@ -31,8 +31,6 @@ include_once 'navbar.php';
     </thead>
     <tbody>
     <?php
-        //include '../backend/db_connect_login.php';
-
 
         $resource = pg_query($db,"select date::date as d,to_char(date,'HH24:MM') as t,name,stage,season,team_a,team_h,h_team_goal,a_team_goal from public.classifica");
 
@@ -42,7 +40,7 @@ include_once 'navbar.php';
             <tr>
                 <td><?php echo $row['d'].' '.$row['t']; ?></td>
                 <td><?php echo $row['name']; ?></td>
-                <td><?php echo $row['season']; ?></td>
+                <td><?php echo $row['season']."/".($row['season']+1); ?></td>
                 <td><?php echo $row['stage']; ?></td>
                 <td><?php echo $row['team_h']; ?></td>
                 <td><?php echo $row['team_a']; ?></td>

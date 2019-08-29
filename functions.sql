@@ -388,8 +388,6 @@ $result$ language plpgsql;
 
 
 
-drop type best_players cascade;
-
 create type best_players as(
     match_id int,
     a_team int,

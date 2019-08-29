@@ -1,7 +1,3 @@
-
-
-
-
 create trigger refresh_classifica after insert or update or delete
   on match
   for each statement
