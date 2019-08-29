@@ -36,7 +36,7 @@ $resource = pg_query($db,"select get_best_players() as result");
                         <?php
                         $r = pg_query($db,"select date,season,stage,l.name from public.match m join league l on m.league_id = l.id where m.id = ".$row[0]);
                         $arr = pg_fetch_array($r,null,PGSQL_ASSOC);
-                        echo "<b>Date: ".$arr['date']." Season: ".$arr['season']." Stage: ".$arr['stage']." League: ".$arr['name']."</b>"; ?>
+                        echo "<b>Date: </b>".$arr['date']." <b>Season: </b>".$arr['season']."/".($arr['season']+1)." <b>Stage: </b>".$arr['stage']." <b>League: </b>".$arr['name']; ?>
                     </td>
                 </tr>
                 <tr>

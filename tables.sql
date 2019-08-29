@@ -40,15 +40,17 @@ create table country(
 );
 
 create table currency(
-  code char(3) not null primary key /*,
-  country_id int not null references country(id) on update cascade on delete cascade*/
+  code char(3) not null primary key
 );
+
+
+drop table match cascade;
 
 create table match(
   id serial primary key not null ,
-  home_team_id int not null references team(id) on update cascade on delete no action ,
-  away_team_id int not null references team(id) on update cascade on delete no action ,
-  season int not null ,
+  home_team_id int references team(id) on update cascade on delete no action ,
+  away_team_id int references team(id) on update cascade on delete no action ,
+  season int not null default extract(year from now()),
   stage int not null ,
   date timestamp not null ,
   a_team_goal int not null default 0,

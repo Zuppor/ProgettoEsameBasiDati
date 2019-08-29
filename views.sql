@@ -1,4 +1,3 @@
-drop materialized view classifica;
 
 create materialized view classifica
 as

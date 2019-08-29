@@ -1,8 +1,17 @@
+create type best_players as(
+    match_id int,
+    a_team int,
+    a_name varchar(100),
+    a_rating int,
+    h_team int,
+    h_name varchar(100),
+    h_rating int);
+
+
 --funzione per inserire match nel database. ritorna 0 se è andato a buon fine, 2 se vincoli di not null sono stati violati,
 --1 se ci sono violazioni sulle chiave esterne, 3 se i vincoli unique sono violati, 4 se una chiave esterna non è presente
 create or replace function func_insert_match(m match)
 returns char as $result$
-
 begin
     insert into public.match (id, home_team_id, away_team_id, season, stage, date, a_team_goal, h_team_goal, league_id, country_id, operator_id)
     values (m.id,m.home_team_id,m.away_team_id,m.season,m.stage,m.date,m.a_team_goal,m.h_team_goal,m.league_id,m.country_id,m.operator_id);
@@ -14,15 +23,18 @@ begin
     end if ;
 
     exception
-    when not_null_violation then
-      raise info 'Errore: vincolo di not null violato';
-      return '2';
-    when unique_violation then
-      raise info 'Errore: stai inserendo dati relativi ad un match già presente';
-      return '3';
-    when foreign_key_violation then
-      raise info 'Errore: chiave esterna non presente';
-      return '4';
+        when not_null_violation then
+          raise info 'Errore: vincolo di not null violato';
+          return '2';
+        when unique_violation then
+          raise info 'Errore: stai inserendo dati relativi ad un match già presente';
+          return '3';
+        when foreign_key_violation then
+          raise info 'Errore: chiave esterna non presente';
+          return '4';
+        when check_violation then
+            raise info 'Errore: check violation';
+            return '5';
 end;
 $result$ language plpgsql;
 
@@ -388,14 +400,7 @@ $result$ language plpgsql;
 
 
 
-create type best_players as(
-    match_id int,
-    a_team int,
-    a_name varchar(100),
-    a_rating int,
-    h_team int,
-    h_name varchar(100),
-    h_rating int);
+
 
 
 

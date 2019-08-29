@@ -7,9 +7,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/best_players.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/best_players.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/classification.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/classification.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/functions.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/triggers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/triggers.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/tables.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views.sql" beforeDir="false" afterPath="$PROJECT_DIR$/views.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -205,7 +204,7 @@
       <workItem from="1566723755524" duration="20043000" />
       <workItem from="1566811703586" duration="17157000" />
       <workItem from="1566982966804" duration="27226000" />
-      <workItem from="1567072266517" duration="7308000" />
+      <workItem from="1567072266517" duration="14497000" />
     </task>
     <task id="LOCAL-00001" summary="Ancora problemi con league">
       <created>1560597949614</created>
@@ -319,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567082219420</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="classifica possibilmente completata">
+      <created>1567088253815</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1567088253815</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,6 +361,7 @@
     <MESSAGE value="completata best players page" />
     <MESSAGE value="to fix: clean player names from punctuation" />
     <MESSAGE value="modified best_players and repaired upload match from match" />
-    <option name="LAST_COMMIT_MESSAGE" value="modified best_players and repaired upload match from match" />
+    <MESSAGE value="classifica possibilmente completata" />
+    <option name="LAST_COMMIT_MESSAGE" value="classifica possibilmente completata" />
   </component>
 </project>
