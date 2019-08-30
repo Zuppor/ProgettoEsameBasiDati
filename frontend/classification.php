@@ -52,15 +52,5 @@ include_once 'navbar.php';
     </tbody>
 </table>
 
-<!--
-<button onclick="goBack()" class="btn btn-outline-secondary">< Back</button>
-
-<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
--->
-
 </body>
 </html>
