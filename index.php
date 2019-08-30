@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -21,22 +22,22 @@ include_once 'frontend/navbar.php'
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img src="images/c1.jpeg" class="d-block w-100" alt="Calcio">
-            <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0, 0, 0, 0.4);">
-                <h5>Competizione</h5>
+            <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0, 0, 0, 0.5);">
+                <h5><b>Competizione</b></h5>
                 <p>Controlla la classifica aggiornata</p>
             </div>
         </div>
         <div class="carousel-item">
             <img src="images/c2.jpeg" class="d-block w-100" alt="Sport">
-            <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0, 0, 0, 0.4);">
-                <h5>Competizione</h5>
-                <p>Controlla la classifica aggiornata</p>
+            <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0, 0, 0, 0.5);">
+                <h5><b>Campionati</b></h5>
+                <p>Segui le tue squadre preferite</p>
             </div>
         </div>
         <div class="carousel-item">
             <img src="images/c3.jpeg" class="d-block w-100" alt="Scommesse">
-            <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0, 0, 0, 0.4);">
-                <h5>Scommesse</h5>
+            <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0, 0, 0, 0.5);">
+                <h5><b>Scommesse</b></h5>
                 <p>Unisciti ai partner e piazza scommesse</p>
             </div>
         </div>

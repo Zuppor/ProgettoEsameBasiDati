@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="it">
 <head>
     <script type="text/javascript" src="../js/sha512.js"></script>

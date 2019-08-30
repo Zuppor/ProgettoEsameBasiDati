@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html  lang="it">
 <head>
     <meta charset="UTF-8">
@@ -32,7 +33,7 @@ include_once 'navbar.php';
     <tbody>
     <?php
 
-        $resource = pg_query($db,"select date::date as d,to_char(date,'HH24:MM') as t,name,stage,season,team_a,team_h,h_team_goal,a_team_goal from public.classifica");
+        $resource = pg_query($db,"select c.date::date as d,to_char(c.date,'HH24:MM') as t,c.name,c.stage,c.season,c.team_a,c.team_h,c.h_team_goal,c.a_team_goal from public.classifica c");
 
 
         while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)){
