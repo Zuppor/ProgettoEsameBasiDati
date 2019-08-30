@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b213ae3-c0c9-460f-8edf-85cf43bda014" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/htdocs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/htdocs.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/jquery-3.4.1.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/forms.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/forms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/sha512.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/sha512.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,6 +80,13 @@
     </expand>
     <select />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -95,18 +105,18 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/frontend/partner_main_content" />
-      <recent name="$PROJECT_DIR$/images" />
-      <recent name="$PROJECT_DIR$/frontend/admin_main_content" />
-      <recent name="$PROJECT_DIR$/frontend" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/admin_main_content" />
       <recent name="$PROJECT_DIR$/frontend/op_main_content" />
       <recent name="$PROJECT_DIR$/frontend/partner_main_content" />
       <recent name="$PROJECT_DIR$/backend" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/js" />
+      <recent name="$PROJECT_DIR$/frontend/partner_main_content" />
+      <recent name="$PROJECT_DIR$/images" />
+      <recent name="$PROJECT_DIR$/frontend/admin_main_content" />
+      <recent name="$PROJECT_DIR$/frontend" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -129,12 +139,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d79fbb00" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@af24946d" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d79fbb00" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@5ef746b9" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@af24946d" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@579cd78b" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -200,7 +210,8 @@
       <workItem from="1566723755524" duration="20043000" />
       <workItem from="1566811703586" duration="17157000" />
       <workItem from="1566982966804" duration="27226000" />
-      <workItem from="1567072266517" duration="16571000" />
+      <workItem from="1567072266517" duration="16614000" />
+      <workItem from="1567158705259" duration="3979000" />
     </task>
     <task id="LOCAL-00001" summary="Ancora problemi con league">
       <created>1560597949614</created>
@@ -328,7 +339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567095859822</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="trying to make the carousel work">
+      <created>1567099866477</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1567099866477</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,6 +384,7 @@
     <MESSAGE value="modified best_players and repaired upload match from match" />
     <MESSAGE value="classifica possibilmente completata" />
     <MESSAGE value="sito v 1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="sito v 1.0" />
+    <MESSAGE value="trying to make the carousel work" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying to make the carousel work" />
   </component>
 </project>

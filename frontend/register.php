@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="it">
 <head>
-    <script type="text/javascript" src="../backend/sha512.js"></script>
-    <script type="text/javascript" src="../backend/forms.js"></script>
+    <script type="text/javascript" src="../js/sha512.js"></script>
+    <script type="text/javascript" src="../js/forms.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
