@@ -1,3 +1,4 @@
+<!-- MANAGE LEAGUES -->
 <script type="text/javascript">
     function updateField(val){
         var field = document.getElementById("league_new_name");

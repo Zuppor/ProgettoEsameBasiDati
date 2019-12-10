@@ -1,3 +1,4 @@
+<!-- MANAGE TEAMS -->
 <script type="text/javascript">
     function updateField(val){
         var team_l = document.getElementById("new_team_name_l");

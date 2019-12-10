@@ -16,15 +16,20 @@ function fetch_rate($rate){
     if($rate === false)
         return null;
     else {
-        if (!in_array($rate, array('l', 'n', 'm', 'h')))
-            return null;
-        else
-            return $rate;
+        switch ($rate){
+            case 'l':
+                return 0;
+            case 'n':
+            case 'r':
+                return 1;
+            case 'm':
+                return 2;
+            case 'h':
+                return 3;
+            default:
+                return null;
+        }
     }
-}
-
-function fetch_percentage($percentage){
-    return is_numeric($percentage) ? $percentage : null;
 }
 
 start_secure_session();
@@ -43,55 +48,40 @@ if(($handle = fopen($tmpName,"r")) !== false) {
 
     $row = 0;
 
-    $query = "select func_insert_player_attributes(row($1,$2::timestamp,$3::percentage,$4::percentage,$5,$6,$7";
-    for($i = 8;$i<=40;$i++){
-        $query = $query.",$".$i."::percentage";
-    }
-    $query = $query.")) as result";
-    //die($query);
-
-    $resource = pg_prepare($db,"",$query);
+    $resource = pg_prepare($db,"","select func_insert_player_attributes(row($1,$2::timestamp,$3)) as result");
     if($resource === false)
         die("e ".pg_last_error($resource));
 
+    $field_name = array();
 
     while (($data = fgetcsv($handle, 0, ',')) !== false) {
+        if ($row == 0){
+            $field_name = $data;
+        }
+        else{
 
-        if ($row > 0) {
+            for($i = 2;$i<sizeof($data);$i++){
+                if(!is_numeric($data[$i])) {
+                    $data[$i] = fetch_rate($data[$i]);
+                }
 
-            //print_r($data);
+                if($data[$i] != null){
+                    $resource = pg_execute($db,"",array($data[0],$data[1],$field_name[$i],$data[$i]));
 
+                    if($resource === false)
+                        die(" ee ".pg_last_error($resource));
+                    $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
 
-
-            $data[2] = fetch_percentage($data[2]);
-            $data[3] = fetch_percentage($data[3]);
-
-            $data[4] = strtolower(substr($data[4],0,1));
-            $data[5] = fetch_rate($data[5]);
-            $data[6] = fetch_rate($data[6]);
-
-            for($i = 7;$i<40;$i++){
-                $data[$i] = fetch_percentage($data[$i]);
+                    if($arr['result'] === '5'){
+                        echo "error inserting row ".$row.": duplicated entry (".$data[0].",".$data[1]."). Skipping<br>";
+                    }
+                    else if($arr['result'] !== '0' && $arr['result'] !== '5'){
+                        echo "error inserting row ".$row. " result code: ".$arr['result']."<br>";
+                    }
+                }
             }
 
-
-            echo "inserting row ".$row."...<br>";
-            //print_r2($data);
-            //die();
-
-            $resource = pg_execute($db,"",$data);
-
-            if($resource === false)
-                die(" ee ".pg_last_error($resource));
-            $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
-
-            if($arr['result'] === '5'){
-                echo "error inserting row ".$row.": duplicated entry (".$data[0].",".$data[1]."). Skipping<br>";
-            }
-            else if($arr['result'] !== '0' && $arr['result'] !== '5'){
-                echo "error inserting row ".$row. " result code: ".$arr['result']."<br>";
-            }
-            //die("Inserted 1 row");
+            //echo "inserting row ".$row."...<br>";
         }
         $row++;
     }

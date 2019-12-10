@@ -93,6 +93,15 @@
 
         <label for="a_goal">Away goals</label>
         <input type="number" name="a_goal" id="a_goal" value="0" min="0" required/><br>
+<!--
+        <div class="container">
+            <div class="row">
+                <div class="col">
+
+                </div>
+            </div>
+        </div>-->
+
 
         <input type="submit" class="btn btn-primary" name="submit" value="Submit"/>
     </div>

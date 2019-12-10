@@ -404,7 +404,7 @@ $result$ language plpgsql;
 
 
 
-
+--todo: modificare questa funzione
 create or replace function get_best_players()
 returns setof best_players as $$
     declare
@@ -417,32 +417,32 @@ returns setof best_players as $$
         best.h_team := tmp.home_team_id;
         best.a_team := tmp.away_team_id;
 
-        select p.name,pa.overall_rating
+        select p.name,pa.val
         into tmp2
         from player p
-        join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date
+        join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name like 'overall_rating'
         join team t on p.team_id = t.id and p.team_id = tmp.home_team_id
-        where overall_rating >= all(select overall_rating
+        where val >= all(select pa.val
                                   from player p
-                                   join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date
+                                   join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name like 'overall_rating'
                                    join team t on p.team_id = t.id and p.team_id = tmp.home_team_id);
 
         best.h_name := tmp2.name;
-        best.h_rating := tmp2.overall_rating;
+        best.h_rating := tmp2.val;
 
 
-        select p.name,pa.overall_rating
+        select p.name,pa.val
         into tmp2
         from player p
-                 join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date
+                 join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name like 'overall_rating'
                  join team t on p.team_id = t.id and p.team_id = tmp.away_team_id
-        where overall_rating >= all(select overall_rating
+        where val >= all(select pa.val
                                     from player p
-                                     join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date
+                                     join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name like 'overall_rating'
                                      join team t on p.team_id = t.id and p.team_id = tmp.away_team_id);
 
         best.a_name := tmp2.name;
-        best.a_rating := tmp2.overall_rating;
+        best.a_rating := tmp2.val;
 
         return next best;
       end loop;
@@ -450,7 +450,7 @@ returns setof best_players as $$
 $$ language plpgsql;
 
 
-
+/*
 create or replace function func_player_formation_assoc(p initial_formation)
 returns char as $result$
     begin
@@ -475,7 +475,7 @@ returns char as $result$
 
     end;
 $result$ language plpgsql;
-
+*/
 
 
 create or replace function func_insert_player(p player)
@@ -505,25 +505,104 @@ returns integer as $result$
 $result$ language plpgsql;
 
 
-create or replace function func_insert_player_attributes(attr player_attribute)
+create or replace function func_insert_player_attribute(attr player_attribute)
+returns char as $result$
+begin
+    insert into player_attribute values (attr.player_id,attr.date,attr.name,attr.val);
+
+    if FOUND then
+        return '0';
+    else
+        return '1';
+    end if;
+
+    exception
+    when not_null_violation then
+        raise info 'Errore: vincolo not null violato';
+        return '3';
+    when foreign_key_violation then
+        raise info 'Errore: chiave etserna non presente';
+        return '4';
+    when unique_violation then
+        raise info 'Errore: vincolo unique violato';
+        return '5';
+end;
+$result$ language plpgsql;
+
+/*
+create or replace function func_insert_player_rate(attr pa_rate)
+    returns char as $result$
+begin
+    --controllo attributo più recente dello stesso giocatore
+    --se è uguale, non inserisco
+    --se è diverso, inserisco
+    if(select p.value from pa_rate p where p.player_id = attr.player_id and p.date = attr.date) <> attr.value then
+        insert into pa_rate values (attr.player_id,attr.date,attr.value);
+    end if;
+
+    if FOUND then
+        return '0';
+    else
+        return '1';
+    end if;
+
+exception
+    when check_violation then
+        raise info 'Errore: condizione check violata';
+        return '2';
+    when not_null_violation then
+        raise info 'Errore: vincolo not null violato';
+        return '3';
+    when foreign_key_violation then
+        raise info 'Errore: chiave etserna non presente';
+        return '4';
+    when unique_violation then
+        raise info 'Errore: vincolo unique violato';
+        return '5';
+end;
+$result$ language plpgsql;
+
+
+create or replace function func_insert_player_foot(attr pa_foot)
 returns char as $result$
     begin
-        insert into player_attribute (player_id, date, overall_rating, potential,
-                                      preferred_foot, attacking_work_rate, defensive_work_rate,
-                                      crossing, finishing, heading_accuracy, short_passing, volleys,
-                                      dribbling, curve, free_kick_accuracy, long_passing, ball_control,
-                                      acceleration, sprint_speed, agility, reactions, balance, shot_power,
-                                      jumping, stamina, strength, long_shots, aggression, interception,
-                                      positioning, vision, penalties, marking, standing_tackle, sliding_tackle,
-                                      gk_diving, gk_handling, gk_kicking, gk_positioning, gk_reflexes)
-        values (attr.player_id, attr.date, attr.overall_rating, attr.potential,
-                attr.preferred_foot, attr.attacking_work_rate, attr.defensive_work_rate,
-                attr.crossing, attr.finishing, attr.heading_accuracy, attr.short_passing, attr.volleys,
-                attr.dribbling, attr.curve, attr.free_kick_accuracy, attr.long_passing, attr.ball_control,
-                attr.acceleration, attr.sprint_speed, attr.agility, attr.reactions, attr.balance, attr.shot_power,
-                attr.jumping, attr.stamina, attr.strength, attr.long_shots, attr.aggression, attr.interception,
-                attr.positioning, attr.vision, attr.penalties, attr.marking, attr.standing_tackle, attr.sliding_tackle,
-                attr.gk_diving, attr.gk_handling, attr.gk_kicking, attr.gk_positioning, attr.gk_reflexes);
+        --controllo attributo più recente dello stesso giocatore
+        --se è uguale, non inserisco
+        --se è diverso, inserisco
+        if(select p.value from pa_foot p where p.player_id = attr.player_id and p.date = attr.date) <> attr.value then
+            insert into pa_foot values (attr.player_id,attr.date,attr.value);
+        end if;
+
+        if FOUND then
+            return '0';
+        else
+            return '1';
+        end if;
+
+    exception
+        when check_violation then
+            raise info 'Errore: condizione check violata';
+            return '2';
+        when not_null_violation then
+            raise info 'Errore: vincolo not null violato';
+            return '3';
+        when foreign_key_violation then
+            raise info 'Errore: chiave etserna non presente';
+            return '4';
+        when unique_violation then
+            raise info 'Errore: vincolo unique violato';
+            return '5';
+    end;
+    $result$ language plpgsql;
+
+--todo: mqf
+create or replace function func_insert_player_percentage(attr pa_percentage)
+returns char as $result$
+    begin
+
+        if(select p.value from pa_percentage p where p.player_id = attr.player_id and p.date = attr.date) <> attr.value then
+            insert into pa_percentage values (attr.player_id,attr.date,attr.value);
+        end if;
 
         if FOUND then
             return '0';
@@ -547,7 +626,7 @@ returns char as $result$
 
     end;
 $result$ language plpgsql;
-
+*/
 
 create or replace function func_refresh_classifica()
     returns trigger

@@ -43,9 +43,6 @@ create table currency(
   code char(3) not null primary key
 );
 
-
-drop table match cascade;
-
 create table match(
   id serial primary key not null ,
   home_team_id int references team(id) on update cascade on delete no action ,
@@ -65,7 +62,28 @@ create table match(
 );
 
 
+create table player_attribute(
+    player_id int not null references player(id) on update cascade on delete cascade ,
+    date timestamp not null,
+    name varchar(50) not null,
+    val int not null
+);
+/*
+create table pa_char(
+    value foot
+) inherits (player_attribute);
 
+create table pa_rate(
+    name varchar(50),
+    value rate
+) inherits (player_attribute);
+
+create table pa_percentage(
+    name varchar(50),
+    value percentage
+) inherits (player_attribute);
+*/
+/*
 create table player_attribute(
   player_id int not null references player(id) on update cascade on delete cascade ,
   date timestamp not null ,
@@ -109,25 +127,24 @@ create table player_attribute(
   gk_reflexes percentage,
   primary key (player_id,date),
   check ( preferred_foot in ('r','l') )
-);
+);*/
 
 create table bets(
   match_id int references match(id) on update cascade on delete set null ,
   partner_id int not null references users(id) on update cascade on delete no action ,
-  bet char(1) not null ,
+  bet bet_domain ,
   value numeric not null default 0,
   currency_id char(3) not null references currency(code),
-  primary key (match_id,partner_id,bet,currency_id),
-  check ( bet in('a','h','d') )
+  primary key (match_id,partner_id,bet,currency_id)
 );
-
+/*
 drop table initial_formation cascade ;
 
 create table initial_formation(
   match_id int not null references match(id) on update cascade on delete cascade ,
   player_id int references player(id) on update cascade on delete set null,
   unique (match_id,player_id)
-);
+);*/
 
 create table login_attempt(
   user_id int not null references users(id) on update cascade on delete cascade ,

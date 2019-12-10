@@ -1,3 +1,4 @@
+<!-- MANAGE COUNTRIES -->
 <script type="text/javascript">
     function updateField(val){
         var field = document.getElementById("country_new_name");
