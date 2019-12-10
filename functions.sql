@@ -450,7 +450,7 @@ returns setof best_players as $$
 $$ language plpgsql;
 
 
-/*
+
 create or replace function func_player_formation_assoc(p initial_formation)
 returns char as $result$
     begin
@@ -475,7 +475,7 @@ returns char as $result$
 
     end;
 $result$ language plpgsql;
-*/
+
 
 
 create or replace function func_insert_player(p player)

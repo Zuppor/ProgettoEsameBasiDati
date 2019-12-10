@@ -48,7 +48,7 @@ if(($handle = fopen($tmpName,"r")) !== false) {
 
     $row = 0;
 
-    $resource = pg_prepare($db,"","select func_insert_player_attributes(row($1,$2::timestamp,$3)) as result");
+    $resource = pg_prepare($db,"","select func_insert_player_attribute(row($1,$2::timestamp,$3,$4)) as result");
     if($resource === false)
         die("e ".pg_last_error($resource));
 
@@ -56,7 +56,7 @@ if(($handle = fopen($tmpName,"r")) !== false) {
 
     while (($data = fgetcsv($handle, 0, ',')) !== false) {
         if ($row == 0){
-            $field_name = $data;
+            $field_name = $data;//extract fields names
         }
         else{
 

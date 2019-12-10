@@ -66,7 +66,8 @@ create table player_attribute(
     player_id int not null references player(id) on update cascade on delete cascade ,
     date timestamp not null,
     name varchar(50) not null,
-    val int not null
+    val int not null,
+    unique (player_id,date,name)
 );
 /*
 create table pa_char(
@@ -139,12 +140,12 @@ create table bets(
 );
 /*
 drop table initial_formation cascade ;
-
+*/
 create table initial_formation(
   match_id int not null references match(id) on update cascade on delete cascade ,
   player_id int references player(id) on update cascade on delete set null,
   unique (match_id,player_id)
-);*/
+);
 
 create table login_attempt(
   user_id int not null references users(id) on update cascade on delete cascade ,
