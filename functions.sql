@@ -508,13 +508,17 @@ $result$ language plpgsql;
 create or replace function func_insert_player_attribute(attr player_attribute)
 returns char as $result$
 begin
-    insert into player_attribute values (attr.player_id,attr.date,attr.name,attr.val);
 
-    if FOUND then
-        return '0';
-    else
-        return '1';
-    end if;
+    --if((select val from player_attribute where player_id = attr.player_id and name = attr.name order by date desc limit 1) <> attr.val) then
+        insert into player_attribute values (attr.player_id,attr.date,attr.name,attr.val);
+
+        if FOUND then
+            return '0';
+        else
+            return '1';
+        end if;
+
+
 
     exception
     when not_null_violation then

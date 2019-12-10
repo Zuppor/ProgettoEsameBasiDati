@@ -6,10 +6,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/insert_player_attribute.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/insert_player_attribute.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/functions.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/tables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/users.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,16 +68,6 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="soccerdb@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="soccerdb: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="player_attribute: table" type="69fad909:PgImplModel$LocalTable" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -148,7 +135,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:soccerdb@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@54be15ff" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@22693baa" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
@@ -225,7 +212,7 @@
       <workItem from="1570897362895" duration="282000" />
       <workItem from="1573654313187" duration="4911000" />
       <workItem from="1575971298678" duration="3642000" />
-      <workItem from="1575977186469" duration="3065000" />
+      <workItem from="1575977186469" duration="6270000" />
     </task>
     <task id="LOCAL-00001" summary="Ancora problemi con league">
       <created>1560597949614</created>
@@ -395,7 +382,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575978713831</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Repaired match insertion trough csv.&#10;Modified insert_player_attribute function in php to support new format of the table. It doesn't work properly.">
+      <created>1575980544305</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1575980544305</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -438,29 +432,30 @@
     <MESSAGE value="reviewed html code" />
     <MESSAGE value="beginning on documentation" />
     <MESSAGE value="insertion of match trough csv broke again. &#10;Also modified table player_attribute" />
-    <option name="LAST_COMMIT_MESSAGE" value="insertion of match trough csv broke again. &#10;Also modified table player_attribute" />
+    <MESSAGE value="Repaired match insertion trough csv.&#10;Modified insert_player_attribute function in php to support new format of the table. It doesn't work properly." />
+    <option name="LAST_COMMIT_MESSAGE" value="Repaired match insertion trough csv.&#10;Modified insert_player_attribute function in php to support new format of the table. It doesn't work properly." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="135" y="0" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1575978713750">
+    <state x="135" y="0" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1575980544241">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="135" y="0" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1575978713750" />
-    <state width="903" height="138" key="GridCell.Tab.0.bottom" timestamp="1575979731734">
+    <state x="135" y="0" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1575980544241" />
+    <state width="903" height="138" key="GridCell.Tab.0.bottom" timestamp="1575983546189">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="903" height="138" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1575979731734" />
-    <state width="903" height="138" key="GridCell.Tab.0.center" timestamp="1575979731734">
+    <state width="903" height="138" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1575983546189" />
+    <state width="903" height="138" key="GridCell.Tab.0.center" timestamp="1575983546188">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="903" height="138" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1575979731734" />
-    <state width="903" height="138" key="GridCell.Tab.0.left" timestamp="1575979731734">
+    <state width="903" height="138" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1575983546188" />
+    <state width="903" height="138" key="GridCell.Tab.0.left" timestamp="1575983546188">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="903" height="138" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1575979731734" />
-    <state width="903" height="138" key="GridCell.Tab.0.right" timestamp="1575979731734">
+    <state width="903" height="138" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1575983546188" />
+    <state width="903" height="138" key="GridCell.Tab.0.right" timestamp="1575983546189">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="903" height="138" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1575979731734" />
+    <state width="903" height="138" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1575983546189" />
     <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1575978715649">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
