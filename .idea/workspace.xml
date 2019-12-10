@@ -428,6 +428,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="beginning on documentation" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="135" y="0" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1575978658676">
+      <screen x="0" y="0" width="1366" height="741" />
+    </state>
+    <state x="135" y="0" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1575978658676" />
     <state width="903" height="138" key="GridCell.Tab.0.bottom" timestamp="1575977919681">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
@@ -444,5 +448,9 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state width="903" height="138" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1575977919681" />
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1575978664577">
+      <screen x="0" y="0" width="1366" height="741" />
+    </state>
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1575978664577" />
   </component>
 </project>
