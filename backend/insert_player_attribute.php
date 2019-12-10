@@ -50,7 +50,7 @@ if(($handle = fopen($tmpName,"r")) !== false) {
 
     $resource = pg_prepare($db,"","select func_insert_player_attribute(row($1,$2::timestamp,$3,$4)) as result");
     if($resource === false)
-        die("e ".pg_last_error($resource));
+        die("Error pg_prepare: ".pg_last_error($resource));
 
     $field_name = array();
 
@@ -61,23 +61,42 @@ if(($handle = fopen($tmpName,"r")) !== false) {
         else{
 
             for($i = 2;$i<sizeof($data);$i++){
+                echo "<br>Scraped data: ".$data[0]." ".$data[1]." ".$field_name[$i]." ".$data[$i]."<br>";
                 if(!is_numeric($data[$i])) {
                     $data[$i] = fetch_rate($data[$i]);
                 }
 
-                if($data[$i] != null){
+                echo "<br>Cleaned data: ".$data[0]." ".$data[1]." ".$field_name[$i]." ".$data[$i]."<br>";
+                if($data[$i] !== null){
+                    echo "Inserting attribute: ".$data[0]." ".$data[1]." ".$field_name[$i]." ".$data[$i]."<br>";
                     $resource = pg_execute($db,"",array($data[0],$data[1],$field_name[$i],$data[$i]));
 
                     if($resource === false)
-                        die(" ee ".pg_last_error($resource));
+                        die("Error pg_execute: ".pg_last_error($resource));
                     $arr = pg_fetch_row($resource,null,PGSQL_ASSOC);
 
-                    if($arr['result'] === '5'){
-                        echo "error inserting row ".$row.": duplicated entry (".$data[0].",".$data[1]."). Skipping<br>";
+                    switch($arr['result']){
+                        case 0:
+                            //echo "All nominal<br>";
+                            break;
+                        case '1':
+                            echo "Error executing query<br>";
+                            break;
+                        case '2':
+                            echo "Not null violation<br>";
+                            break;
+                        case '3':
+                            echo "Foreign key violation<br>";
+                            break;
+                        case '4':
+                            echo "Unique violation<br>";
+                            break;
+                        default:
+                            echo "Unknown code: ".$arr['result']."<br>";
                     }
-                    else if($arr['result'] !== '0' && $arr['result'] !== '5'){
-                        echo "error inserting row ".$row. " result code: ".$arr['result']."<br>";
-                    }
+                }
+                else{
+                    echo "ERROR: null data<br><br>";
                 }
             }
 
@@ -88,10 +107,10 @@ if(($handle = fopen($tmpName,"r")) !== false) {
 
     fclose($handle);
 
-    header('Location: ../frontend/home.php?attribute_upload_msg=Database aggiornato con successo');
+    header('Location: ../frontend/home.php?success=Database aggiornato con successo');
 }
 else{
-    header('Location: ../frontend/home.php?attribute_upload_msg=Caricamento csv fallito');
+    header('Location: ../frontend/home.php?error=Caricamento csv fallito');
 }
 
 echo "Done";

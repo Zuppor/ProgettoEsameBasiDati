@@ -12,7 +12,7 @@ grant execute on function func_insert_country(country.name%TYPE) to amministrato
 grant execute on function func_delete_country(country.id%TYPE) to amministratore;
 grant execute on function func_update_country(country) to amministratore;
 grant execute on function func_insert_player(player) to amministratore;
-grant execute on function func_insert_player_attribute(attr player_attribute) to amministratore;
+grant execute on function func_insert_player_attribute(player_attribute) to amministratore;
 grant execute on function func_insert_league(league.name%TYPE) to amministratore;
 grant execute on function func_delete_league(league.id%TYPE) to amministratore;
 grant execute on function func_update_league(league) to amministratore;

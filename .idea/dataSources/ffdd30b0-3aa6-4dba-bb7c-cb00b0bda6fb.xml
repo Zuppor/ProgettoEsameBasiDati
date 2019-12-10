@@ -13,7 +13,7 @@
     <database id="3" parent="1" name="soccerdb">
       <ObjectId>16859</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1141508</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1373506</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|26561|26563|1
 sequence|table|26569|26571|1
@@ -79,7 +79,7 @@ sequence|table|26632|26634|1
       <ObjectId>26557</ObjectId>
       <StateNumber>696621</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1141509</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1373507</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="17" parent="3" name="btree">
@@ -224,7 +224,7 @@ sequence|table|26632|26634|1
     <table id="35" parent="16" name="country">
       <ObjectId>26619</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>699542</StateNumber>
+      <StateNumber>1141525</StateNumber>
     </table>
     <table id="36" parent="16" name="currency">
       <ObjectId>26627</ObjectId>
@@ -234,12 +234,12 @@ sequence|table|26632|26634|1
     <table id="37" parent="16" name="initial_formation">
       <ObjectId>26741</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>699540</StateNumber>
+      <StateNumber>1141525</StateNumber>
     </table>
     <table id="38" parent="16" name="league">
       <ObjectId>26609</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>699540</StateNumber>
+      <StateNumber>1141525</StateNumber>
     </table>
     <table id="39" parent="16" name="login_attempt">
       <ObjectId>26705</ObjectId>
@@ -249,22 +249,22 @@ sequence|table|26632|26634|1
     <table id="40" parent="16" name="match">
       <ObjectId>26634</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>699540</StateNumber>
+      <StateNumber>1141525</StateNumber>
     </table>
     <table id="41" parent="16" name="player">
       <ObjectId>26596</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1141494</StateNumber>
+      <StateNumber>1141525</StateNumber>
     </table>
     <table id="42" parent="16" name="player_attribute">
       <ObjectId>26758</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1141494</StateNumber>
+      <StateNumber>1141525</StateNumber>
     </table>
     <table id="43" parent="16" name="team">
       <ObjectId>26588</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>699540</StateNumber>
+      <StateNumber>1141525</StateNumber>
     </table>
     <table id="44" parent="16" name="users">
       <ObjectId>26571</ObjectId>
@@ -412,8 +412,8 @@ sequence|table|26632|26634|1
     <routine id="57" parent="16" name="func_insert_player_attribute">
       <ObjectId>26768</ObjectId>
       <Owner>postgres</Owner>
-      <SourceTextLength>690</SourceTextLength>
-      <StateNumber>1141507</StateNumber>
+      <SourceTextLength>727</SourceTextLength>
+      <StateNumber>1373351</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>attr player_attribute</ArgumentsDefinition>
       <ResultsDefinition>character</ResultsDefinition>

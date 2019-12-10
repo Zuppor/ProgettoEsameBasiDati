@@ -509,7 +509,7 @@ create or replace function func_insert_player_attribute(attr player_attribute)
 returns char as $result$
 begin
 
-    --if((select val from player_attribute where player_id = attr.player_id and name = attr.name order by date desc limit 1) <> attr.val) then
+    if((select val from player_attribute where player_id = attr.player_id and name = attr.name order by date desc limit 1) <> attr.val) then
         insert into player_attribute values (attr.player_id,attr.date,attr.name,attr.val);
 
         if FOUND then
@@ -517,19 +517,20 @@ begin
         else
             return '1';
         end if;
-
-
+    else
+        return '0';
+    end if;
 
     exception
     when not_null_violation then
         raise info 'Errore: vincolo not null violato';
-        return '3';
+        return '2';
     when foreign_key_violation then
         raise info 'Errore: chiave etserna non presente';
-        return '4';
+        return '3';
     when unique_violation then
         raise info 'Errore: vincolo unique violato';
-        return '5';
+        return '4';
 end;
 $result$ language plpgsql;
 

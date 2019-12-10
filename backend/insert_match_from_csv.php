@@ -176,3 +176,6 @@ if($_FILES['csv']['error'] > 0){
     else{
         echo 'Incorrect file type: '.mime_content_type($_FILES['csv']);
     }*/
+ function exit_error($Err){
+     header('Location: ../frontend/home.php?error='.$Err);
+    }

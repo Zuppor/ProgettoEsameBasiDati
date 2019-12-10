@@ -28,6 +28,9 @@
         elseif (isset($_GET['success'])){
             echo '<div class="alert alert-success" role="alert">'.$_GET['success'].'</div><br><br>';
         }
+        elseif (isset($_GET['warning'])){
+            echo '<div class="alert alert-warning" role="alert">'.$_GET['warning'].'</div><br><br>';
+        }
     ?>
     <div class="row flex-xl-nowrap">
 <?php
