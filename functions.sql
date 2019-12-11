@@ -404,7 +404,7 @@ $result$ language plpgsql;
 
 
 
---todo: modificare questa funzione
+--todo: i select interni eseguono query sbagliata
 create or replace function get_best_players()
 returns setof best_players as $$
     declare
@@ -420,17 +420,19 @@ returns setof best_players as $$
         select p.name,pa.val
         into tmp2
         from player p
-        join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name like 'overall_rating'
+        join player_attribute pa on p.id = pa.player_id /*and pa.date <= tmp.date*/ and pa.name = 'overall_rating'
         join team t on p.team_id = t.id and p.team_id = tmp.home_team_id
         where val >= all(select pa.val
                                   from player p
-                                   join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name like 'overall_rating'
-                                   join team t on p.team_id = t.id and p.team_id = tmp.home_team_id);
+                                   join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name = 'overall_rating'
+                                   join team t on p.team_id = t.id and p.team_id = tmp.home_team_id)
+        and pa.date >= all (select date from player_attribute where p.id = pa.player_id and name = 'overall_rating' and date <= tmp.date);
+        --order by pa.date desc limit 1;--todo: cambiare qui
 
         best.h_name := tmp2.name;
         best.h_rating := tmp2.val;
 
-
+/*
         select p.name,pa.val
         into tmp2
         from player p
@@ -439,7 +441,18 @@ returns setof best_players as $$
         where val >= all(select pa.val
                                     from player p
                                      join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name like 'overall_rating'
-                                     join team t on p.team_id = t.id and p.team_id = tmp.away_team_id);
+                                     join team t on p.team_id = t.id and p.team_id = tmp.away_team_id);*/
+
+        select p.name,pa.val
+        into tmp2
+        from player p
+                 join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name = 'overall_rating'
+                 join team t on p.team_id = t.id and p.team_id = tmp.away_team_id
+        where val >= all(select pa.val
+                         from player p
+                                  join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name = 'overall_rating'
+                                  join team t on p.team_id = t.id and p.team_id = tmp.away_team_id)
+        order by pa.date desc limit 1;
 
         best.a_name := tmp2.name;
         best.a_rating := tmp2.val;
@@ -504,12 +517,10 @@ returns integer as $result$
     end;
 $result$ language plpgsql;
 
-
+--todo: la funzione ci mette troppo. per velocizzare, si potrebbe far sì che i dati vengano inseriti soltanto quando cambia il valore
 create or replace function func_insert_player_attribute(attr player_attribute)
 returns char as $result$
-begin
-
-    if((select val from player_attribute where player_id = attr.player_id and name = attr.name order by date desc limit 1) <> attr.val) then
+    begin
         insert into player_attribute values (attr.player_id,attr.date,attr.name,attr.val);
 
         if FOUND then
@@ -517,21 +528,18 @@ begin
         else
             return '1';
         end if;
-    else
-        return '0';
-    end if;
 
-    exception
-    when not_null_violation then
-        raise info 'Errore: vincolo not null violato';
-        return '2';
-    when foreign_key_violation then
-        raise info 'Errore: chiave etserna non presente';
-        return '3';
-    when unique_violation then
-        raise info 'Errore: vincolo unique violato';
-        return '4';
-end;
+        exception
+        when not_null_violation then
+            raise info 'Errore: vincolo not null violato';
+            return '2';
+        when foreign_key_violation then
+            raise info 'Errore: chiave etserna non presente';
+            return '3';
+        when unique_violation then
+            raise info 'Errore: vincolo unique violato';
+            return '4';
+    end;
 $result$ language plpgsql;
 
 /*

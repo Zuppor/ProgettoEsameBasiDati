@@ -61,14 +61,14 @@ if(($handle = fopen($tmpName,"r")) !== false) {
         else{
 
             for($i = 2;$i<sizeof($data);$i++){
-                echo "<br>Scraped data: ".$data[0]." ".$data[1]." ".$field_name[$i]." ".$data[$i]."<br>";
+                //echo "<br>Scraped data: ".$data[0]." ".$data[1]." ".$field_name[$i]." ".$data[$i]."<br>";
                 if(!is_numeric($data[$i])) {
                     $data[$i] = fetch_rate($data[$i]);
                 }
 
-                echo "<br>Cleaned data: ".$data[0]." ".$data[1]." ".$field_name[$i]." ".$data[$i]."<br>";
+                //echo "<br>Cleaned data: ".$data[0]." ".$data[1]." ".$field_name[$i]." ".$data[$i]."<br>";
                 if($data[$i] !== null){
-                    echo "Inserting attribute: ".$data[0]." ".$data[1]." ".$field_name[$i]." ".$data[$i]."<br>";
+                    //echo "Inserting attribute: ".$data[0]." ".$data[1]." ".$field_name[$i]." ".$data[$i]."<br>";
                     $resource = pg_execute($db,"",array($data[0],$data[1],$field_name[$i],$data[$i]));
 
                     if($resource === false)
@@ -95,9 +95,9 @@ if(($handle = fopen($tmpName,"r")) !== false) {
                             echo "Unknown code: ".$arr['result']."<br>";
                     }
                 }
-                else{
+                /*else{
                     echo "ERROR: null data<br><br>";
-                }
+                }*/
             }
 
             //echo "inserting row ".$row."...<br>";

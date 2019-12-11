@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php
-
+//todo: sistemare larghezza colonne in modo che siano tutte uguali
 include_once '../backend/functions.php';
 include_once '../backend/db_connect_login.php';
 
