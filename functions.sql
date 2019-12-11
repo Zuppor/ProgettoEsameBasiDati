@@ -427,7 +427,7 @@ returns setof best_players as $$
                                    join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name = 'overall_rating'
                                    join team t on p.team_id = t.id and p.team_id = tmp.home_team_id)
         and pa.date >= all (select date from player_attribute where p.id = pa.player_id and name = 'overall_rating' and date <= tmp.date);
-        --order by pa.date desc limit 1;--todo: cambiare qui
+        --order by pa.date desc limit 1;
 
         best.h_name := tmp2.name;
         best.h_rating := tmp2.val;

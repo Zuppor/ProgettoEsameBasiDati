@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php
-//todo: sistemare larghezza colonne in modo che siano tutte uguali
+
 include_once '../backend/functions.php';
 include_once '../backend/db_connect_login.php';
 
@@ -31,7 +31,7 @@ $resource = pg_query($db,"select get_best_players() as result");
 
                 $row = explode(",",$row);
         ?>
-<table class="table table-bordered" style="text-align: center;vertical-align: middle">
+<table class="table table-bordered" style="text-align: center;vertical-align: middle;table-layout: fixed">
                 <tr class="table-primary">
                     <td colspan="2">
                         <?php

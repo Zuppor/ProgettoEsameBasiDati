@@ -13,7 +13,7 @@
     <database id="3" parent="1" name="soccerdb">
       <ObjectId>16859</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>3329486</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3329489</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|26561|26563|1
 sequence|table|26569|26571|1
@@ -79,7 +79,7 @@ sequence|table|26632|26634|1
       <ObjectId>26557</ObjectId>
       <StateNumber>696621</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>3329487</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3329490</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="17" parent="3" name="btree">
@@ -520,8 +520,8 @@ sequence|table|26632|26634|1
     <routine id="66" parent="16" name="get_best_players">
       <ObjectId>26737</ObjectId>
       <Owner>postgres</Owner>
-      <SourceTextLength>2499</SourceTextLength>
-      <StateNumber>3329485</StateNumber>
+      <SourceTextLength>2523</SourceTextLength>
+      <StateNumber>3329488</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ResultsDefinition>SETOF best_players</ResultsDefinition>
       <LanguageName>plpgsql</LanguageName>
