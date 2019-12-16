@@ -405,7 +405,7 @@ $result$ language plpgsql;
 
 
 --todo: i select interni eseguono query sbagliata
-create or replace function get_best_players()
+create or replace function get_best_players(match_id match.id%TYPE, team char(1))
 returns setof best_players as $$
     declare
         tmp record;
@@ -417,20 +417,22 @@ returns setof best_players as $$
         best.h_team := tmp.home_team_id;
         best.a_team := tmp.away_team_id;
 
-        select p.name,pa.val
-        into tmp2
+        with q as (select p.id as pid,p.name as pname,pa.val as paval,pa.date as padate
         from player p
-        join player_attribute pa on p.id = pa.player_id /*and pa.date <= tmp.date*/ and pa.name = 'overall_rating'
-        join team t on p.team_id = t.id and p.team_id = tmp.home_team_id
-        where val >= all(select pa.val
-                                  from player p
-                                   join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name = 'overall_rating'
-                                   join team t on p.team_id = t.id and p.team_id = tmp.home_team_id)
-        and pa.date >= all (select date from player_attribute where p.id = pa.player_id and name = 'overall_rating' and date <= tmp.date);
-        --order by pa.date desc limit 1;
+                 join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name = 'overall_rating'
+        where pa.date >= all(select pl.name,pat.val,pat.date
+                             from player pl
+                            join player_attribute pat on pl.id = pat.player_id and pat.date <= tmp.date and pat.name = 'overall_rating'
+                            where pl.id = p.id and pl.team_id = tmp.home_team_id)
+        and p.team_id = tmp.home_team_id)
+        select *
+        into tmp2
+        from q
+        where paval => all(select paval from q);
 
-        best.h_name := tmp2.name;
-        best.h_rating := tmp2.val;
+
+        best.h_name := tmp2.pname;
+        best.h_rating := tmp2.paval;
 
 /*
         select p.name,pa.val

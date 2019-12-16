@@ -6,7 +6,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/best_players.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/best_players.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/functions.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -132,7 +131,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:soccerdb@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@5736b16c" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@329adc2b" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -205,7 +204,10 @@
       <workItem from="1573654313187" duration="4911000" />
       <workItem from="1575971298678" duration="3642000" />
       <workItem from="1575977186469" duration="9901000" />
-      <workItem from="1576072018209" duration="7109000" />
+      <workItem from="1576072018209" duration="7162000" />
+      <workItem from="1576158309281" duration="110000" />
+      <workItem from="1576330382100" duration="674000" />
+      <workItem from="1576511148327" duration="4923000" />
     </task>
     <task id="LOCAL-00001" summary="Ancora problemi con league">
       <created>1560597949614</created>
@@ -403,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576079005713</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="adjusted columns width to constant">
+      <created>1576079488391</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1576079488391</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,7 +432,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="polishing UI again" />
     <MESSAGE value="creata interfaccia per operatore e partner. aggiunta funzione carica scommessa." />
     <MESSAGE value="ora si possono aggiungere più bets in una volta sola" />
     <MESSAGE value="lavorando su modifica delle bets" />
@@ -448,36 +456,37 @@
     <MESSAGE value="I broke insert_player_attribute. GOOD." />
     <MESSAGE value="I repaired insert_player_attribute. now it works as expected, inserting all data" />
     <MESSAGE value="get_best_players is working, but executing the wrong query." />
-    <option name="LAST_COMMIT_MESSAGE" value="get_best_players is working, but executing the wrong query." />
+    <MESSAGE value="adjusted columns width to constant" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjusted columns width to constant" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="33" width="804" height="674" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575985317207">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="278" y="33" width="804" height="674" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.741@0.0.1366.741" timestamp="1575985317207" />
-    <state x="135" y="0" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1576079005504">
+    <state x="135" y="0" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1576079488289">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="135" y="0" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1576079005504" />
-    <state width="1070" height="138" key="GridCell.Tab.0.bottom" timestamp="1576078864576">
+    <state x="135" y="0" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1576079488289" />
+    <state width="1070" height="138" key="GridCell.Tab.0.bottom" timestamp="1576518755238">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="138" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1576078864576" />
-    <state width="1070" height="138" key="GridCell.Tab.0.center" timestamp="1576078864575">
+    <state width="1070" height="138" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1576518755238" />
+    <state width="1070" height="138" key="GridCell.Tab.0.center" timestamp="1576518755236">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="138" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1576078864575" />
-    <state width="1070" height="138" key="GridCell.Tab.0.left" timestamp="1576078864575">
+    <state width="1070" height="138" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1576518755236" />
+    <state width="1070" height="138" key="GridCell.Tab.0.left" timestamp="1576518755235">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="138" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1576078864575" />
-    <state width="1070" height="138" key="GridCell.Tab.0.right" timestamp="1576078864575">
+    <state width="1070" height="138" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1576518755235" />
+    <state width="1070" height="138" key="GridCell.Tab.0.right" timestamp="1576518755237">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="138" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1576078864575" />
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1576079009242">
+    <state width="1070" height="138" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1576518755237" />
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1576079490342">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1576079009242" />
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1576079490342" />
   </component>
 </project>
