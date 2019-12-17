@@ -7,6 +7,15 @@ create type best_players as(
     h_name varchar(100),
     h_rating int);
 
+create type best_player as(
+    team_id int,
+    team_h boolean,
+    player_name varchar(100),
+    rating int
+    );
+
+drop type best_player cascade;
+
 
 --funzione per inserire match nel database. ritorna 0 se è andato a buon fine, 2 se vincoli di not null sono stati violati,
 --1 se ci sono violazioni sulle chiave esterne, 3 se i vincoli unique sono violati, 4 se una chiave esterna non è presente
@@ -403,63 +412,79 @@ $result$ language plpgsql;
 
 
 
-
---todo: i select interni eseguono query sbagliata
-create or replace function get_best_players(match_id match.id%TYPE, team char(1))
-returns setof best_players as $$
+create or replace function get_best_players(match_id public.match.id%TYPE)
+returns setof best_player as $$
     declare
         tmp record;
         tmp2 record;
-        best best_players;
+        best best_player;
   begin
-      for tmp in (select id,date,home_team_id,away_team_id from public.match order by date desc ) loop
-        best.match_id := tmp.id;
-        best.h_team := tmp.home_team_id;
-        best.a_team := tmp.away_team_id;
+      for tmp in (select id,date,home_team_id,away_team_id from public.match m where m.id = match_id order by date desc ) loop
+        --best.match_id := tmp.id;
+        best.team_id := tmp.home_team_id;
+        best.team_h := true;
 
-        with q as (select p.id as pid,p.name as pname,pa.val as paval,pa.date as padate
+        for tmp2 in (with q as (select /*p.id as pid,*/p.name as pname,pa.val as paval/*,pa.date as padate*/
         from player p
                  join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name = 'overall_rating'
-        where pa.date >= all(select pl.name,pat.val,pat.date
+        where pa.date >= all(select pat.date
                              from player pl
                             join player_attribute pat on pl.id = pat.player_id and pat.date <= tmp.date and pat.name = 'overall_rating'
                             where pl.id = p.id and pl.team_id = tmp.home_team_id)
         and p.team_id = tmp.home_team_id)
         select *
-        into tmp2
         from q
-        where paval => all(select paval from q);
+        where paval >= all(select paval from q)) loop
+                best.player_name := tmp2.pname;
+                best.rating := tmp2.paval;
+
+                return next best;
+        end loop;
 
 
-        best.h_name := tmp2.pname;
-        best.h_rating := tmp2.paval;
+        --best.h_name := tmp2.pname;
+        --best.h_rating := tmp2.paval;
+
+        --return next best;
 
 /*
-        select p.name,pa.val
+        with q as (select p.id as pid,p.name as pname,pa.val as paval,pa.date as padate
+                   from player p
+                            join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name = 'overall_rating'
+                   where pa.date >= all(select pat.date
+                                        from player pl
+                                                 join player_attribute pat on pl.id = pat.player_id and pat.date <= tmp.date and pat.name = 'overall_rating'
+                                        where pl.id = p.id and pl.team_id = tmp.away_team_id)
+                     and p.team_id = tmp.away_team_id)
+        select *
         into tmp2
-        from player p
-                 join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name like 'overall_rating'
-                 join team t on p.team_id = t.id and p.team_id = tmp.away_team_id
-        where val >= all(select pa.val
-                                    from player p
-                                     join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name like 'overall_rating'
-                                     join team t on p.team_id = t.id and p.team_id = tmp.away_team_id);*/
+        from q
+        where paval >= all(select paval from q)
+        limit 1;
 
-        select p.name,pa.val
-        into tmp2
-        from player p
-                 join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name = 'overall_rating'
-                 join team t on p.team_id = t.id and p.team_id = tmp.away_team_id
-        where val >= all(select pa.val
-                         from player p
-                                  join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name = 'overall_rating'
-                                  join team t on p.team_id = t.id and p.team_id = tmp.away_team_id)
-        order by pa.date desc limit 1;
+        best.player_name := tmp2.pname;
+        best.rating := tmp2.paval;
 
-        best.a_name := tmp2.name;
-        best.a_rating := tmp2.val;
+        return next best;*/
+        best.team_id := tmp.away_team_id;
+        best.team_h := false;
 
-        return next best;
+        for tmp2 in (with q as (select /*p.id as pid,*/p.name as pname,pa.val as paval/*,pa.date as padate*/
+                                from player p
+                                         join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name = 'overall_rating'
+                                where pa.date >= all(select pat.date
+                                                     from player pl
+                                                              join player_attribute pat on pl.id = pat.player_id and pat.date <= tmp.date and pat.name = 'overall_rating'
+                                                     where pl.id = p.id and pl.team_id = tmp.away_team_id)
+                                  and p.team_id = tmp.away_team_id)
+                     select *
+                     from q
+                     where paval >= all(select paval from q)) loop
+                best.player_name := tmp2.pname;
+                best.rating := tmp2.paval;
+
+                return next best;
+            end loop;
       end loop;
   end;
 $$ language plpgsql;
