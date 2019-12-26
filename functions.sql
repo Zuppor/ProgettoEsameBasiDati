@@ -420,11 +420,10 @@ returns setof best_player as $$
         best best_player;
   begin
       for tmp in (select id,date,home_team_id,away_team_id from public.match m where m.id = match_id order by date desc ) loop
-        --best.match_id := tmp.id;
         best.team_id := tmp.home_team_id;
         best.team_h := true;
 
-        for tmp2 in (with q as (select /*p.id as pid,*/p.name as pname,pa.val as paval/*,pa.date as padate*/
+        for tmp2 in (with q as (select p.name as pname,pa.val as paval
         from player p
                  join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name = 'overall_rating'
         where pa.date >= all(select pat.date
@@ -441,35 +440,10 @@ returns setof best_player as $$
                 return next best;
         end loop;
 
-
-        --best.h_name := tmp2.pname;
-        --best.h_rating := tmp2.paval;
-
-        --return next best;
-
-/*
-        with q as (select p.id as pid,p.name as pname,pa.val as paval,pa.date as padate
-                   from player p
-                            join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name = 'overall_rating'
-                   where pa.date >= all(select pat.date
-                                        from player pl
-                                                 join player_attribute pat on pl.id = pat.player_id and pat.date <= tmp.date and pat.name = 'overall_rating'
-                                        where pl.id = p.id and pl.team_id = tmp.away_team_id)
-                     and p.team_id = tmp.away_team_id)
-        select *
-        into tmp2
-        from q
-        where paval >= all(select paval from q)
-        limit 1;
-
-        best.player_name := tmp2.pname;
-        best.rating := tmp2.paval;
-
-        return next best;*/
         best.team_id := tmp.away_team_id;
         best.team_h := false;
 
-        for tmp2 in (with q as (select /*p.id as pid,*/p.name as pname,pa.val as paval/*,pa.date as padate*/
+        for tmp2 in (with q as (select p.name as pname,pa.val as paval
                                 from player p
                                          join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name = 'overall_rating'
                                 where pa.date >= all(select pat.date
@@ -678,3 +652,55 @@ begin
     return new;
 end;
 $$ language plpgsql;
+
+create or replace function func_generate_classifica()--todo: sistemare
+returns TABLE(score integer,victories integer,draws integer,lost integer) as $$
+    declare
+        tmpSeason record;
+        tmpTeam record;
+    begin
+        for tmpSeason in (select distinct(season) as year from public.match order by season desc) loop
+            for tmpTeam in (select distinct(team.id)  as id from team join match m on team.id = m.away_team_id where m.season = tmpSeason.year) loop
+
+                    with
+                    vict as (
+                        select sum(vit) as tot
+                        from (
+                        select count(m.id) as vit
+                        from public.match m
+                        where tmpTeam.id = m.home_team_id and h_team_goal > a_team_goal
+                        union
+                        select count(m.id)
+                        from public.match m
+                        where tmpTeam.id = m.away_team_id and h_team_goal < a_team_goal) as a),
+                    draw as (
+                        select sum(par) as tot
+                        from(
+                        select count(m.id) as par
+                        from public.match m
+                        where tmpTeam.id = m.home_team_id and h_team_goal = a_team_goal
+                        union
+                         select count(m.id)
+                          from public.match m
+                          where tmpTeam.id = m.away_team_id and h_team_goal = a_team_goal) as a),
+                    lost as (
+                        select sum(per) as tot
+                        from (
+                        select count(m.id) as per
+                        from public.match m
+                        where tmpTeam.id = m.home_team_id and h_team_goal < a_team_goal
+                        union
+                        select count(m.id)
+                        from public.match m
+                        where tmpTeam.id = m.away_team_id and h_team_goal > a_team_goal) as a)
+
+                    select (((vict.tot)*3)+draw.tot) as score,vict.tot as victories,draw.tot as draws, lost.tot as lost;
+                    return next;
+
+                end loop;
+            end loop;
+    end;
+    $$
+language plpgsql;
+
+drop function func_generate_classifica();

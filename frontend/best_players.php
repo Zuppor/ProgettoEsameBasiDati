@@ -32,12 +32,6 @@ while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)){
 
     while($row2 = pg_fetch_array($r,null,PGSQL_ASSOC)) {
 
-
-
-        /*
-        $resource = pg_query($db,"select get_best_players() as result");
-
-                    while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)){*/
         $row2 = $row2['result'];
 
         $row2 = str_replace("\"", "", $row2);
