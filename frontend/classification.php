@@ -34,7 +34,7 @@ include_once 'navbar.php';
     <tbody>
     <?php
 
-        $resource = pg_query($db,"select c.date::date as d,to_char(c.date,'HH24:MM') as t,c.name,c.stage,c.season,c.team_a,c.team_h,c.h_team_goal,c.a_team_goal from public.classifica c");
+        $resource = pg_query($db,"select * from classifica");//fixme: aggiustare display della tabella
 
 
         while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)){

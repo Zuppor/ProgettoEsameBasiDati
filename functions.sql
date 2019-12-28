@@ -1,12 +1,3 @@
-create type best_players as(
-    match_id int,
-    a_team int,
-    a_name varchar(100),
-    a_rating int,
-    h_team int,
-    h_name varchar(100),
-    h_rating int);
-
 create type best_player as(
     team_id int,
     team_h boolean,
@@ -16,6 +7,19 @@ create type best_player as(
 
 drop type best_player cascade;
 
+create type team_classification as(
+    league varchar(100),
+    season int,
+    l_name varchar(100),
+    s_name char(3),
+    score int,
+    victories int,
+    draws int,
+    lost int,
+    played int
+);
+
+drop type team_classification cascade ;
 
 --funzione per inserire match nel database. ritorna 0 se è andato a buon fine, 2 se vincoli di not null sono stati violati,
 --1 se ci sono violazioni sulle chiave esterne, 3 se i vincoli unique sono violati, 4 se una chiave esterna non è presente
@@ -543,105 +547,6 @@ returns char as $result$
     end;
 $result$ language plpgsql;
 
-/*
-create or replace function func_insert_player_rate(attr pa_rate)
-    returns char as $result$
-begin
-    --controllo attributo più recente dello stesso giocatore
-    --se è uguale, non inserisco
-    --se è diverso, inserisco
-    if(select p.value from pa_rate p where p.player_id = attr.player_id and p.date = attr.date) <> attr.value then
-        insert into pa_rate values (attr.player_id,attr.date,attr.value);
-    end if;
-
-    if FOUND then
-        return '0';
-    else
-        return '1';
-    end if;
-
-exception
-    when check_violation then
-        raise info 'Errore: condizione check violata';
-        return '2';
-    when not_null_violation then
-        raise info 'Errore: vincolo not null violato';
-        return '3';
-    when foreign_key_violation then
-        raise info 'Errore: chiave etserna non presente';
-        return '4';
-    when unique_violation then
-        raise info 'Errore: vincolo unique violato';
-        return '5';
-end;
-$result$ language plpgsql;
-
-
-create or replace function func_insert_player_foot(attr pa_foot)
-returns char as $result$
-    begin
-        --controllo attributo più recente dello stesso giocatore
-        --se è uguale, non inserisco
-        --se è diverso, inserisco
-        if(select p.value from pa_foot p where p.player_id = attr.player_id and p.date = attr.date) <> attr.value then
-            insert into pa_foot values (attr.player_id,attr.date,attr.value);
-        end if;
-
-        if FOUND then
-            return '0';
-        else
-            return '1';
-        end if;
-
-    exception
-        when check_violation then
-            raise info 'Errore: condizione check violata';
-            return '2';
-        when not_null_violation then
-            raise info 'Errore: vincolo not null violato';
-            return '3';
-        when foreign_key_violation then
-            raise info 'Errore: chiave etserna non presente';
-            return '4';
-        when unique_violation then
-            raise info 'Errore: vincolo unique violato';
-            return '5';
-    end;
-    $result$ language plpgsql;
-
---todo: mqf
-create or replace function func_insert_player_percentage(attr pa_percentage)
-returns char as $result$
-    begin
-
-        if(select p.value from pa_percentage p where p.player_id = attr.player_id and p.date = attr.date) <> attr.value then
-            insert into pa_percentage values (attr.player_id,attr.date,attr.value);
-        end if;
-
-        if FOUND then
-            return '0';
-        else
-            return '1';
-        end if;
-
-    exception
-        when check_violation then
-            raise info 'Errore: condizione check violata';
-            return '2';
-        when not_null_violation then
-            raise info 'Errore: vincolo not null violato';
-            return '3';
-        when foreign_key_violation then
-            raise info 'Errore: chiave etserna non presente';
-            return '4';
-        when unique_violation then
-            raise info 'Errore: vincolo unique violato';
-            return '5';
-
-    end;
-$result$ language plpgsql;
-*/
-
 create or replace function func_refresh_classifica()
     returns trigger
     security definer
@@ -653,54 +558,73 @@ begin
 end;
 $$ language plpgsql;
 
-create or replace function func_generate_classifica()--todo: sistemare
-returns TABLE(score integer,victories integer,draws integer,lost integer) as $$
+
+
+create or replace function func_generate_classifica()
+returns setof team_classification
+as $$
     declare
         tmpSeason record;
+        tmpLeague record;
         tmpTeam record;
+        classification team_classification;
     begin
         for tmpSeason in (select distinct(season) as year from public.match order by season desc) loop
-            for tmpTeam in (select distinct(team.id)  as id from team join match m on team.id = m.away_team_id where m.season = tmpSeason.year) loop
+            for tmpLeague in (select id,name from league) loop
+                for tmpTeam in (select distinct(t.id) as id,t.long_name,t.short_name from team t join match m on (t.id = m.away_team_id or t.id = m.home_team_id) where m.season = tmpSeason.year and m.league_id = tmpLeague.id) loop
 
-                    with
-                    vict as (
-                        select sum(vit) as tot
-                        from (
-                        select count(m.id) as vit
-                        from public.match m
-                        where tmpTeam.id = m.home_team_id and h_team_goal > a_team_goal
-                        union
-                        select count(m.id)
-                        from public.match m
-                        where tmpTeam.id = m.away_team_id and h_team_goal < a_team_goal) as a),
-                    draw as (
-                        select sum(par) as tot
-                        from(
-                        select count(m.id) as par
-                        from public.match m
-                        where tmpTeam.id = m.home_team_id and h_team_goal = a_team_goal
-                        union
-                         select count(m.id)
-                          from public.match m
-                          where tmpTeam.id = m.away_team_id and h_team_goal = a_team_goal) as a),
-                    lost as (
-                        select sum(per) as tot
-                        from (
-                        select count(m.id) as per
-                        from public.match m
-                        where tmpTeam.id = m.home_team_id and h_team_goal < a_team_goal
-                        union
-                        select count(m.id)
-                        from public.match m
-                        where tmpTeam.id = m.away_team_id and h_team_goal > a_team_goal) as a)
+                    classification.season := tmpSeason.year;
+                    classification.league := tmpLeague.name;
+                    classification.l_name := tmpTeam.long_name;
+                    classification.s_name := tmpTeam.short_name;
 
-                    select (((vict.tot)*3)+draw.tot) as score,vict.tot as victories,draw.tot as draws, lost.tot as lost;
-                    return next;
+                    classification.victories := (select tot
+                    from (
+                             select sum(vit) as tot
+                             from (
+                                      select count(m.id) as vit
+                                      from public.match m
+                                      where tmpTeam.id = m.home_team_id and h_team_goal > a_team_goal
+                                      union
+                                      select count(m.id)
+                                      from public.match m
+                                      where tmpTeam.id = m.away_team_id and h_team_goal < a_team_goal) as a
+                             ) as b);
+
+                    classification.draws := (select tot
+                    from (
+                             select sum(par) as tot
+                             from(
+                                     select count(m.id) as par
+                                     from public.match m
+                                     where tmpTeam.id = m.home_team_id and h_team_goal = a_team_goal
+                                     union
+                                     select count(m.id)
+                                     from public.match m
+                                     where tmpTeam.id = m.away_team_id and h_team_goal = a_team_goal) as a
+                             ) as b);
+
+                    classification.lost := (select tot
+                    from(
+                            select sum(per) as tot
+                            from (
+                                     select count(m.id) as per
+                                     from public.match m
+                                     where tmpTeam.id = m.home_team_id and h_team_goal < a_team_goal
+                                     union
+                                     select count(m.id)
+                                     from public.match m
+                                     where tmpTeam.id = m.away_team_id and h_team_goal > a_team_goal) as a
+                            ) as b);
+
+                    classification.score := ((classification.victories*3)+classification.draws);
+                    classification.played := classification.victories+classification.draws+classification.lost;
+
+                    return next classification;
 
                 end loop;
             end loop;
+        end loop;
     end;
     $$
 language plpgsql;
-
-drop function func_generate_classifica();

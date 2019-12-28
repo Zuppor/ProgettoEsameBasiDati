@@ -26,22 +26,11 @@ $resource = pg_execute($db,"",array($_GET['lazy_load']));
 
 while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)){
 
-    $r = pg_prepare($db,"","select get_best_players($1) as result");
+    $r = pg_prepare($db,"","select * from get_best_players($1)");//fixme: aggiustare display della tabella
     $r = pg_execute($db,"",array($row['id']));
     $curr_match_arr = array();
 
     while($row2 = pg_fetch_array($r,null,PGSQL_ASSOC)) {
-
-        $row2 = $row2['result'];
-
-        $row2 = str_replace("\"", "", $row2);
-
-        $row2 = str_replace("(", "", $row2);
-
-        $row2 = str_replace(")", "", $row2);
-
-        $row2 = explode(",", $row2);
-
         array_push($curr_match_arr, $row2);
     }
 
