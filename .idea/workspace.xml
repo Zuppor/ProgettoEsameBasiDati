@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b213ae3-c0c9-460f-8edf-85cf43bda014" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/best_players.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/best_players.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/classification.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/classification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views.sql" beforeDir="false" afterPath="$PROJECT_DIR$/views.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +99,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:soccerdb@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@6ac007d7" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@6a750771" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -185,7 +181,8 @@
       <workItem from="1577293080200" duration="1066000" />
       <workItem from="1577358497859" duration="13076000" />
       <workItem from="1577535892315" duration="11147000" />
-      <workItem from="1577625652228" duration="17963000" />
+      <workItem from="1577625652228" duration="18358000" />
+      <workItem from="1577649431162" duration="4393000" />
     </task>
     <task id="LOCAL-00001" summary="Ancora problemi con league">
       <created>1560597949614</created>
@@ -418,7 +415,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577551173164</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="best_player visualization almost repaired; classification visualization problem in the internal loop">
+      <created>1577645639078</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1577645639078</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -438,7 +442,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="i partner possono eseguire tutte le operazioni (inserimento,modifica, cancellazione) correttamente" />
     <MESSAGE value="comincio a lavorare su operatore" />
     <MESSAGE value="operatore può eseguire tutte le operazioni correttamente" />
     <MESSAGE value="manage league and manage team parts of admin completed" />
@@ -463,37 +466,38 @@
     <MESSAGE value="adjusted best_players.php to display new best_player format correctly" />
     <MESSAGE value="adjust classifica to display correct data" />
     <MESSAGE value="some fixes to do to the tables int html" />
-    <option name="LAST_COMMIT_MESSAGE" value="some fixes to do to the tables int html" />
+    <MESSAGE value="best_player visualization almost repaired; classification visualization problem in the internal loop" />
+    <option name="LAST_COMMIT_MESSAGE" value="best_player visualization almost repaired; classification visualization problem in the internal loop" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="33" width="804" height="674" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575985317207">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="278" y="33" width="804" height="674" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.741@0.0.1366.741" timestamp="1575985317207" />
-    <state x="142" y="3" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1577551172905">
+    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1577645638843">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="142" y="3" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1577551172905" />
-    <state width="1070" height="201" key="GridCell.Tab.0.bottom" timestamp="1577631348373">
+    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1577645638843" />
+    <state width="0" height="0" key="GridCell.Tab.0.bottom" timestamp="1577649432764">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="201" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1577631348373" />
-    <state width="1070" height="201" key="GridCell.Tab.0.center" timestamp="1577631348372">
+    <state width="0" height="0" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1577649432764" />
+    <state width="0" height="0" key="GridCell.Tab.0.center" timestamp="1577649432764">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="201" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1577631348372" />
-    <state width="1070" height="201" key="GridCell.Tab.0.left" timestamp="1577631348371">
+    <state width="0" height="0" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1577649432764" />
+    <state width="0" height="0" key="GridCell.Tab.0.left" timestamp="1577649432764">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="201" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1577631348371" />
-    <state width="1070" height="201" key="GridCell.Tab.0.right" timestamp="1577631348372">
+    <state width="0" height="0" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1577649432764" />
+    <state width="0" height="0" key="GridCell.Tab.0.right" timestamp="1577649432764">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="201" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1577631348372" />
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1577551175447">
+    <state width="0" height="0" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1577649432764" />
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1577645641161">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1577551175447" />
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1577645641161" />
     <state x="346" y="62" width="672" height="678" key="search.everywhere.popup" timestamp="1577551376395">
       <screen x="0" y="0" width="1366" height="741" />
     </state>

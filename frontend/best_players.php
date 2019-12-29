@@ -39,7 +39,7 @@ while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)){
                 <tr class="table-primary">
                     <td colspan="2">
                         <?php//fixme: la riga non è visualizzata correttamente
-                        echo "<b>Date: </b>".date('j/m/Y H:i',strtotime($row['d']))." <b>Season: </b>".$row['season']."/".($row['season']+1)." <b>Stage: </b>".$row['stage']." <b>League: </b>".$row['name']; ?>
+                        echo "<b>Date: </b>".date("j/m/Y H:i",strtotime($row['d']))." <b>Season: </b>".$row['season']."/".($row['season']+1)." <b>Stage: </b>".$row['stage']." <b>League: </b>".$row['name']; ?>
                     </td>
                 </tr>
                 <tr>
