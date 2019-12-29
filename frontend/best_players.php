@@ -38,8 +38,12 @@ while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)){
 <table class="table table-bordered" style="text-align: center;vertical-align: middle;table-layout: fixed">
                 <tr class="table-primary">
                     <td colspan="2">
-                        <?php//fixme: la riga non è visualizzata correttamente
-                        echo "<b>Date: </b>".date("j/m/Y H:i",strtotime($row['d']))." <b>Season: </b>".$row['season']."/".($row['season']+1)." <b>Stage: </b>".$row['stage']." <b>League: </b>".$row['name']; ?>
+                        <?php
+                        echo "<b>Date: </b>".date("j/m/Y H:i",strtotime($row['d'])) ;
+                        echo " <b>Season: </b>".$row['season']."/".($row['season']+1) ;
+                        echo " <b>Stage: </b>".$row['stage'] ;
+                        echo " <b>League: </b>".$row['name'] ;
+                        ?>
                     </td>
                 </tr>
                 <tr>
@@ -113,7 +117,7 @@ while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)){
 </table>
         <?php }?>
 
-<input type="button" class="btn-primary" value="Load more" onclick="<?php echo "window.location.href='best_players.php?lazy_load=".($_GET['lazy_load']+$lazy_load_step)."'"; ?>"/>
+<input type="button" class="btn-primary" value="Load more..." onclick="<?php echo "window.location.href='best_players.php?lazy_load=".($_GET['lazy_load']+$lazy_load_step)."'"; ?>"/>
 
 </body>
 </html>
