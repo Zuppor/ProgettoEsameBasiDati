@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.17">
     <root id="1">
       <ServerVersion>10.5</ServerVersion>
-      <StartupTime>1577535872</StartupTime>
+      <StartupTime>1577625616</StartupTime>
     </root>
     <database id="2" parent="1" name="postgres">
       <ObjectId>12297</ObjectId>
@@ -13,7 +13,7 @@
     <database id="3" parent="1" name="soccerdb">
       <ObjectId>16859</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>3329724</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3329730</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|26561|26563|1
 sequence|table|26569|26571|1
@@ -79,7 +79,7 @@ sequence|table|26632|26634|1
       <ObjectId>26557</ObjectId>
       <StateNumber>696621</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>3329725</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3329731</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="17" parent="3" name="btree">
@@ -284,10 +284,10 @@ sequence|table|26632|26634|1
       <StateNumber>3329477</StateNumber>
     </table>
     <materialized-view id="47" parent="16" name="classifica">
-      <ObjectId>26839</ObjectId>
+      <ObjectId>26843</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>3329718</StateNumber>
-      <SourceTextLength>549</SourceTextLength>
+      <StateNumber>3329729</StateNumber>
+      <SourceTextLength>582</SourceTextLength>
     </materialized-view>
     <routine id="48" parent="16" name="func_check_bet">
       <ObjectId>26733</ObjectId>
@@ -1413,47 +1413,47 @@ name</ColNames>
     <column id="187" parent="47" name="league">
       <Position>1</Position>
       <DataType>varchar(100)|0s</DataType>
-      <StateNumber>3329718</StateNumber>
+      <StateNumber>3329729</StateNumber>
     </column>
     <column id="188" parent="47" name="season">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>3329718</StateNumber>
+      <StateNumber>3329729</StateNumber>
     </column>
     <column id="189" parent="47" name="l_name">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
-      <StateNumber>3329718</StateNumber>
+      <StateNumber>3329729</StateNumber>
     </column>
     <column id="190" parent="47" name="s_name">
       <Position>4</Position>
       <DataType>char(3)|0s</DataType>
-      <StateNumber>3329718</StateNumber>
+      <StateNumber>3329729</StateNumber>
     </column>
     <column id="191" parent="47" name="score">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>3329718</StateNumber>
+      <StateNumber>3329729</StateNumber>
     </column>
     <column id="192" parent="47" name="victories">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>3329718</StateNumber>
+      <StateNumber>3329729</StateNumber>
     </column>
     <column id="193" parent="47" name="draws">
       <Position>7</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>3329718</StateNumber>
+      <StateNumber>3329729</StateNumber>
     </column>
     <column id="194" parent="47" name="lost">
       <Position>8</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>3329718</StateNumber>
+      <StateNumber>3329729</StateNumber>
     </column>
     <column id="195" parent="47" name="played">
       <Position>9</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>3329718</StateNumber>
+      <StateNumber>3329729</StateNumber>
     </column>
     <argument id="196" parent="48" name="b">
       <Position>1</Position>

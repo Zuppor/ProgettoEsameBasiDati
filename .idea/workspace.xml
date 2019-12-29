@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/best_players.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/best_players.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/classification.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/classification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/functions.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views.sql" beforeDir="false" afterPath="$PROJECT_DIR$/views.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,36 +40,6 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="soccerdb@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="soccerdb@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="soccerdb: database" type="162271b6:PgImplModel$Database" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="soccerdb@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="soccerdb: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="soccerdb@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="soccerdb: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="soccerdb@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="soccerdb: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
     </expand>
     <select />
@@ -134,7 +103,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:soccerdb@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@1edfbb17" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@6ac007d7" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -215,7 +184,8 @@
       <workItem from="1577272743710" duration="8132000" />
       <workItem from="1577293080200" duration="1066000" />
       <workItem from="1577358497859" duration="13076000" />
-      <workItem from="1577535892315" duration="10592000" />
+      <workItem from="1577535892315" duration="11147000" />
+      <workItem from="1577625652228" duration="17963000" />
     </task>
     <task id="LOCAL-00001" summary="Ancora problemi con league">
       <created>1560597949614</created>
@@ -441,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577381615008</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="some fixes to do to the tables int html">
+      <created>1577551173164</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1577551173164</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,7 +438,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="i partner possono cancellare e modificare le bets correttamente" />
     <MESSAGE value="i partner possono eseguire tutte le operazioni (inserimento,modifica, cancellazione) correttamente" />
     <MESSAGE value="comincio a lavorare su operatore" />
     <MESSAGE value="operatore può eseguire tutte le operazioni correttamente" />
@@ -486,36 +462,41 @@
     <MESSAGE value="finally found the right query for get_best_players. Another problem arised: how do i send more than 1 player per team?" />
     <MESSAGE value="adjusted best_players.php to display new best_player format correctly" />
     <MESSAGE value="adjust classifica to display correct data" />
-    <option name="LAST_COMMIT_MESSAGE" value="adjust classifica to display correct data" />
+    <MESSAGE value="some fixes to do to the tables int html" />
+    <option name="LAST_COMMIT_MESSAGE" value="some fixes to do to the tables int html" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="33" width="804" height="674" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575985317207">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="278" y="33" width="804" height="674" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.741@0.0.1366.741" timestamp="1575985317207" />
-    <state x="142" y="3" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1577381614693">
+    <state x="142" y="3" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1577551172905">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="142" y="3" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1577381614693" />
-    <state width="1070" height="239" key="GridCell.Tab.0.bottom" timestamp="1577550235001">
+    <state x="142" y="3" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1577551172905" />
+    <state width="1070" height="201" key="GridCell.Tab.0.bottom" timestamp="1577631348373">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="239" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1577550235001" />
-    <state width="1070" height="239" key="GridCell.Tab.0.center" timestamp="1577550235000">
+    <state width="1070" height="201" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1577631348373" />
+    <state width="1070" height="201" key="GridCell.Tab.0.center" timestamp="1577631348372">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="239" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1577550235000" />
-    <state width="1070" height="239" key="GridCell.Tab.0.left" timestamp="1577550234999">
+    <state width="1070" height="201" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1577631348372" />
+    <state width="1070" height="201" key="GridCell.Tab.0.left" timestamp="1577631348371">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="239" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1577550234999" />
-    <state width="1070" height="239" key="GridCell.Tab.0.right" timestamp="1577550235001">
+    <state width="1070" height="201" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1577631348371" />
+    <state width="1070" height="201" key="GridCell.Tab.0.right" timestamp="1577631348372">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="239" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1577550235001" />
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1577381618186">
+    <state width="1070" height="201" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1577631348372" />
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1577551175447">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1577381618186" />
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1577551175447" />
+    <state x="346" y="62" width="672" height="678" key="search.everywhere.popup" timestamp="1577551376395">
+      <screen x="0" y="0" width="1366" height="741" />
+    </state>
+    <state x="346" y="62" width="672" height="678" key="search.everywhere.popup/0.0.1366.741@0.0.1366.741" timestamp="1577551376395" />
   </component>
 </project>
