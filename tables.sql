@@ -61,7 +61,6 @@ create table match(
   check ( h_team_goal >= 0 )
 );
 
-
 create table player_attribute(
     player_id int not null references player(id) on update cascade on delete cascade ,
     date timestamp not null,
@@ -69,66 +68,6 @@ create table player_attribute(
     val int not null,
     unique (player_id,date,name)
 );
-/*
-create table pa_char(
-    value foot
-) inherits (player_attribute);
-
-create table pa_rate(
-    name varchar(50),
-    value rate
-) inherits (player_attribute);
-
-create table pa_percentage(
-    name varchar(50),
-    value percentage
-) inherits (player_attribute);
-*/
-/*
-create table player_attribute(
-  player_id int not null references player(id) on update cascade on delete cascade ,
-  date timestamp not null ,
-  overall_rating percentage ,
-  potential percentage ,
-  preferred_foot char(1) not null default 'r',
-  attacking_work_rate rate,
-  defensive_work_rate rate,
-  crossing percentage,
-  finishing percentage,
-  heading_accuracy percentage,
-  short_passing percentage,
-  volleys percentage,
-  dribbling percentage,
-  curve percentage,
-  free_kick_accuracy percentage,
-  long_passing percentage,
-  ball_control percentage,
-  acceleration percentage,
-  sprint_speed percentage,
-  agility percentage,
-  reactions percentage,
-  balance percentage,
-  shot_power percentage,
-  jumping percentage,
-  stamina percentage,
-  strength percentage,
-  long_shots percentage,
-  aggression percentage,
-  interception percentage,
-  positioning percentage,
-  vision percentage,
-  penalties percentage,
-  marking percentage,
-  standing_tackle percentage,
-  sliding_tackle percentage,
-  gk_diving percentage,
-  gk_handling percentage,
-  gk_kicking percentage,
-  gk_positioning percentage,
-  gk_reflexes percentage,
-  primary key (player_id,date),
-  check ( preferred_foot in ('r','l') )
-);*/
 
 create table bets(
   match_id int references match(id) on update cascade on delete set null ,
@@ -138,9 +77,7 @@ create table bets(
   currency_id char(3) not null references currency(code),
   primary key (match_id,partner_id,bet,currency_id)
 );
-/*
-drop table initial_formation cascade ;
-*/
+
 create table initial_formation(
   match_id int not null references match(id) on update cascade on delete cascade ,
   player_id int references player(id) on update cascade on delete set null,
