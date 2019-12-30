@@ -53,7 +53,7 @@
 
             include_once '../../backend/db_connect_login.php';
 
-            $resource = pg_query($db,"select id,name from league order by name ");
+            $resource = pg_query($db,"select id,name from league order by name");
 
             while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)) {
                 ?>

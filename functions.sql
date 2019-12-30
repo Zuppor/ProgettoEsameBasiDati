@@ -412,8 +412,24 @@ end;
 $result$ language plpgsql;
 
 
-
-
+create or replace function func_get_best_players_from_team(match_date public.match.date%TYPE, t_id team.id%TYPE)
+returns table(name varchar(100),attr_val int) as $$
+    begin
+        return query
+        with q as (select p.name as pname,pa.val as paval
+                   from player p
+                            join player_attribute pa on p.id = pa.player_id and pa.date <= match_date and pa.name = 'overall_rating'
+                   where pa.date >= all(select pat.date
+                                        from player pl
+                                                 join player_attribute pat on pl.id = pat.player_id and pat.date <= match_date and pat.name = 'overall_rating'
+                                        where pl.id = p.id and pl.team_id = t_id)
+                     and p.team_id = t_id)
+        select q.pname,q.paval
+        from q
+        where paval >= all(select paval from q);
+    end;
+    $$
+language plpgsql;
 
 
 create or replace function get_best_players(match_id public.match.id%TYPE)
@@ -427,19 +443,9 @@ returns setof best_player as $$
         best.team_id := tmp.home_team_id;
         best.team_h := true;
 
-        for tmp2 in (with q as (select p.name as pname,pa.val as paval
-        from player p
-                 join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name = 'overall_rating'
-        where pa.date >= all(select pat.date
-                             from player pl
-                            join player_attribute pat on pl.id = pat.player_id and pat.date <= tmp.date and pat.name = 'overall_rating'
-                            where pl.id = p.id and pl.team_id = tmp.home_team_id)
-        and p.team_id = tmp.home_team_id)
-        select *
-        from q
-        where paval >= all(select paval from q)) loop
-                best.player_name := tmp2.pname;
-                best.rating := tmp2.paval;
+        for tmp2 in (select name,attr_val from func_get_best_players_from_team(tmp.date,tmp.home_team_id)) loop
+                best.player_name := tmp2.name;
+                best.rating := tmp2.attr_val;
 
                 return next best;
         end loop;
@@ -447,19 +453,9 @@ returns setof best_player as $$
         best.team_id := tmp.away_team_id;
         best.team_h := false;
 
-        for tmp2 in (with q as (select p.name as pname,pa.val as paval
-                                from player p
-                                         join player_attribute pa on p.id = pa.player_id and pa.date <= tmp.date and pa.name = 'overall_rating'
-                                where pa.date >= all(select pat.date
-                                                     from player pl
-                                                              join player_attribute pat on pl.id = pat.player_id and pat.date <= tmp.date and pat.name = 'overall_rating'
-                                                     where pl.id = p.id and pl.team_id = tmp.away_team_id)
-                                  and p.team_id = tmp.away_team_id)
-                     select *
-                     from q
-                     where paval >= all(select paval from q)) loop
-                best.player_name := tmp2.pname;
-                best.rating := tmp2.paval;
+        for tmp2 in (select name,attr_val from func_get_best_players_from_team(tmp.date,tmp.away_team_id)) loop
+                best.player_name := tmp2.name;
+                best.rating := tmp2.attr_val;
 
                 return next best;
             end loop;
@@ -522,7 +518,6 @@ returns integer as $result$
     end;
 $result$ language plpgsql;
 
---todo: la funzione ci mette troppo. per velocizzare, si potrebbe far sì che i dati vengano inseriti soltanto quando cambia il valore
 create or replace function func_insert_player_attribute(attr player_attribute)
 returns char as $result$
     begin

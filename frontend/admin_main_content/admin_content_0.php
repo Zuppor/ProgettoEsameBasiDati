@@ -1,4 +1,4 @@
-<!-- UPLOAD MATCHES AND PLAYER ATTRIBUTES -->
+<!-- UPLOAD MATCHES AND PLAYER ATTRIBUTES FROM CSV-->
 <form action="../../backend/insert_match_from_csv.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="csv">Upload match.csv</label>

@@ -64,7 +64,7 @@
             <option value="null">Nessuna</option>
             <?php
                 include '../backend/db_connect_login.php';
-                $resource = pg_query($db,"select id,long_name from bet_society");
+                $resource = pg_query($db,"select id,long_name from bet_society");//todo: nascondere questo campo nel caso l'utente non sia di livello 2
 
                 while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)){
                     ?>

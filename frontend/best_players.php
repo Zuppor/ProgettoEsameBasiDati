@@ -39,7 +39,7 @@ while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)){
                 <tr class="table-primary">
                     <td colspan="2">
                         <?php
-                        echo "<b>Date: </b>".date("j/m/Y H:i",strtotime($row['d'])) ;
+                        echo "<b>Date: </b>".date("j/m/Y H:i",strtotime($row['d'])) ;//fixme: data non mostrata correttamente
                         echo " <b>Season: </b>".$row['season']."/".($row['season']+1) ;
                         echo " <b>Stage: </b>".$row['stage'] ;
                         echo " <b>League: </b>".$row['name'] ;
