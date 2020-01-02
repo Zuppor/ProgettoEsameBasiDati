@@ -303,6 +303,8 @@ $result$
 create or replace function func_check_bet(b bets)
 returns int as $result$
 begin
+    --controlla che la stessa scommessa non sia messa già da un'altro impiegato della società
+    --e che l'id della società non sia nullo
     perform match_id,bet,currency_id,partner_id
     from bets
     join users s on bets.partner_id = s.id
@@ -312,7 +314,12 @@ begin
     if FOUND then
         return 1;
     else
-        return 0;
+        if((select bet_society_id from users where id = b.partner_id) is null) then
+            return 1;
+        else
+            return 0;
+        end if;
+
     end if;
 end;
 $result$ language plpgsql;
@@ -331,7 +338,7 @@ returns char as $result$
                 return '1';
             end if;
         else
-            raise info 'Errore: scommessa già presente da parte di questa società';
+            raise info 'Errore: scommessa già presente da parte di questa società o società inesistente';
             return '5';
         end if;
 
@@ -341,7 +348,7 @@ returns char as $result$
                 raise info 'Errore: vincolo di not null violato';
                 return '2';
             when unique_violation then
-                raise info 'Errore: stai inserendo dati relativi ad un team già presente';
+                raise info 'Errore: stai inserendo dati relativi ad una scommessa già presente';
                 return '3';
             when foreign_key_violation then
                 raise info 'Errore: vincolo chiave esterna violato';

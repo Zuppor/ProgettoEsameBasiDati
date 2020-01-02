@@ -2,17 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b213ae3-c0c9-460f-8edf-85cf43bda014" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documentation/public.uml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documentation/doc tecnica basi dati.odt" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/doc tecnica basi dati.odt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_0.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_0.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_1.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/admin_main_content/admin_content_1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/best_players.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/best_players.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/partner_main_content/partner_main_content_0.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/partner_main_content/partner_main_content_0.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/partner_main_content/partner_main_content_1.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/partner_main_content/partner_main_content_1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/partner_main_content/partner_main_content_2.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/partner_main_content/partner_main_content_2.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/functions.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todos" beforeDir="false" afterPath="$PROJECT_DIR$/todos" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +90,7 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/Change SQL Dialect" value="PostgreSQL" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect" value="PostgreSQL" />
     <property name="database.console.LAST_STATE" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/documentation" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -128,7 +126,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:soccerdb@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@54e17d70" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@6f611f22" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -213,6 +211,9 @@
       <workItem from="1577625652228" duration="18358000" />
       <workItem from="1577649431162" duration="10618000" />
       <workItem from="1577704623637" duration="13324000" />
+      <workItem from="1577740244244" duration="40000" />
+      <workItem from="1577976557474" duration="90000" />
+      <workItem from="1577978253398" duration="8611000" />
     </task>
     <task id="LOCAL-00001" summary="Ancora problemi con league">
       <created>1560597949614</created>
@@ -473,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577661645005</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="redacting technic documentation">
+      <created>1577740264594</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1577740264594</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,30 +533,38 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="278" y="33" width="804" height="674" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.741@0.0.1366.741" timestamp="1575985317207" />
-    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1577661644909">
+    <state x="366" y="99" width="628" height="541" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1577978230051">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1577661644909" />
-    <state width="1070" height="201" key="GridCell.Tab.0.bottom" timestamp="1577721381702">
+    <state x="366" y="99" width="628" height="541" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.741@0.0.1366.741" timestamp="1577978230051" />
+    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1577740264267">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="201" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1577721381702" />
-    <state width="1070" height="201" key="GridCell.Tab.0.center" timestamp="1577721381700">
+    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1577740264267" />
+    <state x="466" y="100" width="428" height="540" key="FileChooserDialogImpl" timestamp="1577980612259">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="201" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1577721381700" />
-    <state width="1070" height="201" key="GridCell.Tab.0.left" timestamp="1577721381699">
+    <state x="466" y="100" width="428" height="540" key="FileChooserDialogImpl/0.0.1366.741@0.0.1366.741" timestamp="1577980612259" />
+    <state width="1070" height="201" key="GridCell.Tab.0.bottom" timestamp="1577989775233">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="201" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1577721381699" />
-    <state width="1070" height="201" key="GridCell.Tab.0.right" timestamp="1577721381701">
+    <state width="1070" height="201" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1577989775233" />
+    <state width="1070" height="201" key="GridCell.Tab.0.center" timestamp="1577989775232">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="201" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1577721381701" />
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1577661650349">
+    <state width="1070" height="201" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1577989775232" />
+    <state width="1070" height="201" key="GridCell.Tab.0.left" timestamp="1577989775231">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1577661650349" />
+    <state width="1070" height="201" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1577989775231" />
+    <state width="1070" height="201" key="GridCell.Tab.0.right" timestamp="1577989775233">
+      <screen x="0" y="0" width="1366" height="741" />
+    </state>
+    <state width="1070" height="201" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1577989775233" />
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1577740266561">
+      <screen x="0" y="0" width="1366" height="741" />
+    </state>
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1577740266561" />
     <state x="585" y="268" width="336" height="227" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1577720725383">
       <screen x="0" y="0" width="1366" height="741" />
     </state>

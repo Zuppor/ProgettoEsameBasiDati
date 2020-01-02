@@ -1,3 +1,4 @@
+<!-- UPDATE BETS -->
 <script type="text/javascript">
 
     function setOption(selectElement, value) {

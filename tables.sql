@@ -10,7 +10,7 @@ create table users(
   password char(128) not null,
   salt char(128) not null,
   level smallint not null default 2,
-  bet_society_id int references bet_society(id) on update cascade on delete no action default null,
+  bet_society_id int references bet_society(id) on update cascade on delete set null default null,
   check ( level between 0 and 2)
 );
 
@@ -45,8 +45,8 @@ create table currency(
 
 create table match(
   id serial primary key not null ,
-  home_team_id int references team(id) on update cascade on delete no action ,
-  away_team_id int references team(id) on update cascade on delete no action ,
+  home_team_id int references team(id) on update cascade on delete set null ,
+  away_team_id int references team(id) on update cascade on delete set null ,
   season int not null default extract(year from now()),
   stage int not null ,
   date timestamp not null ,
@@ -54,7 +54,7 @@ create table match(
   h_team_goal int not null default 0,
   league_id int references league(id) on update cascade on delete set null ,
   country_id int not null references country(id) on update cascade on delete set null ,
-  operator_id int not null references users(id) on update cascade on delete no action ,
+  operator_id int not null references users(id) on update cascade on delete set null ,
   unique (date,league_id,country_id,home_team_id,away_team_id,stage),
   check ( home_team_id <> away_team_id ),
   check ( a_team_goal >= 0 ),
@@ -74,13 +74,13 @@ create table bets(
   partner_id int not null references users(id) on update cascade on delete no action ,
   bet bet_domain ,
   value numeric not null default 0,
-  currency_id char(3) not null references currency(code),
+  currency_id char(3) not null references currency(code) on update cascade on delete cascade ,
   primary key (match_id,partner_id,bet,currency_id)
 );
 
 create table initial_formation(
   match_id int not null references match(id) on update cascade on delete cascade ,
-  player_id int references player(id) on update cascade on delete set null,
+  player_id int references player(id) on update cascade on delete cascade,
   unique (match_id,player_id)
 );
 

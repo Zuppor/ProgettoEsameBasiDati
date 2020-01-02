@@ -1,3 +1,4 @@
+<!-- DELETE BETS -->
 <script type="text/javascript">
     function toggle_buttons(t){
         document.getElementById("delete").disabled = t;

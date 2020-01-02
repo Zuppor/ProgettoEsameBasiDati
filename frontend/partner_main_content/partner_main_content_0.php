@@ -1,3 +1,4 @@
+<!-- INSERT BET -->
 <script type="text/javascript">
     function toggle_buttons(t){
         document.getElementById("submit").disabled = t;
