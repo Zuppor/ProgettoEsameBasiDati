@@ -72,7 +72,7 @@
       <point x="3.9202399946309505" y="-3.1035009883188422" />
     </edge>
   </edges>
-  <settings layout="Circular" zoom="0.7078175895765474" x="575.5098941555452" y="380.52692130694885" />
+  <settings layout="Circular" zoom="0.23762376237623764" x="808.0" y="999.9999999999999" />
   <SelectedNodes>
     <node>ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.TABLE:soccerdb.public.player_attribute</node>
   </SelectedNodes>

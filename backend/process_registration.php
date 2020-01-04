@@ -11,11 +11,11 @@ include 'functions.php';
 
 start_secure_session();
 
-if(isset($_POST['username'],$_POST['password'],$_POST['level'])){
-    //die($_POST['username']." ".$_POST['password']." ".$_POST['level']);
+if(isset($_POST['username'],$_POST['password'],$_POST['password2'],$_POST['level'])){
     if($_POST['level'] != '2') $society = null;
     else $society = $_POST['society'];
-    $result = register_new_user($_POST['username'],$_POST['password'],$_POST['level'],$society,$db);
+
+    $result = register_new_user($_POST['username'],$_POST['password'],$_POST['password2'],$_POST['level'],$society,$db);
 
     if($result === true){
         //echo 'utente registrato con successo';
@@ -26,6 +26,6 @@ if(isset($_POST['username'],$_POST['password'],$_POST['level'])){
     }
 }
 else{
-    header('Location: ../frontend/register.php?error=Parametri non corretti '.$_POST['username']." ".$_POST['password']." ".$_POST['level']);
+    header('Location: ../frontend/register.php?error=Parametri non corretti '.$_POST['username']." ".$_POST['password']." ".$_POST['password2']." ".$_POST['level']);
 }
 unset($_POST);

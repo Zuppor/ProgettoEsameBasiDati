@@ -3,32 +3,48 @@
 <head>
     <script type="text/javascript" src="../js/sha512.js"></script>
     <script type="text/javascript" src="../js/forms.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css"/>
     <title>Register</title>
 </head>
 <script type="text/javascript">
     var p1;
     var p2;
     var msg;
+    var soc;
+    var socLabel;
 
     function onload(){
         p1 = document.getElementById("p1");
         p2 = document.getElementById("p2");
         msg = document.getElementById("pmsg");
+        soc = document.getElementById("society");
+        socLabel = document.getElementById("socLabel");
+        toggle_society_select('0');
     }
 
     function check_password() {
         if(p2.value.localeCompare(p1.value) !== 0){
             msg.className = "text-danger";
             msg.innerHTML = "Le password non coincidono";
-            p2.setCustomValidity("Le password non coincidono");
+            //p2.setCustomValidity("Le password non coincidono");
         }
         else{
             msg.className = "text-success";
             msg.innerHTML = "Ok";
-            p2.setCustomValidity("");
+            //p2.setCustomValidity("");
+        }
+    }
+
+    function toggle_society_select(x){
+        if(x === '2'){
+            soc.style.visibility = "visible";
+            socLabel.style.visibility = "visible";
+        }
+        else{
+            soc.style.visibility = "hidden";
+            socLabel.style.visibility = "hidden";
         }
     }
 </script>
@@ -53,18 +69,18 @@
         <input type="password" name="password2" value="" oninvalid="alert('Le password devono essere uguali e non vuote');" id="p2" oninput="check_password()" required/> <p id="pmsg"></p> <br>
 
         <label class="col-form-label" for="level">Level</label>
-        <select name="level" class="custom-select-sm" id="level" required>
+        <select name="level" class="custom-select-sm" id="level" onchange="toggle_society_select(this.value)" required>
             <option value="0">Amministratore</option>
             <option value="1">Operatore</option>
             <option value="2">Partner</option>
         </select><br>
 
-        <label class="col-form-label" for="society">Bet society</label>
+        <label class="col-form-label" for="society" id="socLabel">Bet society</label>
         <select name="society" class="custom-select-sm" id="society" required>
             <option value="null">Nessuna</option>
             <?php
                 include '../backend/db_connect_login.php';
-                $resource = pg_query($db,"select id,long_name from bet_society");//todo: nascondere questo campo nel caso l'utente non sia di livello 2
+                $resource = pg_query($db,"select id,long_name from bet_society");
 
                 while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)){
                     ?>

@@ -21,7 +21,7 @@ if(!isset($_GET['lazy_load'])) $_GET['lazy_load'] = $lazy_load_step;
 
 include_once 'navbar.php';
 
-$resource = pg_prepare($db,"","select m.id,m.date,season,stage,l.name,home_team_id,away_team_id from public.match m join league l on m.league_id = l.id order by date desc limit $1");
+$resource = pg_prepare($db,"","select m.id,to_char(m.date ,'dd-MM-YYYY') as d,season,stage,l.name,home_team_id,away_team_id from public.match m join league l on m.league_id = l.id order by date desc limit $1");
 $resource = pg_execute($db,"",array($_GET['lazy_load']));
 
 while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)){
@@ -39,7 +39,7 @@ while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)){
                 <tr class="table-primary">
                     <td colspan="2">
                         <?php
-                        echo "<b>Date: </b>".date("j/m/Y H:i",strtotime($row['d'])) ;//fixme: data non mostrata correttamente
+                        echo "<b>Date: </b>".$row['d'];
                         echo " <b>Season: </b>".$row['season']."/".($row['season']+1) ;
                         echo " <b>Stage: </b>".$row['stage'] ;
                         echo " <b>League: </b>".$row['name'] ;
