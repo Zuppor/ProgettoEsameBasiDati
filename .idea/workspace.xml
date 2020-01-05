@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b213ae3-c0c9-460f-8edf-85cf43bda014" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/functions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/process_registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/process_registration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/public.uml" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/public.uml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/best_players.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/best_players.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/forms.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/forms.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,12 +131,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:soccerdb@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@4ead2caa" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:soccerdb@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@62fead26" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@33d5080d" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -225,7 +219,8 @@
       <workItem from="1577740244244" duration="40000" />
       <workItem from="1577976557474" duration="90000" />
       <workItem from="1577978253398" duration="8655000" />
-      <workItem from="1578148668641" duration="6722000" />
+      <workItem from="1578148668641" duration="6810000" />
+      <workItem from="1578223111449" duration="16223000" />
     </task>
     <task id="LOCAL-00001" summary="Ancora problemi con league">
       <created>1560597949614</created>
@@ -500,7 +495,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577999308068</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="eliminated some todos">
+      <created>1578156845475</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1578156845475</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -520,7 +522,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="manage countries part of admin completed" />
     <MESSAGE value="completed admin interface" />
     <MESSAGE value="completata best players page" />
     <MESSAGE value="to fix: clean player names from punctuation" />
@@ -545,7 +546,8 @@
     <MESSAGE value="classification visualization adjusted; best_player visualization almost repaired" />
     <MESSAGE value="best_player visualization adjusted" />
     <MESSAGE value="redacting technic documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="redacting technic documentation" />
+    <MESSAGE value="eliminated some todos" />
+    <option name="LAST_COMMIT_MESSAGE" value="eliminated some todos" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="33" width="804" height="674" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575985317207">
@@ -556,10 +558,10 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="366" y="99" width="628" height="541" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.741@0.0.1366.741" timestamp="1577978230051" />
-    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1578156797496">
+    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1578156845317">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1578156797496" />
+    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1578156845316" />
     <state x="466" y="100" width="428" height="540" key="FileChooserDialogImpl" timestamp="1577980612259">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
@@ -580,10 +582,10 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state width="1070" height="201" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1578151944038" />
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1577999310345">
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1578156847993">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1577999310345" />
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1578156847993" />
     <state x="585" y="268" width="336" height="227" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1577720725383">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
