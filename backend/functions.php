@@ -137,7 +137,7 @@ function register_new_user($username,$password,$password2,$level,$society,$db){
 
         //controlla che le password coincidano
         if(strcmp($password,$password2) !== 0){
-            return 'Le password non coincidono: '.$password.' '.$password2;
+            return 'Le password non coincidono';
         }
 
         //se è di livello 2, controlla che la società sia settata

@@ -11,12 +11,20 @@ include 'functions.php';
 
 start_secure_session();
 
-if(isset($_POST['username'],$_POST['password'],$_POST['password2'],$_POST['level'])){
-    if($_POST['level'] != '2') $society = null;
-    else $society = $_POST['society'];
+if(isset($_POST['username'],$_POST['password'],$_POST['password2'],$_POST['level'],$_POST['society'])){
+    if($_POST['level'] != '2')
+        $society = null;
+    else
+        if($_POST['society'] == 'null')
+            header('Location: ../frontend/register.php?error=Nessuna società di scommesse specificata');
+        else
+            $society = $_POST['society'];
 
-    echo "PASSWORDS:: ".$_POST['password']."<br>".$_POST['password2'];
-    die();
+    if($_POST['username'] == ''){
+        header('Location: ../frontend/register.php?error=Nome utente non specificato');
+    }
+
+    die( "PASSWORDS:: ".$_POST['password']."<br>".$_POST['password2']."<br>USERNAME ".$_POST['username']."<br>LEVEL ".$_POST['level']);
 
     $result = register_new_user($_POST['username'],$_POST['password'],$_POST['password2'],$_POST['level'],$society,$db);
 

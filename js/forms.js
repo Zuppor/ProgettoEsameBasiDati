@@ -9,12 +9,22 @@ function formhash(form,password,password2){
     form.appendChild(p2);
 
 
+    //alert("PASS1 _"+password.value+"_");
     p1.name = "password";
     p1.type = "hidden";
-    p1.value = hex_sha512(password.value);
+    if(password.value === "")
+        p1.value = hex_sha512(password.value);
+    else
+        p1.value = null;
+
+
     p2.name = "password2";
     p2.type = "hidden";
-    p2.value = hex_sha512(password2.value);
+    if(password2.value === "")
+        p2.value = hex_sha512(password2.value);
+    else
+        p2.value = null;
+
 
 
     //non inviare la password in chiaro

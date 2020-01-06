@@ -15,13 +15,13 @@
       <Owner>postgres</Owner>
       <IntrospectionStateNumber>3329771</IntrospectionStateNumber>
       <Current>1</Current>
-      <Relations>sequence|table|26594|26596|1
+      <Relations>sequence|table|26617|26619|1
+sequence|table|26594|26596|1
 sequence|table|26607|26609|1
-sequence|table|26617|26619|1
-sequence|table|26632|26634|1
 sequence|table|26561|26563|1
 sequence|table|26569|26571|1
 sequence|table|26586|26588|1
+sequence|table|26632|26634|1
 </Relations>
     </database>
     <role id="4" parent="1" name="amministratore">
