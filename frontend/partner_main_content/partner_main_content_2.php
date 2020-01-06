@@ -3,8 +3,6 @@
 
     function setOption(selectElement, value) {
         var data = value.split(" ");
-        //value = value.substr(0,value.indexOf(" "));
-        //alert(value);
         var options = selectElement.options;
         for (var i = 0, optionsLength = options.length; i < optionsLength; i++) {
             if (options[i].value === data[0]) {
