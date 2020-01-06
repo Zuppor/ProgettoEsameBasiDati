@@ -24,7 +24,9 @@ if(isset($_POST['username'],$_POST['password'],$_POST['password2'],$_POST['level
         header('Location: ../frontend/register.php?error=Nome utente non specificato');
     }
 
-    die( "PASSWORDS:: ".$_POST['password']."<br>".$_POST['password2']."<br>USERNAME ".$_POST['username']."<br>LEVEL ".$_POST['level']);
+    if($_POST['password'] == '' || $_POST['password2'] == '')
+        header('Location: ../frontend/register.php?error=Campo password vuoto');
+
 
     $result = register_new_user($_POST['username'],$_POST['password'],$_POST['password2'],$_POST['level'],$society,$db);
 

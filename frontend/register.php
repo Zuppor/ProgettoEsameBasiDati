@@ -94,7 +94,6 @@
                <?php }?>
         </select><br><br>
         <input type="button" class="btn btn-primary" value="Register" onclick="formhash(this.form,this.form.p1,this.form.p2);"/>
-        <!--<input type="submit" class="btn btn-primary" value="Register" onclick="formhash(this.form,this.form.p1,this.form.p2);"/>-->
     </form>
 <button onclick="goBack()" class="btn btn-outline-secondary">< Back</button>
 

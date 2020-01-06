@@ -9,10 +9,9 @@ function formhash(form,password,password2){
     form.appendChild(p2);
 
 
-    //alert("PASS1 _"+password.value+"_");
     p1.name = "password";
     p1.type = "hidden";
-    if(password.value === "")
+    if(password.value.localeCompare("") !== 0)
         p1.value = hex_sha512(password.value);
     else
         p1.value = null;
@@ -20,7 +19,7 @@ function formhash(form,password,password2){
 
     p2.name = "password2";
     p2.type = "hidden";
-    if(password2.value === "")
+    if(password2.value.localeCompare("") !== 0)
         p2.value = hex_sha512(password2.value);
     else
         p2.value = null;
