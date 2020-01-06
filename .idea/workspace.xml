@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b213ae3-c0c9-460f-8edf-85cf43bda014" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/process_registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/process_registration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/forms.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/forms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domains.sql" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/domains.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/functions.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todos" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/todos" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/triggers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/triggers.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views.sql" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/views.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,19 +106,19 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/frontend/admin_main_content" />
-      <recent name="$PROJECT_DIR$/frontend/op_main_content" />
-      <recent name="$PROJECT_DIR$/frontend/partner_main_content" />
-      <recent name="$PROJECT_DIR$/backend" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/documentation" />
       <recent name="$PROJECT_DIR$/js" />
       <recent name="$PROJECT_DIR$/frontend/partner_main_content" />
       <recent name="$PROJECT_DIR$/images" />
       <recent name="$PROJECT_DIR$/frontend/admin_main_content" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/frontend/admin_main_content" />
+      <recent name="$PROJECT_DIR$/frontend/op_main_content" />
+      <recent name="$PROJECT_DIR$/frontend/partner_main_content" />
+      <recent name="$PROJECT_DIR$/backend" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -223,7 +227,7 @@
       <workItem from="1578223111449" duration="16291000" />
       <workItem from="1578307286788" duration="1751000" />
       <workItem from="1578309057096" duration="1270000" />
-      <workItem from="1578310350159" duration="875000" />
+      <workItem from="1578310350159" duration="1464000" />
     </task>
     <task id="LOCAL-00001" summary="Ancora problemi con league">
       <created>1560597949614</created>
@@ -519,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578310197361</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="fixed registration process">
+      <created>1578311244331</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1578311244331</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -539,7 +550,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="completata best players page" />
     <MESSAGE value="to fix: clean player names from punctuation" />
     <MESSAGE value="modified best_players and repaired upload match from match" />
     <MESSAGE value="classifica possibilmente completata" />
@@ -564,7 +574,8 @@
     <MESSAGE value="redacting technic documentation" />
     <MESSAGE value="eliminated some todos" />
     <MESSAGE value="working on fixing registration process" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on fixing registration process" />
+    <MESSAGE value="fixed registration process" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed registration process" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="33" width="804" height="674" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575985317207">
@@ -575,10 +586,10 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="366" y="99" width="628" height="541" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.741@0.0.1366.741" timestamp="1577978230051" />
-    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1578310197199">
+    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1578311244177">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1578310197199" />
+    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1578311244177" />
     <state x="466" y="100" width="428" height="540" key="FileChooserDialogImpl" timestamp="1577980612259">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
@@ -599,10 +610,10 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state width="1070" height="201" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1578151944038" />
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1578310202117">
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1578311247656">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1578310202117" />
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1578311247656" />
     <state x="585" y="268" width="336" height="227" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1577720725383">
       <screen x="0" y="0" width="1366" height="741" />
     </state>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/domains.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/functions.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/tables.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/triggers.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/users.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/views.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/documentation/domains.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/documentation/functions.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/documentation/tables.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/documentation/triggers.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/documentation/users.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/documentation/views.sql" dialect="PostgreSQL" />
   </component>
 </project>
