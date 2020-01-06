@@ -74,7 +74,7 @@ create table bets(
   partner_id int not null references users(id) on update cascade on delete no action ,
   bet bet_domain ,
   value numeric not null default 0,
-  currency_id char(3) not null references currency(code) on update cascade on delete cascade ,
+  currency_id char(3) not null references currency(code) on update cascade on delete no action ,
   primary key (match_id,partner_id,bet,currency_id)
 );
 

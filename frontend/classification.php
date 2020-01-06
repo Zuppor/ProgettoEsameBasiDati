@@ -23,7 +23,7 @@ $years = pg_fetch_all($resource);
 
 $resource = pg_query($db,"select distinct(league) as league from classifica order by league");
 $leagues = pg_fetch_all($resource);
-
+//fixme:check this thing again... the 2 tables are suspiciously similar
 for($y = 0;$y<sizeof($years);$y++){
     for($l = 0;$l<sizeof($leagues);$l++) {
         ?>
@@ -47,7 +47,6 @@ for($y = 0;$y<sizeof($years);$y++){
             $x=1;
             $resource = pg_query($db, "select * from classifica where season = ".$years[$y]['season']."and league = '" . $leagues[$l]['league']."' order by score desc");
             while($row = pg_fetch_array($resource,null,PGSQL_ASSOC)) {
-                //print_r2($row);
                 if($x%2==0) echo "<tr class='table-light'>"; else echo "<tr class='table-secondary'>";
                 echo "<td>".$x."</td>";
                 echo "<td>".$row['l_name']." (".$row['s_name'].")</td>";
