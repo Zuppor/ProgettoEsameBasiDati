@@ -43,6 +43,8 @@ grant select,usage on sequence users_id_seq to login_user;
 grant execute on function get_best_players(match_id public.match.id%TYPE),func_get_best_players_from_team(match_date public.match.date%TYPE, t_id team.id%TYPE) to login_user;
 
 grant usage on schema public to amministratore,operatore,partner,login_user;
+
+
 /*
 drop user amministratore;
 drop user operatore;

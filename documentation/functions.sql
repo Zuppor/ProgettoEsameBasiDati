@@ -471,7 +471,7 @@ returns setof best_player as $$
 $$ language plpgsql;
 
 
-
+--todo: inserire controllo di sicurezza per controllare se il player fa effettivamente parte di una delle 2 squadre
 create or replace function func_player_formation_assoc(p initial_formation)
 returns char as $result$
     begin

@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6b213ae3-c0c9-460f-8edf-85cf43bda014" name="Default Changelist" comment="">
+    <list default="true" id="6b213ae3-c0c9-460f-8edf-85cf43bda014" name="Default Changelist" comment="refined process_registration.php; redacting documentation">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/process_registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/process_registration.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documentation/doc tecnica basi dati.odt" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/doc tecnica basi dati.odt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/tables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/classification.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/classification.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/functions.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/todos" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/todos" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/triggers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/triggers.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +136,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:soccerdb@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@402e27b2" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@2e6c8986" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -222,7 +228,8 @@
       <workItem from="1578223111449" duration="16291000" />
       <workItem from="1578307286788" duration="1751000" />
       <workItem from="1578309057096" duration="1270000" />
-      <workItem from="1578310350159" duration="8265000" />
+      <workItem from="1578310350159" duration="8334000" />
+      <workItem from="1578396400376" duration="7175000" />
     </task>
     <task id="LOCAL-00001" summary="Ancora problemi con league">
       <created>1560597949614</created>
@@ -546,7 +553,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578313294618</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="redacting documentation">
+      <created>1578334338050</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1578334338050</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,8 +580,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="classifica possibilmente completata" />
-    <MESSAGE value="sito v 1.0" />
     <MESSAGE value="trying to make the carousel work" />
     <MESSAGE value="carousel now works" />
     <MESSAGE value="reviewed html code" />
@@ -591,7 +603,9 @@
     <MESSAGE value="fixed registration process" />
     <MESSAGE value="moved doc files" />
     <MESSAGE value="changed home images with hd ones; checked code for leftovers comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed home images with hd ones; checked code for leftovers comments" />
+    <MESSAGE value="redacting documentation" />
+    <MESSAGE value="refined process_registration.php; redacting documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="refined process_registration.php; redacting documentation" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="33" width="804" height="674" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575985317207">
@@ -606,10 +620,10 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="416" y="120" width="528" height="499" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.741@0.0.1366.741" timestamp="1578312443865" />
-    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1578313294568">
+    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1578407637357">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1578313294568" />
+    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1578407637357" />
     <state x="466" y="100" width="428" height="540" key="FileChooserDialogImpl" timestamp="1577980612259">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
@@ -630,10 +644,10 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state width="1070" height="201" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1578151944038" />
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1578313303361">
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1578334339843">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1578313303361" />
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1578334339842" />
     <state x="585" y="268" width="336" height="227" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1577720725383">
       <screen x="0" y="0" width="1366" height="741" />
     </state>

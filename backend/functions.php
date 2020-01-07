@@ -121,7 +121,7 @@ function login_check($db){
     }
 }
 
-function register_new_user($username,$password,$password2,$level,$society,$db){
+function register_new_user($username,$password,$level,$society,$db){
     //verifica che l'utente non sia già registrato
     $resource = pg_prepare($db,"","select username from users where username = $1");
     $resource = pg_execute($db,"",array($_POST['username']));
@@ -134,11 +134,6 @@ function register_new_user($username,$password,$password2,$level,$society,$db){
         //l'utente non esiste
 
         pg_free_result($resource);
-
-        //controlla che le password coincidano
-        if(strcmp($password,$password2) !== 0){
-            return 'Le password non coincidono';
-        }
 
         //se è di livello 2, controlla che la società sia settata
         if($level == 2 && !isset($society)){

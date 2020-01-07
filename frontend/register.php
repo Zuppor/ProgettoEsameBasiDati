@@ -67,7 +67,7 @@
         <label class="col-form-label" for="u">Username</label><br>
         <input type="text" name="username" value="" id="u" maxlength="100" minlength="1" oninvalid="alert('Il nome utente è obbligatorio');" required/><br>
 
-        <label class="col-form-label" for="p1">Password (4 - 10 characters)</label><br>
+        <label class="col-form-label" for="p1">Password (max 10 characters)</label><br>
         <input type="password" name="pass" value="" id="p1" oninput="check_password()" minlength="4" maxlength="10" required/><br>
 
         <label class="col-form-label" for="p2">Repeat password</label><br>

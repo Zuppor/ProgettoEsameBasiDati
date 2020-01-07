@@ -16,29 +16,43 @@ if(isset($_POST['username'],$_POST['password'],$_POST['password2'],$_POST['level
         $society = null;
     else
         if($_POST['society'] == 'null')
-            header('Location: ../frontend/register.php?error=Nessuna società di scommesse specificata');
+            throw_error("Società di scommesse non specificata");
+            //header('Location: ../frontend/register.php?error=Nessuna società di scommesse specificata');
         else
             $society = $_POST['society'];
 
     if($_POST['username'] == ''){
-        header('Location: ../frontend/register.php?error=Nome utente non specificato');
+        throw_error("Nome utente non specificato");
+    }
+    if(strlen($_POST['username'] > 100)){
+        throw_error("Nome utente troppo lungo");
     }
 
-    if($_POST['password'] == '' || $_POST['password2'] == '')
-        header('Location: ../frontend/register.php?error=Campo password vuoto');
+    if($_POST['password'] == '')
+        throw_error("Campo password vuoto");
 
+    if($_POST['password2'] == '')
+        throw_error("Ripetere la password");
 
-    $result = register_new_user($_POST['username'],$_POST['password'],$_POST['password2'],$_POST['level'],$society,$db);
+    if(strcmp($_POST['password'],$_POST['password2']) !== 0)
+        throw_error("Le password non coincidono");
+
+    $result = register_new_user($_POST['username'],$_POST['password'],$_POST['level'],$society,$db);
 
     if($result === true){
         //utente registrato con successo
         header('Location: ../frontend/login.php?success=Utente registrato correttamente. E\' possibile eseguire il login');
     }
     else{
-        header('Location: ../frontend/register.php?error='.$result);
+        throw_error($result);
     }
 }
 else{
-    header('Location: ../frontend/register.php?error=Parametri non corretti '.$_POST['username']." P1".$_POST['password']." P2".$_POST['password2']." ".$_POST['level']);
+    throw_error("Parametri non corretti. Ricontrollare il form");
+    //header('Location: ../frontend/register.php?error=Parametri non corretti '.$_POST['username']." P1".$_POST['password']." P2".$_POST['password2']." ".$_POST['level']);
 }
 unset($_POST);
+
+function throw_error($msg){
+    header('Location: ../frontend/register.php?error='.$msg);
+}

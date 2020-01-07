@@ -15,5 +15,5 @@ execute procedure func_refresh_classifica();
 
 create trigger refresh_classifica after insert or update or delete
   on team
-  for each statement
+  for each statement --todo: forse for each statement non è quello giusto. fare ricerca
 execute procedure func_refresh_classifica();
