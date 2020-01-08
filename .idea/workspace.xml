@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b213ae3-c0c9-460f-8edf-85cf43bda014" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/doc tecnica basi dati.odt" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/doc tecnica basi dati.odt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/functions.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documentation/manuale utente.odt" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/manuale utente.odt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/todos" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/todos" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +133,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:soccerdb@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@2e6c8986" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@426f1cc3" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -222,14 +226,8 @@
       <workItem from="1578307286788" duration="1751000" />
       <workItem from="1578309057096" duration="1270000" />
       <workItem from="1578310350159" duration="8334000" />
-      <workItem from="1578396400376" duration="9638000" />
-    </task>
-    <task id="LOCAL-00001" summary="Ancora problemi con league">
-      <created>1560597949614</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1560597949614</updated>
+      <workItem from="1578396400376" duration="9773000" />
+      <workItem from="1578482606333" duration="4950000" />
     </task>
     <task id="LOCAL-00002" summary="compressing some things">
       <created>1566227377522</created>
@@ -567,7 +565,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578408978435</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="redacting documentation; created manuale utente">
+      <created>1578411096361</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1578411096362</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,10 +632,10 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="416" y="120" width="528" height="499" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.741@0.0.1366.741" timestamp="1578312443865" />
-    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1578408978350">
+    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1578494004641">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1578408978350" />
+    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1578494004641" />
     <state x="366" y="179" width="628" height="381" key="DUMP_DIALOG_DIMENSION_KEY" timestamp="1578411024410">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
@@ -639,26 +644,26 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="466" y="100" width="428" height="540" key="FileChooserDialogImpl/0.0.1366.741@0.0.1366.741" timestamp="1578411019239" />
-    <state width="1070" height="201" key="GridCell.Tab.0.bottom" timestamp="1578151944039">
+    <state width="1070" height="201" key="GridCell.Tab.0.bottom" timestamp="1578494007068">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="201" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1578151944039" />
-    <state width="1070" height="201" key="GridCell.Tab.0.center" timestamp="1578151944038">
+    <state width="1070" height="201" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1578494007068" />
+    <state width="1070" height="201" key="GridCell.Tab.0.center" timestamp="1578494007068">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="201" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1578151944038" />
-    <state width="1070" height="201" key="GridCell.Tab.0.left" timestamp="1578151944037">
+    <state width="1070" height="201" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1578494007068" />
+    <state width="1070" height="201" key="GridCell.Tab.0.left" timestamp="1578494007067">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="201" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1578151944037" />
-    <state width="1070" height="201" key="GridCell.Tab.0.right" timestamp="1578151944038">
+    <state width="1070" height="201" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1578494007067" />
+    <state width="1070" height="201" key="GridCell.Tab.0.right" timestamp="1578494007068">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="201" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1578151944038" />
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1578408982121">
+    <state width="1070" height="201" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1578494007068" />
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1578411098073">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1578408982121" />
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1578411098073" />
     <state x="585" y="268" width="336" height="227" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1577720725383">
       <screen x="0" y="0" width="1366" height="741" />
     </state>

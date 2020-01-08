@@ -471,16 +471,23 @@ returns setof best_player as $$
 $$ language plpgsql;
 
 
---todo: inserire controllo di sicurezza per controllare se il player fa effettivamente parte di una delle 2 squadre
 create or replace function func_player_formation_assoc(p initial_formation)
 returns char as $result$
     begin
-        insert into initial_formation (match_id, player_id) values (p.match_id,p.player_id);
+        if(p.player_id in (select pl.id from player pl
+            join team t on pl.team_id = t.id
+            join match m on t.id = m.away_team_id and m.id = p.match_id
+            join match m2 on m2.home_team_id = t.id and m2.id = p.match_id)) then
 
-        if FOUND then
-            return '0';
+            insert into initial_formation (match_id, player_id) values (p.match_id,p.player_id);
+
+            if FOUND then
+                return '0';
+            else
+                return '1';
+            end if;
         else
-            return '1';
+            return '5';
         end if;
 
     exception

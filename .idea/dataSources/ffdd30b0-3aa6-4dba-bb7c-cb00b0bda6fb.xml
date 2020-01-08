@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.17">
     <root id="1">
       <ServerVersion>10.5</ServerVersion>
-      <StartupTime>1577704598</StartupTime>
+      <StartupTime>1578482815</StartupTime>
     </root>
     <database id="2" parent="1" name="postgres">
       <ObjectId>12297</ObjectId>
@@ -13,15 +13,15 @@
     <database id="3" parent="1" name="soccerdb">
       <ObjectId>16859</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>3329771</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3329789</IntrospectionStateNumber>
       <Current>1</Current>
-      <Relations>sequence|table|26594|26596|1
-sequence|table|26607|26609|1
-sequence|table|26561|26563|1
+      <Relations>sequence|table|26561|26563|1
 sequence|table|26569|26571|1
 sequence|table|26586|26588|1
-sequence|table|26632|26634|1
+sequence|table|26594|26596|1
+sequence|table|26607|26609|1
 sequence|table|26617|26619|1
+sequence|table|26632|26634|1
 </Relations>
     </database>
     <role id="4" parent="1" name="amministratore">
@@ -79,7 +79,7 @@ sequence|table|26617|26619|1
       <ObjectId>26557</ObjectId>
       <StateNumber>696621</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>3329772</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3329790</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="17" parent="3" name="btree">
@@ -470,8 +470,8 @@ sequence|table|26617|26619|1
     <routine id="62" parent="16" name="func_player_formation_assoc">
       <ObjectId>26756</ObjectId>
       <Owner>postgres</Owner>
-      <SourceTextLength>594</SourceTextLength>
-      <StateNumber>699544</StateNumber>
+      <SourceTextLength>925</SourceTextLength>
+      <StateNumber>3329788</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>p initial_formation</ArgumentsDefinition>
       <ResultsDefinition>character</ResultsDefinition>
