@@ -4,7 +4,6 @@
     <list default="true" id="6b213ae3-c0c9-460f-8edf-85cf43bda014" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documentation/manuale utente.odt" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/manuale utente.odt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/todos" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/todos" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,14 +222,7 @@
       <workItem from="1578309057096" duration="1270000" />
       <workItem from="1578310350159" duration="8334000" />
       <workItem from="1578396400376" duration="9773000" />
-      <workItem from="1578482606333" duration="6810000" />
-    </task>
-    <task id="LOCAL-00003" summary="polishing UI again">
-      <created>1566321225790</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1566321225790</updated>
+      <workItem from="1578482606333" duration="7469000" />
     </task>
     <task id="LOCAL-00004" summary="creata interfaccia per operatore e partner. aggiunta funzione carica scommessa.">
       <created>1566398007166</created>
@@ -568,7 +560,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578494068392</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="redacting manuale utente;">
+      <created>1578508107256</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1578508107256</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -588,7 +587,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="reviewed html code" />
     <MESSAGE value="beginning on documentation" />
     <MESSAGE value="insertion of match trough csv broke again. &#10;Also modified table player_attribute" />
     <MESSAGE value="Repaired match insertion trough csv.&#10;Modified insert_player_attribute function in php to support new format of the table. It doesn't work properly." />
@@ -613,7 +611,8 @@
     <MESSAGE value="refined process_registration.php; redacting documentation" />
     <MESSAGE value="redacting documentation; created manuale utente" />
     <MESSAGE value="redacting documentation; redacted manuale utente; fixed func_player_formation_assoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="redacting documentation; redacted manuale utente; fixed func_player_formation_assoc" />
+    <MESSAGE value="redacting manuale utente;" />
+    <option name="LAST_COMMIT_MESSAGE" value="redacting manuale utente;" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="33" width="804" height="674" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575985317207">
@@ -628,10 +627,10 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="416" y="120" width="528" height="499" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.741@0.0.1366.741" timestamp="1578312443865" />
-    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1578494068227">
+    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1578508107074">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1578494068227" />
+    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1578508107074" />
     <state x="366" y="179" width="628" height="381" key="DUMP_DIALOG_DIMENSION_KEY" timestamp="1578502735877">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
@@ -656,10 +655,10 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state width="1070" height="201" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1578494007068" />
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1578494071056">
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1578508109334">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1578494071056" />
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1578508109334" />
     <state x="585" y="268" width="336" height="227" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1577720725383">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
