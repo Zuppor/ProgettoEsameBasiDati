@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b213ae3-c0c9-460f-8edf-85cf43bda014" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb/storage_v2/_src_/database/soccerdb.p1eNSA/schema/public.abK9xQ.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/insert_player_attribute.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/insert_player_attribute.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/doc tecnica basi dati.odt" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/doc tecnica basi dati.odt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/functions.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documentation/manuale utente.odt" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/manuale utente.odt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/public.uml" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/public.uml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/todos" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/todos" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/triggers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/triggers.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,15 +66,6 @@
         <item name="soccerdb: database" type="162271b6:PgImplModel$Database" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="soccerdb@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="soccerdb: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
     </expand>
     <select />
@@ -128,7 +129,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:soccerdb@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@426f1cc3" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@7a362c9f" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -222,14 +223,14 @@
       <workItem from="1578309057096" duration="1270000" />
       <workItem from="1578310350159" duration="8334000" />
       <workItem from="1578396400376" duration="9773000" />
-      <workItem from="1578482606333" duration="7469000" />
-    </task>
-    <task id="LOCAL-00004" summary="creata interfaccia per operatore e partner. aggiunta funzione carica scommessa.">
-      <created>1566398007166</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1566398007166</updated>
+      <workItem from="1578482606333" duration="7496000" />
+      <workItem from="1578569836697" duration="2943000" />
+      <workItem from="1579628593951" duration="1623000" />
+      <workItem from="1579777566999" duration="120000" />
+      <workItem from="1579777976029" duration="1624000" />
+      <workItem from="1579953057815" duration="6783000" />
+      <workItem from="1580037050569" duration="3024000" />
+      <workItem from="1580121957597" duration="2428000" />
     </task>
     <task id="LOCAL-00005" summary="ora si possono aggiungere più bets in una volta sola">
       <created>1566560216979</created>
@@ -567,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578508107256</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="redacting manuale utente;">
+      <created>1578509030188</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1578509030188</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,38 +635,38 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="416" y="120" width="528" height="499" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.741@0.0.1366.741" timestamp="1578312443865" />
-    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1578508107074">
+    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2" timestamp="1578509030110">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1578508107074" />
-    <state x="366" y="179" width="628" height="381" key="DUMP_DIALOG_DIMENSION_KEY" timestamp="1578502735877">
+    <state x="157" y="3" width="1089" height="738" key="CommitChangelistDialog2/0.0.1366.741@0.0.1366.741" timestamp="1578509030110" />
+    <state x="366" y="179" width="628" height="381" key="DUMP_DIALOG_DIMENSION_KEY" timestamp="1580136328110">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="366" y="179" width="628" height="381" key="DUMP_DIALOG_DIMENSION_KEY/0.0.1366.741@0.0.1366.741" timestamp="1578502735877" />
-    <state x="466" y="100" width="428" height="540" key="FileChooserDialogImpl" timestamp="1578502564357">
+    <state x="366" y="179" width="628" height="381" key="DUMP_DIALOG_DIMENSION_KEY/0.0.1366.741@0.0.1366.741" timestamp="1580136328110" />
+    <state x="535" y="79" width="428" height="540" key="FileChooserDialogImpl" timestamp="1579628688820">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="466" y="100" width="428" height="540" key="FileChooserDialogImpl/0.0.1366.741@0.0.1366.741" timestamp="1578502564357" />
-    <state width="1070" height="201" key="GridCell.Tab.0.bottom" timestamp="1578494007068">
+    <state x="535" y="79" width="428" height="540" key="FileChooserDialogImpl/0.0.1366.741@0.0.1366.741" timestamp="1579628688820" />
+    <state width="1070" height="201" key="GridCell.Tab.0.bottom" timestamp="1580136328156">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="201" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1578494007068" />
-    <state width="1070" height="201" key="GridCell.Tab.0.center" timestamp="1578494007068">
+    <state width="1070" height="201" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1580136328156" />
+    <state width="1070" height="201" key="GridCell.Tab.0.center" timestamp="1580136328156">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="201" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1578494007068" />
-    <state width="1070" height="201" key="GridCell.Tab.0.left" timestamp="1578494007067">
+    <state width="1070" height="201" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1580136328156" />
+    <state width="1070" height="201" key="GridCell.Tab.0.left" timestamp="1580136328155">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="201" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1578494007067" />
-    <state width="1070" height="201" key="GridCell.Tab.0.right" timestamp="1578494007068">
+    <state width="1070" height="201" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1580136328155" />
+    <state width="1070" height="201" key="GridCell.Tab.0.right" timestamp="1580136328156">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1070" height="201" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1578494007068" />
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1578508109334">
+    <state width="1070" height="201" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1580136328156" />
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2" timestamp="1578509032255">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1578508109334" />
+    <state x="278" y="107" width="804" height="525" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1578509032255" />
     <state x="585" y="268" width="336" height="227" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1577720725383">
       <screen x="0" y="0" width="1366" height="741" />
     </state>

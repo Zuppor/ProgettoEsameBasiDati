@@ -4,12 +4,12 @@
   <OriginalElement>ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.SCHEMA:soccerdb.public</OriginalElement>
   <nodes>
     <node x="108.0" y="96.5">ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.TABLE:soccerdb.public.player_attribute</node>
-    <node x="423.9798013981254" y="969.9786022617242">ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.TABLE:soccerdb.public.match</node>
     <node x="293.0" y="1920.5">ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.TABLE:soccerdb.public.login_attempt</node>
+    <node x="1474.0663625482994" y="0.0">ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.MATERIALIZED VIEW:soccerdb.public.classifica</node>
     <node x="-15.5" y="520.5">ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.TABLE:soccerdb.public.initial_formation</node>
     <node x="869.0" y="518.5">ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.TABLE:soccerdb.public.team</node>
     <node x="436.97980139812535" y="311.98599821184797">ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.TABLE:soccerdb.public.player</node>
-    <node x="1474.0663625482994" y="0.0">ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.MATERIALIZED VIEW:soccerdb.public.classifica</node>
+    <node x="423.9798013981254" y="969.9786022617242">ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.TABLE:soccerdb.public.match</node>
     <node x="613.4486648698028" y="1668.8168055609876">ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.TABLE:soccerdb.public.users</node>
     <node x="1506.0" y="1372.5">ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.TABLE:soccerdb.public.currency</node>
     <node x="6.0" y="1070.5">ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.TABLE:soccerdb.public.league</node>
@@ -72,7 +72,7 @@
       <point x="3.9202399946309505" y="-3.1035009883188422" />
     </edge>
   </edges>
-  <settings layout="Circular" zoom="0.23762376237623764" x="808.0" y="999.9999999999999" />
+  <settings layout="Circular" zoom="0.2376237623762376" x="808.0" y="1000.0" />
   <SelectedNodes>
     <node>ffdd30b0-3aa6-4dba-bb7c-cb00b0bda6fb.TABLE:soccerdb.public.player_attribute</node>
   </SelectedNodes>

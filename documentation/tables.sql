@@ -45,8 +45,8 @@ create table currency(
 
 create table match(
   id serial primary key not null ,
-  home_team_id int references team(id) on update cascade on delete set null ,
-  away_team_id int references team(id) on update cascade on delete set null ,
+  home_team_id int references team(id) on update cascade on delete no action ,
+  away_team_id int references team(id) on update cascade on delete no action ,
   season int not null default extract(year from now()),
   stage int not null ,
   date timestamp not null ,
@@ -70,7 +70,7 @@ create table player_attribute(
 );
 
 create table bets(
-  match_id int references match(id) on update cascade on delete set null ,
+  match_id int references match(id) on update cascade on delete cascade ,
   partner_id int not null references users(id) on update cascade on delete no action ,
   bet bet_domain ,
   value numeric not null default 0,

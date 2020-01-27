@@ -5,7 +5,6 @@ create type best_player as(
     rating int
     );
 
-drop type best_player cascade;
 
 create type team_classification as(
     league varchar(100),
@@ -19,7 +18,6 @@ create type team_classification as(
     played int
 );
 
-drop type team_classification cascade ;
 
 --funzione per inserire match nel database. ritorna 0 se è andato a buon fine, 2 se vincoli di not null sono stati violati,
 --1 se ci sono violazioni sulle chiave esterne, 3 se i vincoli unique sono violati, 4 se una chiave esterna non è presente

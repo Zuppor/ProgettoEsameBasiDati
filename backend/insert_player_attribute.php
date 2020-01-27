@@ -34,7 +34,6 @@ function fetch_rate($rate){
 
 start_secure_session();
 
-//ini_set("auto_detect_line_endings",true);
 if($_FILES['csv']['error'] > 0){
     die( 'Error code: '.$_FILES['csv']['error'].'<br>');
 }
